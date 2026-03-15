@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, MapPin, Calendar, Ruler, Building } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowLeft, ArrowRight, MapPin, Calendar, Ruler, Building, Plus } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 export default function ProjectDetailClient({ project, allProjects }) {
   const currentIndex = allProjects.findIndex((p) => p.id === project.id);
@@ -10,129 +10,133 @@ export default function ProjectDetailClient({ project, allProjects }) {
   const nextProject = allProjects[currentIndex + 1];
 
   return (
-    <>
-      {/* Full Viewport Hero */}
-      <section className="relative h-screen w-full overflow-hidden">
-        <motion.div initial={{ scale: 1.05 }} animate={{ scale: 1 }} transition={{ duration: 1.5 }} className="absolute inset-0">
-          <img src={project.mainImage} alt={project.title} className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
-        </motion.div>
-        <div className="relative h-full container mx-auto px-6 lg:px-12 flex flex-col justify-end pb-24">
-          <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.8 }} className="max-w-4xl">
-            <span className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4 block font-medium">{project.category}</span>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-display text-foreground leading-tight mb-6">{project.title}</h1>
+    <div className="bg-[#F9F8F6] text-stone-900 min-h-screen font-sans selection:bg-stone-200 selection:text-stone-900">
+      
+      {/* 1. HERO SECTION */}
+      <section className="relative pt-24 pb-12 px-6 lg:px-12 border-b border-stone-200">
+        <div className="  mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+            <motion.div 
+              initial={{ x: -20, opacity: 0 }} 
+              animate={{ x: 0, opacity: 1 }}
+              className="max-w-5xl"
+            >
+              <div className="flex items-center gap-2 mb-4">
+                <Badge className="bg-stone-800 text-stone-100 hover:bg-stone-700 rounded-none px-3 py-1 font-mono text-[10px] uppercase">
+                  Status: Published
+                </Badge>
+                <span className="font-mono text-[10px] text-stone-500 uppercase tracking-tighter">
+                  // {project.category}
+                </span>
+              </div>
+              <h1 className="text-6xl font-light tracking-tighter uppercase leading-[0.85] mb-4 text-stone-800">
+                {project.title}
+              </h1>
+            </motion.div>
+          </div>
+
+          {/* FIXED MAIN IMAGE: No fixed aspect ratio, max height applied to prevent excessive scrolling */}
+          <motion.div 
+            initial={{ y: 40, opacity: 0 }} 
+            animate={{ y: 0, opacity: 1 }}
+            className="w-full border border-stone-200 bg-stone-100 flex justify-center"
+          >
+            <img 
+              src={project.mainImage} 
+              alt={project.title} 
+              className="w-full max-h-[75vh] object-contain" 
+            />
           </motion.div>
         </div>
       </section>
 
-      {/* Project Meta */}
-      <section className="border-b border-border/50 bg-background">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="flex flex-wrap justify-between py-12 gap-8">
-            {[
-              { icon: MapPin, label: "Location", value: project.location },
-              { icon: Calendar, label: "Year", value: project.year },
-              { icon: Ruler, label: "Area", value: project.size },
-              { icon: Building, label: "Client", value: project.client },
-            ].map((item, idx) => (
-              <div key={idx} className="flex-1 min-w-[150px]">
-                <div className="flex items-center gap-3 mb-2">
-                  <item.icon className="w-4 h-4 text-muted-foreground" />
-                  <span className="text-xs uppercase tracking-widest text-muted-foreground font-medium">{item.label}</span>
-                </div>
-                <p className="text-lg font-display text-foreground">{item.value || "N/A"}</p>
+      {/* 2. DATA GRID */}
+      <section className="px-6 lg:px-12 py-16 bg-white border-b border-stone-200">
+        <div className="  mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-0 border border-stone-200">
+          {[
+            { icon: MapPin, label: "LOCATION", value: project.location },
+            { icon: Calendar, label: "TIMELINE", value: project.year },
+            { icon: Ruler, label: "DIMENSIONS", value: project.size },
+            { icon: Building, label: "PARTNER", value: project.client },
+          ].map((item, idx) => (
+            <div 
+              key={idx} 
+              className="p-8 border-stone-200 border-b md:border-b-0 md:border-r last:border-r-0 hover:bg-stone-50 transition-colors"
+            >
+              <div className="flex items-center gap-2 mb-6">
+                <item.icon className="w-4 h-4 text-stone-400" />
+                <span className="text-[10px] font-mono text-stone-500 font-medium uppercase tracking-widest">{item.label}</span>
               </div>
+              <p className="text-xl font-medium uppercase truncate text-stone-800">{item.value || "—"}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 3. CORE CONTENT */}
+      <section className="py-24 px-6 lg:px-12 border-b border-stone-200">
+        <div className="  mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+          <div className="lg:col-span-8">
+            <h2 className="font-mono text-sm font-medium mb-10 flex items-center gap-2 text-stone-500">
+              <Plus className="w-4 h-4 text-stone-400" /> THE_CONCEPT
+            </h2>
+            <p className="text-3xl md:text-5xl font-light leading-[1.2] tracking-tight text-balance text-stone-800">
+              {project.description}
+            </p>
+          </div>
+          
+          <div className="lg:col-span-4 sticky top-12">
+            <div className="border border-stone-200 p-8 bg-white">
+              <h3 className="font-medium text-xl uppercase mb-6 border-b border-stone-200 pb-2 text-stone-800">Technical Specs</h3>
+              <ul className="space-y-4 font-mono text-xs text-stone-600 uppercase">
+                {project.features?.map((f, i) => (
+                  <li key={i} className="flex justify-between items-center">
+                    <span className="text-stone-400">MOD_{i+1}</span>
+                    <span>{f}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. GALLERY - FIXED IMAGES (Masonry Layout) */}
+      <section className="py-24 px-6 lg:px-12 bg-stone-50">
+        <div className="  mx-auto">
+          {/* Using columns instead of grid for seamless variable-height images */}
+          <div className="columns-1 md:columns-2 gap-8 space-y-8">
+            {project.gallery?.map((img, i) => (
+              <motion.div 
+                key={i} 
+                whileHover={{ scale: 0.99 }}
+                className="break-inside-avoid bg-white p-2 border border-stone-200 transition-transform inline-block w-full"
+              >
+                <img 
+                  src={img} 
+                  alt={`Gallery view ${i + 1}`} 
+                  className="w-full h-auto object-contain bg-stone-100" 
+                />
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Project Narrative */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-            <div className="lg:col-span-8 space-y-16">
-              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-                <h2 className="text-3xl font-display mb-8">Concept & Vision</h2>
-                <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-light">{project.description}</p>
-              </motion.div>
-              {(project.challenge || project.solution) && (
-                <div className="grid md:grid-cols-2 gap-12 pt-8">
-                  {project.challenge && (
-                    <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-                      <h3 className="text-lg uppercase tracking-widest font-medium mb-4">The Challenge</h3>
-                      <p className="text-muted-foreground leading-relaxed">{project.challenge}</p>
-                    </motion.div>
-                  )}
-                  {project.solution && (
-                    <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-                      <h3 className="text-lg uppercase tracking-widest font-medium mb-4">The Solution</h3>
-                      <p className="text-muted-foreground leading-relaxed">{project.solution}</p>
-                    </motion.div>
-                  )}
-                </div>
-              )}
-            </div>
-            <div className="lg:col-span-4 lg:pl-12">
-              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-secondary/50 p-10 rounded-xl">
-                <h3 className="text-lg uppercase tracking-widest font-medium mb-8">Design Signatures</h3>
-                <ul className="space-y-6">
-                  {project.features?.map((feature, index) => (
-                    <li key={index} className="flex items-start gap-4">
-                      <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 flex-shrink-0" />
-                      <span className="text-muted-foreground leading-snug">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            </div>
-          </div>
+      {/* 5. NAVIGATION */}
+      <section className="grid grid-cols-1 md:grid-cols-2 h-48 border-t border-stone-200 bg-[#F9F8F6]">
+        <Link href={prevProject ? `/projects/${prevProject.id}` : "#"} 
+          className="group flex flex-col justify-center p-12 hover:bg-stone-100 transition-all border-b md:border-b-0 md:border-r border-stone-200">
+          <span className="font-mono text-[10px] text-stone-500 font-medium mb-2">← PREVIOUS_WORK</span>
+          <h4 className="text-2xl md:text-4xl font-light uppercase text-stone-800">{prevProject?.title || "END"}</h4>
+        </Link>
 
-          {/* Gallery */}
-          {project.gallery && project.gallery.length > 0 && (
-            <div className="mt-32">
-              <h3 className="text-2xl font-display mb-12 text-center">Project Gallery</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                {project.gallery.map((image, index) => (
-                  <motion.div key={index} className={`overflow-hidden rounded-md ${index % 3 === 0 ? "md:col-span-2 md:aspect-[21/9]" : "aspect-[4/5] md:aspect-square"}`} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }}>
-                    <img src={image} alt={`${project.title} view ${index + 1}`} loading="lazy" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out" />
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
+        <Link href={nextProject ? `/projects/${nextProject.id}` : "#"} 
+          className="group flex flex-col justify-center p-12 hover:bg-stone-100 transition-all text-right">
+          <span className="font-mono text-[10px] text-stone-500 font-medium mb-2">NEXT_WORK →</span>
+          <h4 className="text-2xl md:text-4xl font-light uppercase text-stone-800">{nextProject?.title || "END"}</h4>
+        </Link>
       </section>
-
-      {/* Project Navigation */}
-      <section className="pb-24 bg-white text-dark">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-2 gap-8 divide-x divide-white/10">
-            <div className="pr-8">
-              {prevProject ? (
-                <Link href={`/projects/${prevProject.id}`} className="group block">
-                  <span className="text-xs uppercase tracking-widest text-white/50 mb-3 block">Previous Project</span>
-                  <div className="flex items-center gap-4">
-                    <ArrowLeft className="w-6 h-6 group-hover:-translate-x-2 transition-transform duration-300" />
-                    <span className="text-2xl md:text-3xl lg:text-4xl font-display group-hover:text-primary transition-colors">{prevProject.title}</span>
-                  </div>
-                </Link>
-              ) : <div />}
-            </div>
-            <div className="pl-8 text-right">
-              {nextProject ? (
-                <Link href={`/projects/${nextProject.id}`} className="group block text-right">
-                  <span className="text-xs uppercase tracking-widest text-white/50 mb-3 block">Next Project</span>
-                  <div className="flex items-center justify-end gap-4">
-                    <span className="text-2xl md:text-3xl lg:text-4xl font-display group-hover:text-primary transition-colors">{nextProject.title}</span>
-                    <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
-                  </div>
-                </Link>
-              ) : <div />}
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
+    </div>
   );
 }

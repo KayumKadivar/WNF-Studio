@@ -2,7 +2,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 
-export default function ImageReveal({ src, alt, className = "", imgClassName = "" }) {
+export default function ImageReveal({ src, alt, className = "", imgClassName = "", objectFit = "cover" }) {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, margin: "-10% 0px" });
   
@@ -30,7 +30,7 @@ export default function ImageReveal({ src, alt, className = "", imgClassName = "
           src={src}
           alt={alt}
           loading="lazy"
-          className={`w-full h-full object-cover ${imgClassName}`}
+          className={`w-full h-full object-${objectFit} ${imgClassName}`}
         />
       </motion.div>
     </div>

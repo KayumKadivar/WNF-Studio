@@ -23,8 +23,8 @@ const FeaturedProjects = () => (
         {featuredProjects.map((project, index) => (
           <motion.div key={project.id} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.5, delay: index * 0.1 }}>
             <Link href={`/projects/${project.id}`} className="group block">
-              <div className="relative overflow-hidden mb-6">
-                <img src={project.mainImage} alt={project.title} loading="lazy" className="w-full h-[450px] object-cover image-zoom" />
+              <div className="relative overflow-hidden mb-6 bg-background/50">
+                <img src={project.mainImage} alt={project.title} loading="lazy" className="w-full h-[450px] object-contain image-zoom" />
                 <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/20 transition-colors duration-500" />
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                   <span className="w-16 h-16 flex items-center justify-center bg-background rounded-full">

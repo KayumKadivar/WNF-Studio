@@ -56,8 +56,9 @@ export default function ProjectsClient() {
                       <ImageReveal 
                         src={project.mainImage} 
                         alt={project.title} 
-                        className="w-full h-[400px] rounded-sm"
+                        className="w-full h-[400px] rounded-sm bg-secondary/30"
                         imgClassName="transition-transform duration-700 group-hover:scale-105"
+                        objectFit="contain"
                       />
                       <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/20 transition-colors duration-500 rounded-sm pointer-events-none" />
                       <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-20">
