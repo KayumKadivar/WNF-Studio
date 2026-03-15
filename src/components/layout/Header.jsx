@@ -81,9 +81,9 @@ const Header = () => {
               <Image
                 src="/assets/studio-wnf-logo.webp"
                 alt="Studio WnF"
-                width={160}
-                height={60}
-                className={`h-14 lg:h-16 w-auto object-contain transition-all duration-300 ${logoClass}`}
+                width={120}
+                height={48}
+                className={`h-12 w-auto object-contain transition-all duration-300 ${logoClass}`}
               />
             </Link>
 

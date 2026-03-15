@@ -45,9 +45,9 @@ const Preloader = () => {
                   src="/assets/studio-wnf-logo.webp"
                   alt="Studio WnF"
                   width={120}
-                  height={45}
+                  height={48}
                   priority
-                  className="h-16 w-auto object-contain invert"
+                  className="h-12 w-auto object-contain invert"
                 />
               </motion.div>
               
