@@ -163,8 +163,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ── layout utilities ── */
 .section-padding { padding-top: 5rem; padding-bottom: 5rem; }
-@media (min-width: 768px) { .section-padding { padding-top: 7rem; padding-bottom: 7rem; } }
-@media (min-width: 1024px) { .section-padding { padding-top: 9rem; padding-bottom: 9rem; } }
+@media (min-width: 768px) { .section-padding { padding-block: 4rem ;} }
+@media (min-width: 1024px) { .section-padding { padding-block: 4rem; } }
 
 .section-padding-sm { padding-top: 3rem; padding-bottom: 3rem; }
 @media (min-width: 768px) { .section-padding-sm { padding-top: 4rem; padding-bottom: 4rem; } }

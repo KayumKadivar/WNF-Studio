@@ -43,7 +43,7 @@ const Header = () => {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
-    
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -75,43 +75,45 @@ const Header = () => {
         className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-500 ${headerBg}`}
       >
         <div className="container mx-auto px-6 lg:px-12">
-          <div className="flex items-center justify-between h-20 lg:h-24">
+          <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link href="/" className={`font-display text-2xl lg:text-3xl tracking-tight ${textColor} flex items-center`}>
               <Image
                 src="/assets/studio-wnf-logo.webp"
                 alt="Studio WnF"
-                width={120}
-                height={48}
-                className={`h-12 w-auto object-contain transition-all duration-300 ${logoClass}`}
+                width={160}
+                height={60}
+                className={`h-14 lg:h-16 w-auto object-contain transition-all duration-300 ${logoClass}`}
               />
             </Link>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-10">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.path}
-                  onClick={scrollToTop}
-                  className={`text-lg uppercase tracking-[0.15em] font-semibold link-underline transition-colors duration-300 ${textColor} ${
-                    pathname === link.path ? "opacity-100 link-active" : "opacity-70 hover:opacity-100"
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </nav>
+            <div className="flex items-center gap-10">
+              {/* Desktop Navigation */}
+              <nav className="hidden lg:flex items-center gap-10">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.name}
+                    href={link.path}
+                    onClick={scrollToTop}
+                    className={`text-md uppercase tracking-[0.15em] font-semibold link-underline transition-colors duration-300 ${textColor} ${pathname === link.path ? "opacity-100 link-active" : "opacity-70 hover:opacity-100"
+                      }`}
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </nav>
 
-            {/* Desktop CTA */}
-            <div className="hidden lg:flex items-center gap-4">
-              <Button
-                variant={isScrolled || !isHomePage ? "elegant-outline" : "hero-outline"}
-                size="default"
-                asChild
-              >
-                <Link href="/contact">Get in Touch</Link>
-              </Button>
+              {/* Desktop CTA */}
+              <div className="hidden lg:flex items-center gap-4">
+                <Button
+                  variant={isScrolled || !isHomePage ? "elegant" : "default"}
+                  size="default"
+                  asChild
+                  className={!isScrolled && isHomePage ? "bg-white text-zinc-900 hover:bg-zinc-100 border-none shadow-lg" : "shadow-sm"}
+                >
+                  <Link href="/contact">Get in Touch</Link>
+                </Button>
+              </div>
             </div>
 
             {/* Mobile Menu Button */}
@@ -147,11 +149,10 @@ const Header = () => {
                   <Link
                     href={link.path}
                     onClick={scrollToTop}
-                    className={`text-3xl font-display ${
-                      pathname === link.path
+                    className={`text-3xl font-display ${pathname === link.path
                         ? "text-primary"
                         : "text-foreground hover:text-primary"
-                    }`}
+                      }`}
                   >
                     {link.name}
                   </Link>

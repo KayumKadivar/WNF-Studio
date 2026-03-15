@@ -18,7 +18,7 @@ export default function ProjectsClient() {
 
   return (
     <>
-      <PageHero label="Our Work" title="A Collection of Thoughtful Design" description="Each project tells a unique story of collaboration, creativity, and commitment to excellence." />
+      {/* <PageHero label="Our Work" title="A Collection of Thoughtful Design" description="Each project tells a unique story of collaboration, creativity, and commitment to excellence." /> */}
 
       <section className="section-padding bg-background">
         <div className="container mx-auto px-6 lg:px-12">

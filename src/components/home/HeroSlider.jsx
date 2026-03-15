@@ -48,7 +48,7 @@ const HeroSlider = () => {
                 sizes="100vw"
                 className="object-cover object-center"
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-charcoal/40 via-charcoal/30 to-charcoal/70" />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/45 to-black/80" />
               <div className="relative h-full container mx-auto px-6 lg:px-12 flex items-center">
                 <div className="max-w-3xl pt-20">
                   <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.6 }} className="text-xs uppercase tracking-[0.2em] font-medium text-white/80 mb-6 block">

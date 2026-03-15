@@ -6,14 +6,13 @@ import { Button } from "@/components/ui/button";
 import SectionHeading from "@/components/shared/SectionHeading";
 
 const AboutPreview = () => (
-  <section className="section-padding bg-background">
+  <section className="pb-10 md:pb-14 lg:pb-16 pt-10 md:pt-16 bg-background">
     <div className="container mx-auto px-6 lg:px-12">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.8 }} className="relative">
           <div className="relative overflow-hidden">
-            <img src="/assets/NewImages/Interior/Studio WnF Office/JSR_8421-HDR.webp" alt="Our studio" className="w-full h-[500px] lg:h-[600px] object-cover image-zoom" />
+            <img src="/assets/NewImages/Interior/Studio WnF Office/me.png" alt="Our studio" className="w-full h-[500px] lg:h-[600px] object-cover image-zoom" />
           </div>
-          <div className="absolute -bottom-6 -right-6 w-32 h-32 border border-primary/20 hidden lg:block" />
         </motion.div>
         <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.8, delay: 0.2 }} className="lg:pl-8">
           <SectionHeading label="About Us" title="A Studio Where Vision Meets Precision" description="Founded in 2021, WNF Studio has been at the forefront of architectural innovation, blending timeless design principles with contemporary aesthetics." />

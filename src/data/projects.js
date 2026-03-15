@@ -247,8 +247,23 @@ export const projects = [
     solution: "Layered lighting and lowered focal planes to humanize the scale.",
     features: ["Layered lighting", "Scale humanization", "Premium finishes"],
   },
-  {
+    {
     id: 15,
+    title: "Aakash House",
+    category: "Interior",
+    location: "Rajkot, Gujarat",
+    year: "2024",
+    size: "2,500 sq ft",
+    client: "Private Residence",
+    mainImage: "/assets/website_photos/Interior_ZIPs/Aakash House/Living Room 1.webp",
+    gallery: ["/assets/website_photos/Interior_ZIPs/Aakash House/Living Room 2.webp"],
+    description: "A contemporary interior design for Aakash House, blending modern aesthetics with functional spaces.",
+    challenge: "Creating a harmonious interior that reflects the owners' taste while maximizing natural light.",
+    solution: "Open floor plan with neutral palette, strategic lighting, and custom furniture pieces.",
+    features: ["Open layout", "Custom fixtures", "Natural lighting", "Modern finishes"],
+  },
+  {
+    id: 16,
     title: "Exhibition Stall – Photo Gallery",
     category: "Exhibition Stall",
     location: "Gujarat",
@@ -267,7 +282,7 @@ export const projects = [
     features: ["Bold crowd circulation structures", "Dramatic display lighting", "High-visibility brand integration", "Rapid-deployment structural systems"],
   },
   {
-    id: 16,
+    id: 17,
     title: "Exhibition Stall – Render Series",
     category: "Exhibition Stall",
     location: "Gujarat",
@@ -286,7 +301,7 @@ export const projects = [
     features: ["Photorealistic 3D renders", "Multiple viewpoint studies", "Material and lighting visualization", "Pre-construction design validation"],
   },
   {
-    id: 17,
+    id: 18,
     title: "Exhibition Stall – 3D Views",
     category: "Exhibition Stall",
     location: "Gujarat",
@@ -303,19 +318,5 @@ export const projects = [
     solution: "Bold architectural scaling and intuitive circulatory flow lines rapidly drove attendees through the core product collections.",
     features: ["Bold crowd circulation", "Dramatic display lighting", "High-visibility brand integration"],
   },
-  {
-    id: 18,
-    title: "Aakash House",
-    category: "Interior",
-    location: "Rajkot, Gujarat",
-    year: "2024",
-    size: "2,500 sq ft",
-    client: "Private Residence",
-    mainImage: "/assets/website_photos/Interior_ZIPs/Aakash House/Living Room 1.webp",
-    gallery: ["/assets/website_photos/Interior_ZIPs/Aakash House/Living Room 2.webp"],
-    description: "A contemporary interior design for Aakash House, blending modern aesthetics with functional spaces.",
-    challenge: "Creating a harmonious interior that reflects the owners' taste while maximizing natural light.",
-    solution: "Open floor plan with neutral palette, strategic lighting, and custom furniture pieces.",
-    features: ["Open layout", "Custom fixtures", "Natural lighting", "Modern finishes"],
-  },
+
 ];

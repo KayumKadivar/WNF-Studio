@@ -5,6 +5,7 @@ import FloatingSocialIcons from "@/components/shared/FloatingSocialIcons";
 import ScrollToTopButton from "@/components/shared/ScrollToTopButton";
 import { ThemeProvider } from "@/components/shared/ThemeProvider";
 import PageTransition from "@/components/shared/PageTransition";
+import Preloader from "@/components/layout/Preloader";
 
 export const metadata = {
   title: "WNF Studio | Architecture & Interior Design",
@@ -22,6 +23,7 @@ export default function RootLayout({ children }) {
           forcedTheme="dark"
           enableSystem={false}
         >
+          <Preloader />
           <Header />
           <FloatingSocialIcons />
           <main>

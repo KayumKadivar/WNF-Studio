@@ -1,10 +1,9 @@
 import HeroSlider from "@/components/home/HeroSlider";
-import AboutPreview from "@/components/home/AboutPreview";
-import FeaturedProjects from "@/components/home/FeaturedProjects";
 import ServicesSection from "@/components/home/ServicesSection";
 import IconStrip from "@/components/home/IconStrip";
 import CTASection from "@/components/home/CTASection";
 import Marquee from "@/components/shared/Marquee";
+import AboutPreview from "@/components/home/AboutPreview";
 
 export const metadata = {
   title: "WNF Studio | Architecture & Interior Design",
@@ -18,8 +17,6 @@ export default function HomePage() {
       <HeroSlider />
       <IconStrip />
       <AboutPreview />
-      <Marquee text="Design Excellence" className="py-12 bg-secondary text-foreground" />
-      <FeaturedProjects />
       <ServicesSection />
       <CTASection />
     </>
