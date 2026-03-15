@@ -35,7 +35,7 @@ const SocialIconButton = ({ href, label, glowColor, children }) => {
             ? `0 0 0 4px ${glowColor}33, 0 8px 24px ${glowColor}66`
             : "0 4px 14px rgba(0,0,0,0.2)",
         }}
-        className="relative flex h-12-12 items-center justify-center rounded-full text-white transition-[box-shadow] duration-300 z-10"
+        className="relative flex h-14-14 items-center justify-center rounded-full text-white transition-[box-shadow] duration-300 z-10"
         aria-label={label}
       >
         {children}

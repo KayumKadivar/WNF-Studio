@@ -62,9 +62,7 @@ const Header = () => {
   // Logo display logic
   const isDark = mounted && resolvedTheme === "dark";
   const onDarkBg = (isHomePage && !isScrolled) || isDark;
-  const logoClass = onDarkBg
-    ? "invert mix-blend-screen"
-    : "mix-blend-multiply";
+  const logoClass = onDarkBg ? "invert" : "";
 
   return (
     <>

@@ -5,7 +5,6 @@ import FloatingSocialIcons from "@/components/shared/FloatingSocialIcons";
 import ScrollToTopButton from "@/components/shared/ScrollToTopButton";
 import { ThemeProvider } from "@/components/shared/ThemeProvider";
 import PageTransition from "@/components/shared/PageTransition";
-import Preloader from "@/components/layout/Preloader";
 
 export const metadata = {
   title: "WNF Studio | Architecture & Interior Design",
@@ -16,14 +15,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>
+      <body suppressHydrationWarning>
         <ThemeProvider
           attribute="data-theme"
           defaultTheme="dark"
           forcedTheme="dark"
           enableSystem={false}
+          disableTransitionOnChange
         >
-          <Preloader />
           <Header />
           <FloatingSocialIcons />
           <main>
