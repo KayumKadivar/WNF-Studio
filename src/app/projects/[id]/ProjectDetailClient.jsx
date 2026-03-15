@@ -44,7 +44,7 @@ export default function ProjectDetailClient({ project, allProjects }) {
             <img 
               src={project.mainImage} 
               alt={project.title} 
-              className="w-full max-h-[75vh] object-contain" 
+              className="w-full" 
             />
           </motion.div>
         </div>
