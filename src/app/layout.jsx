@@ -15,13 +15,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body suppressHydrationWarning>
+      <body>
         <ThemeProvider
           attribute="data-theme"
           defaultTheme="dark"
           forcedTheme="dark"
           enableSystem={false}
-          disableTransitionOnChange
         >
           <Header />
           <FloatingSocialIcons />

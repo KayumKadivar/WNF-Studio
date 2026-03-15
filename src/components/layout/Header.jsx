@@ -57,7 +57,7 @@ const Header = () => {
       ? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm"
       : "bg-transparent";
   const textColor =
-    isScrolled || !isHomePage ? "text-foreground" : "text-white";
+    isScrolled || !isHomePage ? "text-black" : "text-white";
 
   // Logo display logic
   const isDark = mounted && resolvedTheme === "dark";
@@ -77,11 +77,11 @@ const Header = () => {
             {/* Logo */}
             <Link href="/" className={`font-display text-2xl lg:text-3xl tracking-tight ${textColor} flex items-center`}>
               <Image
-                src="/assets/studio-wnf-logo.webp"
-                alt="Studio WnF"
+                src="/assets/logo/download.png"
+                // alt="Studio WnF"
                 width={120}
                 height={48}
-                className={`h-12 w-auto object-contain transition-all duration-300 ${logoClass}`}
+                className={`h-20 w-auto object-contain transition-all duration-300 ${logoClass}`}
               />
             </Link>
 
@@ -148,8 +148,8 @@ const Header = () => {
                     href={link.path}
                     onClick={scrollToTop}
                     className={`text-3xl font-display ${pathname === link.path
-                        ? "text-primary"
-                        : "text-foreground hover:text-primary"
+                      ? "text-primary"
+                      : "text-foreground hover:text-primary"
                       }`}
                   >
                     {link.name}

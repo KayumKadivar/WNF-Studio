@@ -2,7 +2,6 @@
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { MapPin, Mail, Phone, Loader2 } from "lucide-react";
-import emailjs from "@emailjs/browser";
 import PageHero from "@/components/shared/PageHero";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -18,14 +17,23 @@ export default function ContactClient() {
     setIsSubmitting(true);
     setStatus(null);
     try {
-      const serviceID = "YOUR_SERVICE_ID";
-      const templateID = "YOUR_TEMPLATE_ID";
-      const publicKey = "YOUR_PUBLIC_KEY";
-      await emailjs.sendForm(serviceID, templateID, formRef.current, publicKey);
-      setStatus("success");
-      formRef.current.reset();
+      const formData = new FormData(e.target);
+      formData.append("access_key", "045cbef3-3627-4966-8584-d273a2bced1f");
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        setStatus("success");
+        formRef.current.reset();
+      } else {
+        setStatus("error");
+      }
     } catch (error) {
-      console.error("EmailJS Error:", error);
+      console.error("Form submission error:", error);
       setStatus("error");
     } finally {
       setIsSubmitting(false);
