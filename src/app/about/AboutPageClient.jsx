@@ -27,8 +27,7 @@ export default function AboutPageClient() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
               <div className="relative">
-                <img src="/assets/NewImages/Interior/Studio WnF Office/JSR_8421-HDR.webp" alt="Our studio" className="w-full h-[500px] object-cover" />
-                <div className="absolute -bottom-6 -right-6 w-32 h-32 border border-primary/20 hidden lg:block" />
+                <img src="/assets/aboutusimage/office.png" alt="Our studio" className="w-full h-[500px] object-cover" />
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }}>

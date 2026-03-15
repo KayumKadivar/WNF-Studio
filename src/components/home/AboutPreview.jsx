@@ -11,7 +11,7 @@ const AboutPreview = () => (
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.8 }} className="relative">
           <div className="relative overflow-hidden">
-            <img src="/assets/NewImages/Interior/Studio WnF Office/me.png" alt="Our studio" className="w-full h-[500px] lg:h-[600px] object-cover image-zoom" />
+            <img src="/assets/aboutusimage/makbul.png" alt="Our studio" className="w-full h-[500px] lg:h-[600px] object-cover image-zoom" />
           </div>
         </motion.div>
         <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.8, delay: 0.2 }} className="lg:pl-8">

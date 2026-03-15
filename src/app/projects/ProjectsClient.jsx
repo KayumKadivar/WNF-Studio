@@ -20,7 +20,7 @@ export default function ProjectsClient() {
     <>
       {/* <PageHero label="Our Work" title="A Collection of Thoughtful Design" description="Each project tells a unique story of collaboration, creativity, and commitment to excellence." /> */}
 
-      <section className="section-padding bg-background">
+      <section className="section-padding bg-background mt-20">
         <div className="container mx-auto px-6 lg:px-12">
           {/* Filters */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="flex flex-wrap gap-4 mb-16 justify-center">
