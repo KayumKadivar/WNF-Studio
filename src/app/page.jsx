@@ -2,8 +2,8 @@ import HeroSlider from "@/components/home/HeroSlider";
 import ServicesSection from "@/components/home/ServicesSection";
 import IconStrip from "@/components/home/IconStrip";
 import CTASection from "@/components/home/CTASection";
-import Marquee from "@/components/shared/Marquee";
 import AboutPreview from "@/components/home/AboutPreview";
+import FeaturedProjects from "@/components/home/FeaturedProjects";
 
 export const metadata = {
   title: "WNF Studio | Architecture & Interior Design",
@@ -17,6 +17,7 @@ export default function HomePage() {
       <HeroSlider />
       <IconStrip />
       <AboutPreview />
+      <FeaturedProjects />
       <ServicesSection />
       <CTASection />
     </>

@@ -18,28 +18,28 @@ const stats = [
 export default function AboutPageClient() {
   return (
     <div className="bg-[#F9F8F6] text-stone-900 min-h-screen font-sans selection:bg-stone-200 selection:text-stone-900">
-      
+
       {/* 1. HERO SECTION (Inlined to guarantee theme) */}
       <section className="pt-32 pb-20 px-6 lg:px-12 border-b border-stone-200 bg-white">
-        <div className="container mx-auto max-w-5xl text-center">
-          <motion.span 
-            initial={{ opacity: 0, y: 20 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            className="text-[10px] font-mono uppercase tracking-widest text-stone-500 mb-6 block font-medium"
+        <div className="w-full px-3 lg:px-10 max-w-7xl mx-auto text-center">
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-[16px] font-mono uppercase tracking-widest text-stone-500 mb-6 block font-medium"
           >
             // Our Story
           </motion.span>
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }} 
-            animate={{ opacity: 1, y: 0 }} 
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
             className="text-5xl font-light text-stone-900 leading-[1.1] mb-8 tracking-tight"
           >
             Crafting Extraordinary Spaces Since 2021
           </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }} 
-            animate={{ opacity: 1, y: 0 }} 
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
             className="text-xl text-stone-600 font-light max-w-2xl mx-auto leading-relaxed"
           >
@@ -50,33 +50,33 @@ export default function AboutPageClient() {
 
       {/* 2. VISION SECTION (Fixed Image Cropping) */}
       <section className="py-24 px-6 lg:px-12 border-b border-stone-200">
-        <div className="container mx-auto">
+        <div className="w-full px-3 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-            
+
             {/* Image Box - No fixed height, object-contain used */}
-            <motion.div 
-              initial={{ opacity: 0, x: -30 }} 
-              whileInView={{ opacity: 1, x: 0 }} 
-              viewport={{ once: true }} 
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.8 }}
               className="lg:col-span-5"
             >
               <div className="bg-white p-3 border border-stone-200 shadow-sm">
                 <div className="relative w-full bg-stone-50 flex justify-center overflow-hidden">
-                  <img 
-                    src="/assets/aboutusimage/office.png" 
-                    alt="Our studio" 
-                    className="w-full h-auto max-h-[70vh] object-contain" 
+                  <img
+                    src="/assets/aboutusimage/office.png"
+                    alt="Our studio"
+                    className="w-full h-auto max-h-[70vh] object-contain"
                   />
                 </div>
               </div>
             </motion.div>
 
             {/* Text Box */}
-            <motion.div 
-              initial={{ opacity: 0, x: 30 }} 
-              whileInView={{ opacity: 1, x: 0 }} 
-              viewport={{ once: true }} 
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="lg:col-span-7 lg:pl-10"
             >
@@ -86,7 +86,7 @@ export default function AboutPageClient() {
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-stone-900 leading-[1.1] mb-8 tracking-tight">
                 Design That Transcends Time
               </h2>
-              
+
               <div className="space-y-6 text-lg text-stone-600 font-light leading-relaxed">
                 <p>
                   At WNF Studio, we believe that great design has the power to transform not just spaces, but the way people live, work, and experience the world around them.
@@ -106,15 +106,15 @@ export default function AboutPageClient() {
 
       {/* 3. MISSION & VISION CARDS (Editorial Grid) */}
       <section className="py-24 px-6 lg:px-12 bg-stone-50">
-        <div className="container mx-auto">
+        <div className="w-full px-3 lg:px-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-            
+
             {/* Mission */}
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }} 
-              whileInView={{ opacity: 1, y: 0 }} 
-              viewport={{ once: true }} 
-              transition={{ duration: 0.6 }} 
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
               className="p-10 lg:p-16 bg-white border border-stone-200"
             >
               <span className="text-[16px] font-mono uppercase tracking-widest text-stone-500 mb-8 block font-medium border-b border-stone-200 pb-4">
@@ -129,11 +129,11 @@ export default function AboutPageClient() {
             </motion.div>
 
             {/* Vision */}
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }} 
-              whileInView={{ opacity: 1, y: 0 }} 
-              viewport={{ once: true }} 
-              transition={{ duration: 0.6, delay: 0.1 }} 
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
               className="p-10 lg:p-16 bg-[#F9F8F6] border border-stone-200"
             >
               <span className="text-[16px] font-mono uppercase tracking-widest text-stone-500 mb-8 block font-medium border-b border-stone-200 pb-4">
@@ -150,12 +150,12 @@ export default function AboutPageClient() {
           </div>
         </div>
       </section>
-      
+
       {/* Note: The 'team' and 'stats' arrays are defined at the top but were not 
         rendered in your original snippet. You will need to build sections for them 
         using the same border-stone-200 and font-light patterns established here. 
       */}
-      
+
     </div>
   );
 }

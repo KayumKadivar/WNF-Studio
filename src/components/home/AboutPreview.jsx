@@ -4,48 +4,48 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 const AboutPreview = () => (
-  <section className="py-20 lg:py-32 bg-[#F9F8F6] border-b border-stone-200">
-    <div className="container mx-auto px-6 lg:px-12">
+  <section className="py-20 bg-[#F9F8F6] border-b border-stone-200">
+    <div className="w-full px-3 lg:px-10">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-        
+
         {/* Image Section: Fixed Cropping */}
-        <motion.div 
-          initial={{ opacity: 0, x: -30 }} 
-          whileInView={{ opacity: 1, x: 0 }} 
-          viewport={{ once: true, margin: "-100px" }} 
-          transition={{ duration: 0.8 }} 
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
           className="lg:col-span-5"
         >
           {/* Framed border to act as a matte for the un-cropped image */}
           <div className="bg-white p-3 border border-stone-200 shadow-sm">
             <div className="relative w-full bg-stone-50 flex justify-center overflow-hidden">
-              <img 
-                src="/assets/aboutusimage/makbul.png" 
-                alt="Our studio" 
+              <img
+                src="/assets/aboutusimage/makbul.png"
+                alt="Our studio"
                 // Removed fixed height. h-auto allows the image to dictate its own natural height.
                 // max-h-[70vh] prevents it from becoming absurdly tall on massive monitors.
-                className="w-full h-auto max-h-[70vh] object-contain transition-transform duration-700 hover:scale-[1.02]" 
+                className="w-full h-auto max-h-[70vh] object-contain transition-transform duration-700 hover:scale-[1.02]"
               />
             </div>
           </div>
         </motion.div>
 
         {/* Text Section */}
-        <motion.div 
-          initial={{ opacity: 0, x: 30 }} 
-          whileInView={{ opacity: 1, x: 0 }} 
-          viewport={{ once: true, margin: "-100px" }} 
-          transition={{ duration: 0.8, delay: 0.2 }} 
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, delay: 0.2 }}
           className="lg:col-span-7 lg:pl-10"
         >
-          <span className="text-[10px] font-mono uppercase tracking-widest text-stone-500 mb-6 block font-medium">
+          <span className="text-[16px] font-mono uppercase tracking-widest text-stone-500 mb-6 block font-medium">
             // ABOUT_US
           </span>
-          
+
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-stone-900 leading-[1.1] mb-8 tracking-tight">
             A Studio Where Vision Meets Precision
           </h2>
-          
+
           <div className="space-y-6 text-lg text-stone-600 font-light leading-relaxed mb-12">
             <p>
               Founded in 2021, WNF Studio has been at the forefront of architectural innovation, blending timeless design principles with contemporary aesthetics.
@@ -55,14 +55,14 @@ const AboutPreview = () => (
             </p>
           </div>
 
-          <motion.div 
-            initial={{ opacity: 0, y: 10 }} 
-            whileInView={{ opacity: 1, y: 0 }} 
-            viewport={{ once: true }} 
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ delay: 0.4 }}
           >
-            <Link 
-              href="/about" 
+            <Link
+              href="/about"
               className="group inline-flex items-center justify-center border border-stone-300 text-stone-800 px-8 py-4 text-sm uppercase tracking-widest hover:bg-stone-100 transition-colors"
             >
               Learn More About Us

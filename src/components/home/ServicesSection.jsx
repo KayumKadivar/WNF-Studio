@@ -2,199 +2,201 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { Building2, Palette, Home, Wrench, Lightbulb, Users, ArrowUpRight, LayoutGrid } from "lucide-react";
+import SectionHeading from "@/components/shared/SectionHeading";
 
-const detailedServices = [
-  {
-    id: "architecture",
-    title: "Architecture",
-    description: "Our architectural practice is rooted in the belief that buildings should respond to their context, climate, and culture. We design structures that are not only visually striking but also highly functional and sustainable, ensuring they stand the test of time.",
-    features: ["Master Planning", "Concept Design", "Building Permits", "Construction Administration"],
-    image: "/assets/aboutusimage/office.png" // Replace with your actual image paths
-  },
-  {
-    id: "interior-design",
-    title: "Interior Design",
-    description: "We view interior design as the intimate continuation of architecture. By carefully curating materials, lighting, and spatial flow, we create cohesive environments that reflect the identity and enhance the daily lives of those who inhabit them.",
-    features: ["Space Planning", "Material Selection", "Custom Millwork", "Furniture Procurement"],
-    image: "/assets/aboutusimage/makbul.png"
-  },
-  {
-    id: "residential",
-    title: "Residential Estates",
-    description: "Designing a home is a highly personal journey. We work closely with our clients to translate their vision into bespoke residential spaces, balancing monumental scale with intimate comfort to create ultimate private sanctuaries.",
-    features: ["Custom Homes", "Estate Planning", "Landscape Integration", "Smart Home Design"],
-    image: "/assets/aboutusimage/office.png"
-  }
+const services = [
+  { icon: Building2, title: "Architecture", description: "From concept to completion, we design buildings that stand the test of time while pushing creative boundaries.", href: "/services#architecture" },
+  { icon: Palette, title: "Interior Design", description: "Creating cohesive interior environments that reflect your personality and enhance your lifestyle.", href: "/services#interior-design" },
+  { icon: Home, title: "Residential", description: "Bespoke homes designed around your unique needs, bringing together comfort and sophistication.", href: "/services#residential" },
+  { icon: Wrench, title: "Renovation", description: "Breathing new life into existing spaces with thoughtful redesign and modern updates.", href: "/services#renovation" },
+  { icon: Lightbulb, title: "Consulting", description: "Expert guidance on design strategy, feasibility studies, and project planning.", href: "/services#consulting" },
+  { icon: Users, title: "Project Management", description: "End-to-end project oversight ensuring quality delivery on time and within budget.", href: "/services#project-management" },
 ];
 
-const processSteps = [
-  { step: "01", title: "Discovery", desc: "Understanding your vision, constraints, and project aspirations." },
-  { step: "02", title: "Concept", desc: "Translating ideas into spatial diagrams and preliminary designs." },
-  { step: "03", title: "Development", desc: "Refining the design with precise materials, engineering, and details." },
-  { step: "04", title: "Execution", desc: "Overseeing construction to ensure absolute design fidelity." },
-];
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1, delayChildren: 0.2 },
+  },
+};
 
-export default function ServicesPageClient() {
-  return (
-    <div className="bg-[#F9F8F6] text-stone-900 min-h-screen font-sans selection:bg-stone-200 selection:text-stone-900">
-      
-      {/* 1. HERO SECTION */}
-      <section className="pt-40 pb-24 px-6 md:px-2 lg:px-0 border-b border-stone-200 bg-white">
-        <div className="container mx-auto max-w-5xl text-center">
-          <motion.span 
-            initial={{ opacity: 0, y: 20 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            className="text-[10px] font-mono uppercase tracking-widest text-stone-500 mb-6 block font-medium"
-          >
-            // Expertise
-          </motion.span>
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            transition={{ delay: 0.1 }}
-            className="text-6xl md:text-8xl font-light text-stone-900 leading-[1] mb-8 tracking-tight"
-          >
-            Disciplines <br /> & Services.
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            transition={{ delay: 0.2 }}
-            className="text-xl text-stone-600 font-light max-w-2xl mx-auto leading-relaxed"
-          >
-            We provide comprehensive design solutions, seamlessly bridging the gap between grand architectural vision and meticulous interior execution.
-          </motion.p>
-        </div>
-      </section>
+const card = {
+  hidden: { opacity: 0, y: 30 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
 
-      {/* 2. DETAILED SERVICES (Alternating Layout) */}
-      <div className="bg-[#F9F8F6]">
-        {detailedServices.map((service, index) => {
-          const isEven = index % 2 === 0;
-          
-          return (
-            <section key={service.id} id={service.id} className="py-24 lg:py-32 px-6 lg:px-12 border-b border-stone-200">
-              <div className="container mx-auto max-w-7xl">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
-                  
-                  {/* Image Block: Framed and un-cropped */}
-                  <motion.div 
-                    initial={{ opacity: 0, x: isEven ? -40 : 40 }} 
-                    whileInView={{ opacity: 1, x: 0 }} 
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.8 }}
-                    className={`lg:col-span-6 ${isEven ? 'order-1' : 'order-1 lg:order-2'}`}
-                  >
-                    <div className="bg-white p-3 border border-stone-200 shadow-sm">
-                      <div className="relative w-full bg-stone-50 overflow-hidden flex justify-center">
-                        <img 
-                          src={service.image} 
-                          alt={service.title} 
-                          className="w-full h-auto max-h-[60vh] object-contain transition-transform duration-1000 hover:scale-[1.02]" 
-                        />
-                      </div>
-                    </div>
-                  </motion.div>
+const iconVariants = {
+  idle: { scale: 1 },
+  hover: {
+    scale: 1.1,
+    rotate: 5,
+    transition: { duration: 0.3 },
+  },
+};
 
-                  {/* Text Block */}
-                  <motion.div 
-                    initial={{ opacity: 0, x: isEven ? 40 : -40 }} 
-                    whileInView={{ opacity: 1, x: 0 }} 
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    className={`lg:col-span-6 ${isEven ? 'order-2' : 'order-2 lg:order-1'}`}
-                  >
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-stone-500 mb-6 block font-medium">
-                      0{index + 1} // {service.title}
-                    </span>
-                    
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-stone-900 leading-[1.1] mb-8 tracking-tight">
-                      {service.title}
-                    </h2>
-                    
-                    <p className="text-lg text-stone-600 font-light leading-relaxed mb-12">
-                      {service.description}
-                    </p>
-
-                    {/* Features List */}
-                    <div className="space-y-4">
-                      {service.features.map((feature, fIndex) => (
-                        <div key={fIndex} className="flex justify-between items-center border-b border-stone-200 pb-3 group">
-                          <span className="text-sm font-light text-stone-700 group-hover:text-stone-900 transition-colors">
-                            {feature}
-                          </span>
-                          <ArrowUpRight className="w-4 h-4 text-stone-300 group-hover:text-stone-900 transition-colors" />
-                        </div>
-                      ))}
-                    </div>
-                  </motion.div>
-
-                </div>
-              </div>
-            </section>
-          );
-        })}
-      </div>
-
-      {/* 3. OUR PROCESS (Architectural Grid) */}
-      <section className="py-24 lg:py-32 px-6 lg:px-12 bg-white border-b border-stone-200">
-        <div className="container mx-auto max-w-7xl">
-          
-          <div className="mb-16 md:mb-24">
-            <span className="text-[10px] font-mono uppercase tracking-widest text-stone-500 mb-4 block font-medium">
-              // Methodology
-            </span>
-            <h2 className="text-4xl md:text-5xl font-light text-stone-900 tracking-tight">
-              Our Process
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-l border-stone-200">
-            {processSteps.map((item, index) => (
-              <motion.div 
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="p-8 lg:p-10 border-b border-r border-stone-200 hover:bg-stone-50 transition-colors"
-              >
-                <span className="text-3xl font-light text-stone-300 block mb-6">
-                  {item.step}
-                </span>
-                <h3 className="text-xl font-medium text-stone-900 mb-4 uppercase tracking-wide">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-stone-600 font-light leading-relaxed">
-                  {item.desc}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-          
-        </div>
-      </section>
-
-      {/* 4. CTA SECTION (Dark Contrast Block) */}
-      <section className="py-24 lg:py-32 px-6 lg:px-12 bg-stone-900 text-stone-100">
-        <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-4xl md:text-6xl font-light leading-[1.1] tracking-tight mb-8">
-            Ready to start a conversation?
-          </h2>
-          <p className="text-lg text-stone-400 font-light mb-12 max-w-2xl mx-auto">
-            Contact our studio to discuss your next architectural or interior design project.
-          </p>
-          <Link 
-            href="/contact" 
-            className="inline-flex items-center justify-center bg-white text-stone-900 px-8 py-4 text-[10px] font-mono uppercase tracking-widest hover:bg-stone-200 transition-colors group"
-          >
-            Get In Touch
-            <ArrowRight className="ml-3 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
-        </div>
-      </section>
-
+const ServicesSection = () => (
+  <section className="section-padding bg-white relative overflow-hidden">
+    {/* Decorative background elements */}
+    <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      {/* Top-left gradient blob */}
+      <div className="absolute -top-32 -left-32 w-96 h-96 bg-gradient-to-br from-amber-100/20 to-transparent rounded-full blur-3xl" />
+      {/* Bottom-right gradient blob */}
+      <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-gradient-to-tl from-amber-50/10 to-transparent rounded-full blur-3xl" />
     </div>
-  );
-}
+
+    {/* Subtle background icons */}
+    <div className="absolute top-12 left-8 pointer-events-none z-0 opacity-[0.06]">
+      <Building2 className="w-24 h-24 text-amber-700" strokeWidth={0.8} />
+    </div>
+    <div className="absolute bottom-24 right-12 pointer-events-none z-0 opacity-[0.05]">
+      <LayoutGrid className="w-32 h-32 text-zinc-600" strokeWidth={0.8} />
+    </div>
+
+    <div className="w-full px-3 lg:px-10 relative z-10">
+      {/* Header block */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.6 }}
+        className="max-w-3xl mb-16 md:mb-20"
+      >
+        <SectionHeading
+          label="What We Do"
+          title="Our Services"
+          description="Comprehensive design solutions tailored to bring your vision to life."
+        />
+        <motion.div
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3, duration: 0.8 }}
+          className="mt-6 h-1 w-16 bg-gradient-to-r from-amber-600 to-amber-300 origin-left"
+        />
+      </motion.div>
+
+      {/* Services Grid */}
+      <motion.div
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-80px" }}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+      >
+        {services.map((service, index) => (
+          <motion.div key={service.title} variants={card}>
+            <Link href={service.href} className="group relative h-full block">
+              {/* Card background with gradient on hover */}
+              <div
+                className="absolute inset-0 bg-gradient-to-br from-white via-slate-50 to-white border border-slate-200 rounded-2xl
+                           transition-all duration-500 group-hover:border-amber-300/40 group-hover:shadow-2xl group-hover:shadow-amber-900/10"
+              />
+
+              {/* Hover glow effect */}
+              <div
+                className="absolute inset-0 bg-gradient-to-br from-amber-400/0 via-amber-300/0 to-amber-400/0
+                           group-hover:from-amber-400/5 group-hover:via-amber-300/5 group-hover:to-amber-400/5
+                           rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              />
+
+              {/* Content */}
+              <div className="relative h-full p-8 md:p-10 flex flex-col">
+                {/* Header with icon and number */}
+                <div className="flex items-start justify-between gap-4 mb-6">
+                  <motion.div
+                    className="flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-100 to-amber-50
+                               group-hover:from-amber-600 group-hover:to-amber-700 text-amber-800 group-hover:text-white
+                               transition-all duration-400 flex-shrink-0"
+                    variants={iconVariants}
+                    initial="idle"
+                    whileHover="hover"
+                  >
+                    <service.icon className="w-7 h-7" strokeWidth={1.8} />
+                  </motion.div>
+                  <motion.span
+                    className="text-xs font-bold tracking-widest text-transparent bg-gradient-to-r from-amber-600 to-amber-500
+                               bg-clip-text group-hover:from-amber-700 group-hover:to-amber-600 transition-all duration-300"
+                    initial={{ opacity: 0.6 }}
+                    whileHover={{ opacity: 1 }}
+                  >
+                    {String(index + 1).padStart(2, "0")}
+                  </motion.span>
+                </div>
+
+                {/* Title */}
+                <motion.h3
+                  className="font-display text-2xl md:text-3xl text-zinc-900 mb-4
+                             group-hover:text-amber-800 transition-colors duration-300"
+                >
+                  {service.title}
+                </motion.h3>
+
+                {/* Description */}
+                <p className="text-zinc-600 leading-relaxed text-sm md:text-base mb-8 flex-grow">
+                  {service.description}
+                </p>
+
+                {/* Footer with CTA */}
+                <motion.div
+                  className="flex items-center gap-2 text-sm font-semibold text-amber-800
+                             group-hover:text-amber-900 transition-colors duration-300"
+                  initial={{ x: 0 }}
+                  whileHover={{ x: 4 }}
+                >
+                  <span>Learn more</span>
+                  <motion.div
+                    initial={{ opacity: 0.7, x: 0, y: 0 }}
+                    whileHover={{ opacity: 1, x: 1, y: -1 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <ArrowUpRight className="w-4 h-4" />
+                  </motion.div>
+                </motion.div>
+
+                {/* Bottom accent line */}
+                <motion.div
+                  className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-amber-600 to-amber-300 rounded-tr-2xl"
+                  initial={{ width: 0 }}
+                  whileHover={{ width: "100%" }}
+                  transition={{ duration: 0.5 }}
+                />
+              </div>
+            </Link>
+          </motion.div>
+        ))}
+      </motion.div>
+
+      {/* View all CTA */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.5 }}
+        className="mt-16 text-center"
+      >
+        <Link
+          href="/services"
+          className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider
+                     text-zinc-600 hover:text-amber-700 transition-colors link-underline group"
+        >
+          View all services
+          <motion.div
+            initial={{ x: 0 }}
+            whileHover={{ x: 4 }}
+            transition={{ duration: 0.3 }}
+          >
+            <ArrowUpRight className="w-4 h-4" />
+          </motion.div>
+        </Link>
+      </motion.div>
+    </div>
+  </section>
+);
+
+export default ServicesSection;

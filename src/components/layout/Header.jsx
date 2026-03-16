@@ -72,7 +72,7 @@ const Header = () => {
         transition={{ duration: 0.35, ease: "easeInOut" }}
         className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-500 ${headerBg}`}
       >
-        <div className="container mx-auto">
+        <div className="w-full px-3 lg:px-10">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link href="/" className={`font-display text-2xl lg:text-3xl tracking-tight ${textColor} flex items-center`}>

@@ -45,7 +45,7 @@ export default function ContactClient() {
       <PageHero label="Get in Touch" title="Let's Create Something Extraordinary" description="We'd love to hear about your project. Reach out to start the conversation." />
 
       <section className="section-padding bg-background">
-        <div className="container mx-auto px-6 lg:px-12">
+        <div className="w-full px-3 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Contact Form */}
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>

@@ -13,15 +13,15 @@ const features = [
 ];
 
 const IconStrip = () => (
-  <section className="relative pt-14 md:pt-20 pb-14 md:pb-20 overflow-hidden bg-white">
+  <section className="relative sm:py-5 lg:py-16 overflow-hidden bg-white">
     <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-zinc-200 to-transparent" />
 
-    <div className="container mx-auto px-5 sm:px-6 lg:px-12">
+    <div className="w-full px-3 lg:px-10">
       <motion.p
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-zinc-400 mb-10 md:mb-14"
+        className="text-center text-md font-semibold uppercase tracking-[0.2em] text-zinc-400 mb-8"
       >
         What we do
       </motion.p>
@@ -40,7 +40,7 @@ const IconStrip = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.05, duration: 0.4 }}
-            className="group flex flex-col items-center justify-center min-w-[120px] sm:min-w-[140px] py-6 px-4 sm:py-8 sm:px-6 relative"
+            className="group flex flex-col items-center justify-center min-w-[160px] sm:min-w-[180px] py-6 px-4 sm:py-8 sm:px-6 relative"
           >
             {index < features.length - 1 && (
               <div
@@ -49,10 +49,10 @@ const IconStrip = () => (
               />
             )}
 
-            <span className="flex items-center justify-center w-12 h-12 rounded-full border border-zinc-200 bg-zinc-50/80 text-zinc-500 group-hover:border-[var(--color-primary)] group-hover:bg-amber-50 group-hover:text-[var(--color-primary)] transition-all duration-300 mb-3">
+            <span className="flex items-center justify-center w-16 h-16 rounded-full border border-zinc-200 bg-zinc-50/80 text-zinc-500 group-hover:border-[var(--color-primary)] group-hover:bg-amber-50 group-hover:text-[var(--color-primary)] transition-all duration-300 mb-3">
               <feature.icon strokeWidth={1.5} className="w-5 h-5" />
             </span>
-            <span className="text-sm font-medium text-zinc-600 group-hover:text-zinc-900 transition-colors duration-300 text-center">
+            <span className="text-md font-medium text-zinc-600 group-hover:text-zinc-900 transition-colors duration-300 text-center">
               {feature.label}
             </span>
           </motion.div>
