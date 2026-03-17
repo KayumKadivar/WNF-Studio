@@ -24,12 +24,12 @@ export default function ServicesPage() {
     <div className="bg-[#F9F8F6] text-stone-900 min-h-screen font-sans selection:bg-stone-200 selection:text-stone-900">
 
       {/* 1. HERO SECTION */}
-      <section className="pt-32 pb-16 px-6 lg:px-12 border-b border-stone-200 bg-white">
+      <section className="pt-32 pb-20 bg-white border-b border-stone-200">
         <div className="my-container text-center">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-[14px] font-mono uppercase tracking-widest text-stone -500 mb-6 block font-medium"
+            className="text-[14px] font-mono uppercase tracking-widest text-stone-500 mb-6 block font-medium"
           >
             // Expertise
           </motion.span>
@@ -37,7 +37,7 @@ export default function ServicesPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="display-title-responsive mb-4"
+            className="display-title-responsive mb-6"
           >
             Our Services & Disciplines.
           </motion.h1>
@@ -52,10 +52,10 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* 2. SERVICES GRID (Strict 1px Border Grid) */}
-      <section className="py-20">
+      {/* 2. SERVICES GRID */}
+      <section className="py-24">
         <div className="my-container">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-stone-200">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-stone-200 bg-white">
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
@@ -79,7 +79,7 @@ export default function ServicesPage() {
                   {service.description}
                 </p>
 
-                {/* Features List with sharp squares instead of bullets */}
+                {/* Features List */}
                 <ul className="space-y-3 pt-6 border-t border-stone-100">
                   {service.features.map((feature) => (
                     <li key={feature} className="text-[14px] font-mono tracking-widest uppercase text-stone-500 flex items-center gap-3">
@@ -95,7 +95,7 @@ export default function ServicesPage() {
       </section>
 
       {/* 3. PROCESS SECTION */}
-      <section className="py-20 bg-white border-t border-stone-200">
+      <section className="py-24 bg-white border-t border-stone-200">
         <div className="my-container">
 
           <motion.div
@@ -103,7 +103,7 @@ export default function ServicesPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="mb-16 md:mb-24"
+            className="mb-16"
           >
             <span className="text-[14px] font-mono uppercase tracking-widest text-stone-500 mb-4 block font-medium">
               // Methodology
@@ -143,27 +143,27 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* 4. CTA SECTION (Dark Block Anchor) */}
-      <section className="py-20 bg-[#F9F8F6] border-y border-stone-200">
+      {/* 4. CTA SECTION */}
+      <section className="py-24 bg-[#F9F8F6] border-y border-stone-200">
         <div className="my-container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="flex flex-col items-center justify-center text-center max-w-3xl mx-auto"
           >
-            <span className="text-[14px] font-mono uppercase tracking-widest text-stone-500 mb-6 block font-medium text-center">
-        // Let's Collaborate
+            <span className="text-[14px] font-mono uppercase tracking-widest text-stone-500 mb-6 block font-medium">
+              // Let's Collaborate
             </span>
-            <h2 className="text-4xl md:text-5xl font-light text-center text-stone-900 mb-6 tracking-tight">
+            <h2 className="text-4xl md:text-5xl font-light text-stone-900 mb-6 tracking-tight">
               Ready to Start Your Project?
             </h2>
-            <p className="text-stone-600 font-light text-lg leading-relaxed mb-10 max-w-2xl mx-auto text-center">
+            <p className="text-stone-600 font-light text-lg leading-relaxed mb-10">
               Let's discuss your vision and explore how we can bring it to life with our expertise and passion for exceptional design.
             </p>
             <Link
               href="/contact"
-              // Button is now dark to stand out against the light background
               className="inline-flex items-center justify-center bg-stone-900 text-white px-10 py-5 text-[14px] font-mono uppercase tracking-widest hover:bg-stone-800 transition-colors group rounded-none"
             >
               Get in Touch

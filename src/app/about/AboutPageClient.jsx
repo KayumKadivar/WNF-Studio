@@ -25,7 +25,7 @@ export default function AboutPageClient() {
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-[16px] font-mono uppercase tracking-widest text-stone-500 mb-6 block font-medium"
+            className="text-[14px] font-mono uppercase tracking-widest text-stone-500 mb-6 block font-medium"
           >
             // Our Story
           </motion.span>
@@ -59,7 +59,7 @@ export default function AboutPageClient() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="lg:col-span-5"
+              className="lg:col-span-4"
             >
               <div className="bg-white p-3 border border-stone-200 shadow-sm">
                 <div className="relative w-full bg-stone-50 flex justify-center overflow-hidden">
@@ -78,9 +78,9 @@ export default function AboutPageClient() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="lg:col-span-7 lg:pl-10"
+              className="lg:col-span-8 lg:pl-10"
             >
-              <span className="text-[16px] font-mono uppercase tracking-widest text-stone-500 mb-6 block font-medium">
+              <span className="text-[14px] font-mono uppercase tracking-widest text-stone-500 mb-6 block font-medium">
                 // Our Philosophy
               </span>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-stone-900 leading-[1.1] mb-8 tracking-tight">
@@ -117,7 +117,7 @@ export default function AboutPageClient() {
               transition={{ duration: 0.6 }}
               className="p-10 lg:p-16 bg-white border border-stone-200"
             >
-              <span className="text-[16px] font-mono uppercase tracking-widest text-stone-500 mb-8 block font-medium border-b border-stone-200 pb-4">
+              <span className="text-[14px] font-mono uppercase tracking-widest text-stone-500 mb-8 block font-medium border-b border-stone-200 pb-4">
                 01 — Our Mission
               </span>
               <h3 className="text-3xl font-light text-stone-900 mb-6">
@@ -136,7 +136,7 @@ export default function AboutPageClient() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="p-10 lg:p-16 bg-[#F9F8F6] border border-stone-200"
             >
-              <span className="text-[16px] font-mono uppercase tracking-widest text-stone-500 mb-8 block font-medium border-b border-stone-200 pb-4">
+              <span className="text-[14px] font-mono uppercase tracking-widest text-stone-500 mb-8 block font-medium border-b border-stone-200 pb-4">
                 02 — Our Vision
               </span>
               <h3 className="text-3xl font-light text-stone-900 mb-6">

@@ -100,33 +100,37 @@ export default function ProjectsClient() {
                     )}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                       {projectsInCat.map((project, index) => (
-                        <motion.div
-                          key={project.id}
-                          // Changed to whileInView so cards animate as the user scrolls down
-                          initial={{ opacity: 0, y: 40 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true, margin: "-50px" }}
-                          // index % 3 ensures the delay resets per row, preventing massive delays on long lists
-                          transition={{ duration: 0.6, delay: (index % 3) * 0.15, ease: "easeOut" }}
-                          className="bg-white border border-stone-200 group hover:shadow-lg transition-all duration-500"
-                        >
-                          <Link href={`/projects/${project.id}`} className="block h-full flex flex-col">
+                          <motion.div
+                            key={project.id}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-100px" }}
+                            transition={{ 
+                              duration: 0.8, 
+                              delay: (index % 3) * 0.15,
+                              ease: [0.215, 0.61, 0.355, 1] 
+                            }}
+                            className="bg-white border border-stone-200 group hover:shadow-xl transition-all duration-500"
+                          >
+                            <Link href={`/projects/${project.id}`} className="block h-full flex flex-col">
 
-                            {/* STRICT SAME SIZE IMAGE CONTAINER */}
-                            <div className="relative w-full aspect-[4/3] bg-stone-100 overflow-hidden border-b border-stone-200">
-                              <img
-                                src={project.mainImage}
-                                alt={project.title}
-                                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                              />
+                              {/* STRICT SAME SIZE IMAGE CONTAINER */}
+                              <div className="relative w-full aspect-[4/3] bg-stone-100 overflow-hidden border-b border-stone-200">
+                                <motion.img
+                                  src={project.mainImage}
+                                  alt={project.title}
+                                  whileHover={{ scale: 1.05 }}
+                                  transition={{ duration: 0.6 }}
+                                  className="absolute inset-0 w-full h-full object-cover"
+                                />
 
-                              {/* Category Badge */}
-                              <div className="absolute top-4 left-4 z-20">
-                                <span className="px-3 py-1 bg-white/90 backdrop-blur-sm border border-stone-200 text-[14px] font-mono text-stone-800 uppercase tracking-wider">
-                                  {project.category}
-                                </span>
+                                {/* Category Badge */}
+                                <div className="absolute top-4 left-4 z-20">
+                                  <span className="px-3 py-1 bg-white/90 backdrop-blur-sm border border-stone-200 text-[14px] font-mono text-stone-800 uppercase tracking-wider">
+                                    {project.category}
+                                  </span>
+                                </div>
                               </div>
-                            </div>
 
                             {/* TEXT CONTENT */}
                             <div className="p-6 flex-grow flex flex-col justify-between">

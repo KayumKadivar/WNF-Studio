@@ -89,7 +89,7 @@ export default function ProjectDetailClient({ project, allProjects }) {
     <div className="bg-[#F9F8F6] text-stone-900 min-h-screen font-sans selection:bg-stone-200 selection:text-stone-900">
 
       {/* 1. HERO SECTION */}
-      <section className="relative pt-24 pb-12 px-6 lg:px-12 border-b border-stone-200">
+      <section className="relative pt-28 pb-12 px-6 lg:px-12 border-b border-stone-200">
         <div className="mx-auto">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
             <motion.div
@@ -216,27 +216,27 @@ export default function ProjectDetailClient({ project, allProjects }) {
       </section>
 
       {/* 5. NAVIGATION */}
-      <section className="grid grid-cols-1 md:grid-cols-2 h-48 border-t border-stone-200 bg-[#F9F8F6]">
+      <section className="flex flex-row h-32 md:h-48 border-t border-stone-200 bg-[#F9F8F6]">
         <Link
           href={prevProject ? `/projects/${prevProject.id}` : "#"}
-          className="group flex flex-col justify-center p-12 hover:bg-stone-100 transition-all border-b md:border-b-0 md:border-r border-stone-200"
+          className="group flex-1 flex flex-col justify-center p-4 md:p-12 hover:bg-stone-100 transition-all border-r border-stone-200"
         >
-          <span className="font-mono text-[14px] text-stone-500 font-medium mb-2">
-            ← PREVIOUS_WORK
+          <span className="font-mono text-[10px] md:text-[14px] text-stone-500 font-medium mb-1 md:mb-2">
+            ← PREV
           </span>
-          <h4 className="text-2xl md:text-4xl font-light uppercase text-stone-800">
+          <h4 className="text-sm md:text-3xl font-light uppercase text-stone-800 line-clamp-1">
             {prevProject?.title || "END"}
           </h4>
         </Link>
 
         <Link
           href={nextProject ? `/projects/${nextProject.id}` : "#"}
-          className="group flex flex-col justify-center p-12 hover:bg-stone-100 transition-all text-right"
+          className="group flex-1 flex flex-col justify-center p-4 md:p-12 hover:bg-stone-100 transition-all text-right"
         >
-          <span className="font-mono text-[14px] text-stone-500 font-medium mb-2">
-            NEXT_WORK →
+          <span className="font-mono text-[10px] md:text-[14px] text-stone-500 font-medium mb-1 md:mb-2">
+            NEXT →
           </span>
-          <h4 className="text-2xl md:text-4xl font-light uppercase text-stone-800">
+          <h4 className="text-sm md:text-3xl font-light uppercase text-stone-800 line-clamp-1">
             {nextProject?.title || "END"}
           </h4>
         </Link>
