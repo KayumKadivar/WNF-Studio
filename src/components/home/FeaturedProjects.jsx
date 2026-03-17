@@ -9,7 +9,7 @@ const allProjects = projects;
 
 const FeaturedProjects = () => (
   <section className="py-20 bg-[#F9F8F6] border-b border-stone-200">
-    <div className="w-full px-3 lg:px-10">
+    <div className="w-full my-container">
 
       {/* HEADER */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20 border-b border-stone-200 pb-12">

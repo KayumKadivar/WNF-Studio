@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 
 const AboutPreview = () => (
   <section className="py-20 bg-[#F9F8F6] border-b border-stone-200">
-    <div className="w-full px-3 lg:px-10">
+    <div className="w-full my-container">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
 
         {/* Image Section: Fixed Cropping */}

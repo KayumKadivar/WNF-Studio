@@ -57,7 +57,7 @@ const SocialIconButton = ({ href, label, glowColor, children }) => {
 };
 
 const FloatingSocialIcons = () => (
-  <div className="fixed bottom-8 left-8 z-[100] flex flex-col gap-4 shadow-none">
+  <div className="fixed bottom-6 left-6 md:bottom-8 md:left-8 z-[40] flex flex-col gap-4 shadow-none">
     <SocialIconButton href="https://www.instagram.com/studio_wnf/" label="Follow on Instagram" glowColor="#e6683c">
       <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888]" />
       <Instagram size={26} className="relative z-10" />

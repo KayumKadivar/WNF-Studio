@@ -14,7 +14,7 @@ const CTASection = () => (
       }}
     />
 
-    <div className="w-full px-3 lg:px-10 relative z-10">
+    <div className="w-full my-container text-center">
       <motion.div
         initial={{ opacity: 0, y: 32 }}
         whileInView={{ opacity: 1, y: 0 }}

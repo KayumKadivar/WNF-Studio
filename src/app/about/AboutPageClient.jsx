@@ -20,8 +20,8 @@ export default function AboutPageClient() {
     <div className="bg-[#F9F8F6] text-stone-900 min-h-screen font-sans selection:bg-stone-200 selection:text-stone-900">
 
       {/* 1. HERO SECTION (Inlined to guarantee theme) */}
-      <section className="pt-32 pb-20 px-6 lg:px-12 border-b border-stone-200 bg-white">
-        <div className="w-full px-3 lg:px-10 max-w-7xl mx-auto text-center">
+      <section className="pt-32 pb-20 my-container border-b border-stone-200 bg-white">
+        <div className="w-full max-w-7xl mx-auto text-center">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -49,8 +49,8 @@ export default function AboutPageClient() {
       </section>
 
       {/* 2. VISION SECTION (Fixed Image Cropping) */}
-      <section className="py-24 px-6 lg:px-12 border-b border-stone-200">
-        <div className="w-full px-3 lg:px-10">
+      <section className="py-24 my-container border-b border-stone-200">
+        <div className="w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
 
             {/* Image Box - No fixed height, object-contain used */}
@@ -105,8 +105,8 @@ export default function AboutPageClient() {
       </section>
 
       {/* 3. MISSION & VISION CARDS (Editorial Grid) */}
-      <section className="py-24 px-6 lg:px-12 bg-stone-50">
-        <div className="w-full px-3 lg:px-10">
+      <section className="py-24 my-container bg-stone-50">
+        <div className="w-full">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
 
             {/* Mission */}

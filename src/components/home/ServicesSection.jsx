@@ -58,7 +58,7 @@ const ServicesSection = () => (
       <LayoutGrid className="w-32 h-32 text-zinc-600" strokeWidth={0.8} />
     </div>
 
-    <div className="w-full px-3 lg:px-10 relative z-10">
+    <div className="w-full my-container relative z-10">
       {/* Header block */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}

@@ -170,6 +170,15 @@ h1, h2, h3, h4, h5, h6 {
 @media (min-width: 768px) { .section-padding-sm { padding-top: 4rem; padding-bottom: 4rem; } }
 @media (min-width: 1024px) { .section-padding-sm { padding-top: 5rem; padding-bottom: 5rem; } }
 
+.my-container {
+  padding-inline: 0.75rem ;
+}
+@media (min-width: 1024px) {
+  .my-container {
+    padding-inline: 2.5rem;
+  }
+}
+
 /* ── decoration ── */
 .line-gold { display: block; width: 3rem; height: 1px; background-color: var(--color-primary); }
 .line-gold-vertical { display: block; width: 1px; height: 3rem; background-color: var(--color-primary); }

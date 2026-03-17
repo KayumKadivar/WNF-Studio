@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const PageHero = ({ label, title, description }) => (
   <section className="relative pt-40 pb-24 bg-secondary overflow-hidden">
-    <div className="w-full px-3 lg:px-10 text-center">
+    <div className="w-full my-container relative z-10">
       {label && (
         <motion.span
           initial={{ opacity: 0, y: 10 }}
