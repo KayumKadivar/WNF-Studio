@@ -1,9 +1,7 @@
 "use client";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Building2, Palette, Home, Wrench, Lightbulb, Users, ArrowRight } from "lucide-react";
-import PageHero from "@/components/shared/PageHero";
-import { Button } from "@/components/ui/button";
+import { Building2, Palette, Home, Wrench, Lightbulb, Users, ArrowRight, ArrowUpRight } from "lucide-react";
 
 const services = [
   { icon: Building2, title: "Architecture", description: "From concept to completion, we design buildings that stand the test of time while pushing creative boundaries.", features: ["Master Planning", "Building Design", "3D Visualization", "Construction Documents"] },
@@ -13,6 +11,7 @@ const services = [
   { icon: Lightbulb, title: "Consulting", description: "Expert guidance on design strategy, feasibility studies, and project planning.", features: ["Feasibility Studies", "Code Compliance", "Sustainability", "Budget Planning"] },
   { icon: Users, title: "Project Management", description: "End-to-end project oversight ensuring quality delivery on time and within budget.", features: ["Contractor Coordination", "Timeline Management", "Quality Control", "Budget Oversight"] },
 ];
+
 const process = [
   { step: "01", title: "Discovery", description: "We begin with a thorough consultation to understand your vision, requirements, and project goals." },
   { step: "02", title: "Concept Design", description: "Our team develops initial concepts and sketches, exploring various design directions." },
@@ -22,24 +21,69 @@ const process = [
 
 export default function ServicesPage() {
   return (
-    <>
-      <PageHero title="Our Services" description="Comprehensive design solutions tailored to bring your vision to life with excellence and precision." />
+    <div className="bg-[#F9F8F6] text-stone-900 min-h-screen font-sans selection:bg-stone-200 selection:text-stone-900">
 
-      {/* Services Grid */}
-      <section className="section-padding bg-background">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+      {/* 1. HERO SECTION */}
+      <section className="pt-32 pb-16 px-6 lg:px-12 border-b border-stone-200 bg-white">
+        <div className="my-container text-center">
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-[14px] font-mono uppercase tracking-widest text-stone -500 mb-6 block font-medium"
+          >
+            // Expertise
+          </motion.span>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="display-title-responsive mb-4"
+          >
+            Our Services & Disciplines.
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-lg text-stone-600 font-light max-w-2xl mx-auto leading-relaxed"
+          >
+            Comprehensive design solutions tailored to bring your vision to life with raw excellence and precision.
+          </motion.p>
+        </div>
+      </section>
+
+      {/* 2. SERVICES GRID (Strict 1px Border Grid) */}
+      <section className="py-20">
+        <div className="my-container">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-stone-200">
             {services.map((service, index) => (
-              <motion.div key={service.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.5, delay: index * 0.1 }} className="group p-8 lg:p-10 bg-secondary/50 hover:bg-secondary transition-colors duration-500">
-                <div className="w-14 h-14 flex items-center justify-center border border-primary/20 text-primary mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500">
-                  <service.icon size={24} />
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group p-10 bg-white border-b border-r border-stone-200 hover:bg-[#F9F8F6] transition-colors duration-500 h-full flex flex-col cursor-pointer"
+              >
+                {/* Sharp Geometry Icon Box */}
+                <div className="w-12 h-12 flex items-center justify-center border border-stone-200 text-stone-400 mb-8 group-hover:border-stone-900 group-hover:text-stone-900 transition-colors duration-500">
+                  <service.icon size={20} strokeWidth={1.5} />
                 </div>
-                <h3 className="text-xl lg:text-2xl font-display mb-4">{service.title}</h3>
-                <p className="text-muted-foreground leading-relaxed mb-6">{service.description}</p>
-                <ul className="space-y-2">
+
+                <h3 className="text-2xl font-light text-stone-900 mb-4 flex items-center justify-between">
+                  {service.title}
+                  <ArrowUpRight className="w-5 h-5 text-stone-300 group-hover:text-stone-900 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                </h3>
+
+                <p className="text-stone-600 font-light leading-relaxed mb-10 flex-grow">
+                  {service.description}
+                </p>
+
+                {/* Features List with sharp squares instead of bullets */}
+                <ul className="space-y-3 pt-6 border-t border-stone-100">
                   {service.features.map((feature) => (
-                    <li key={feature} className="text-sm text-muted-foreground flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-primary/60 rounded-full" />
+                    <li key={feature} className="text-[14px] font-mono tracking-widest uppercase text-stone-500 flex items-center gap-3">
+                      <span className="w-1 h-1 bg-stone-300 group-hover:bg-stone-900 transition-colors duration-500" />
                       {feature}
                     </li>
                   ))}
@@ -50,40 +94,85 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Process Section */}
-      <section className="section-padding bg-secondary">
-        <div className="container mx-auto px-6 lg:px-12">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
-            <span className="text-sm uppercase tracking-[0.2em] text-primary mb-4 block">How We Work</span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display mb-6">Our Process</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">A proven methodology that ensures exceptional results from initial concept to final delivery.</p>
+      {/* 3. PROCESS SECTION */}
+      <section className="py-20 bg-white border-t border-stone-200">
+        <div className="my-container">
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-16 md:mb-24"
+          >
+            <span className="text-[14px] font-mono uppercase tracking-widest text-stone-500 mb-4 block font-medium">
+              // Methodology
+            </span>
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
+              <h2 className="text-4xl md:text-5xl font-light text-stone-900 tracking-tight">
+                How We Work
+              </h2>
+              <p className="text-stone-600 font-light max-w-md leading-relaxed">
+                A proven methodology that ensures exceptional results from initial concept to final delivery.
+              </p>
+            </div>
           </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-l border-stone-200">
             {process.map((item, index) => (
-              <motion.div key={item.step} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: index * 0.15 }} className="relative">
-                <span className="text-6xl lg:text-7xl font-display text-primary absolute -top-4 -left-2 mb-2">{item.step}</span>
-                <div className="pt-12">
-                  <h3 className="text-xl font-display mb-3">{item.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
-                </div>
+              <motion.div
+                key={item.step}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.15 }}
+                className="p-8 lg:p-10 border-b border-r border-stone-200 hover:bg-[#F9F8F6] transition-colors duration-500"
+              >
+                <span className="text-5xl font-light text-stone-300 block mb-8">
+                  {item.step}
+                </span>
+                <h3 className="text-xl font-medium text-stone-900 mb-4">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-stone-600 font-light leading-relaxed">
+                  {item.description}
+                </p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="section-padding bg-primary text-primary-foreground">
-        <div className="container mx-auto text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display mb-6">Ready to Start Your Project?</h2>
-            <p className="text-primary-foreground/80 max-w-2xl mx-auto mb-10">Let's discuss your vision and explore how we can bring it to life with our expertise and passion for exceptional design.</p>
-            <Button variant="hero-outline" size="lg" asChild>
-              <Link href="/contact">Get in Touch <ArrowRight className="ml-2 h-4 w-4" /></Link>
-            </Button>
+      {/* 4. CTA SECTION (Dark Block Anchor) */}
+      <section className="py-20 bg-[#F9F8F6] border-y border-stone-200">
+        <div className="my-container">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="text-[14px] font-mono uppercase tracking-widest text-stone-500 mb-6 block font-medium text-center">
+        // Let's Collaborate
+            </span>
+            <h2 className="text-4xl md:text-5xl font-light text-center text-stone-900 mb-6 tracking-tight">
+              Ready to Start Your Project?
+            </h2>
+            <p className="text-stone-600 font-light text-lg leading-relaxed mb-10 max-w-2xl mx-auto text-center">
+              Let's discuss your vision and explore how we can bring it to life with our expertise and passion for exceptional design.
+            </p>
+            <Link
+              href="/contact"
+              // Button is now dark to stand out against the light background
+              className="inline-flex items-center justify-center bg-stone-900 text-white px-10 py-5 text-[14px] font-mono uppercase tracking-widest hover:bg-stone-800 transition-colors group rounded-none"
+            >
+              Get in Touch
+              <ArrowRight className="ml-3 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
           </motion.div>
         </div>
       </section>
-    </>
+
+    </div>
   );
 }

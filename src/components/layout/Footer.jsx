@@ -8,10 +8,10 @@ const Footer = () => {
   return (
     <footer className="bg-stone-900 text-stone-400 font-sans border-t border-stone-800">
       <div className="w-full my-container">
-        
+
         {/* TOP BAR */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center py-12 gap-10 border-b border-stone-800/50">
-          
+
           {/* Brand */}
           <div className="space-y-3">
             <Link href="/" className="text-3xl font-light text-stone-100 tracking-tight hover:opacity-80 transition-opacity">
@@ -21,7 +21,7 @@ const Footer = () => {
               Creating timeless spaces that inspire through innovative architecture and interior design.
             </p>
           </div>
-          
+
           {/* Contact Information */}
           <div className="flex flex-col sm:flex-row gap-8 sm:gap-12 text-[16px] md:text-[18px] font-mono uppercase tracking-widest text-stone-300">
             <a href="mailto:info@wnfdesignstudio.com" className="hover:text-white transition-colors flex items-center gap-3 group">
@@ -46,8 +46,8 @@ const Footer = () => {
         </div>
 
         {/* BOTTOM BAR */}
-        <div className="flex flex-col md:flex-row justify-between items-center py-8 text-[14px] md:text-[16px] font-mono uppercase tracking-wider gap-8">
-          
+        <div className="flex flex-col md:flex-row justify-center items-center py-8 text-[14px] md:text-[16px] font-mono uppercase tracking-wider gap-8">
+
           {/* Copyright */}
           <div className="flex items-center gap-3">
             <span className="text-stone-300">© {currentYear} WNF STUDIO</span>

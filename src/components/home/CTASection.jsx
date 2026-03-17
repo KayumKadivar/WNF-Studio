@@ -2,75 +2,64 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Mail, FolderKanban } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowRight, FolderKanban } from "lucide-react";
 
 const CTASection = () => (
-  <section className="py-20 md:py-28 lg:py-32 bg-stone-50 relative overflow-hidden">
-    <div
-      className="absolute inset-0 pointer-events-none"
-      style={{
-        background: "radial-gradient(ellipse 80% 50% at 50% 100%, rgba(184,134,11,0.1), transparent 65%)",
-      }}
-    />
-
-    <div className="w-full my-container text-center">
+  // Anchored to the #F9F8F6 light theme background
+  <section className="py-24 lg:py-32 px-6 lg:px-12 bg-[#F9F8F6] border-t border-stone-200">
+    <div className="container mx-auto max-w-6xl">
       <motion.div
-        initial={{ opacity: 0, y: 32 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.6 }}
-        className="relative max-w-4xl mx-auto"
+        className="relative"
       >
-        <div className="relative rounded-2xl md:rounded-3xl overflow-hidden bg-[var(--color-primary)] text-[var(--color-primary-foreground)]">
+        {/* Stark, sharp dark block to create a high-contrast focal point */}
+        <div className="bg-stone-900 text-stone-100 px-8 py-16 md:px-16 md:py-24 text-center border border-stone-800 relative overflow-hidden">
+
+          {/* Faint architectural grid overlay (sharp lines, no blurry gradients) */}
           <div
-            className="absolute inset-0 opacity-[0.06]"
+            className="absolute inset-0 opacity-[0.03]"
             style={{
-              backgroundImage: `linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px)`,
-              backgroundSize: "48px 48px",
+              backgroundImage: `linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)`,
+              backgroundSize: "40px 40px",
             }}
           />
 
-          <div className="relative px-8 py-14 md:px-14 md:py-16 lg:px-16 lg:py-20 text-center">
-            <span className="inline-block text-xs font-semibold uppercase tracking-[0.2em] opacity-90 mb-6">
-              Start Your Project
+          <div className="relative z-10">
+            <span className="text-[14px] font-mono uppercase tracking-widest text-stone-500 mb-6 block font-medium">
+              // Start Your Project
             </span>
 
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-medium leading-tight tracking-tight max-w-2xl mx-auto mb-6">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.1] max-w-3xl mx-auto mb-8 tracking-tight">
               Ready to Transform Your Space?
             </h2>
 
-            <p className="text-base md:text-lg leading-relaxed opacity-90 max-w-xl mx-auto mb-10">
+            <p className="text-lg text-stone-400 font-light leading-relaxed max-w-2xl mx-auto mb-12">
               Let's collaborate to create something extraordinary. Reach out to discuss your vision and see how we can bring it to life.
             </p>
 
-            <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-5">
-              <Button
-                size="xl"
-                asChild
-                className="bg-white text-[var(--color-primary)] hover:bg-zinc-100 border-0 font-semibold shadow-lg hover:shadow-xl transition-all duration-300 rounded-xl group"
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              {/* Primary Button: High Contrast Solid */}
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-3 bg-white text-stone-900 px-10 py-5 text-[14px] font-mono uppercase tracking-widest hover:bg-stone-200 transition-colors group"
               >
-                <Link href="/contact" className="flex items-center gap-3">
-                  <Mail className="h-5 w-5" />
-                  Get in Touch
-                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-                </Link>
-              </Button>
-              <Button
-                variant="outline"
-                size="xl"
-                asChild
-                className="border-2 border-white/40 bg-transparent text-white hover:bg-white hover:text-[var(--color-primary)] font-semibold transition-all duration-300 rounded-xl"
+                Get in Touch
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+
+              {/* Secondary Button: Ghost Outline */}
+              <Link
+                href="/projects"
+                className="inline-flex items-center justify-center gap-3 bg-transparent border border-stone-700 text-stone-300 px-10 py-5 text-[14px] font-mono uppercase tracking-widest hover:bg-stone-800 hover:text-white transition-colors group"
               >
-                <Link href="/projects" className="flex items-center gap-3">
-                  <FolderKanban className="h-5 w-5" />
-                  View Our Work
-                </Link>
-              </Button>
+                View Our Work
+                <FolderKanban className="w-4 h-4" />
+              </Link>
             </div>
           </div>
-
-          <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/20" />
         </div>
       </motion.div>
     </div>

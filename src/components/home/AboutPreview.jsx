@@ -22,9 +22,7 @@ const AboutPreview = () => (
               <img
                 src="/assets/aboutusimage/makbul.png"
                 alt="Our studio"
-                // Removed fixed height. h-auto allows the image to dictate its own natural height.
-                // max-h-[70vh] prevents it from becoming absurdly tall on massive monitors.
-                className="w-full h-auto max-h-[70vh] object-contain transition-transform duration-700 hover:scale-[1.02]"
+                className="w-full h-auto object-contain transition-transform duration-700 hover:scale-[1.02]"
               />
             </div>
           </div>
@@ -42,7 +40,7 @@ const AboutPreview = () => (
             // ABOUT_US
           </span>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-stone-900 leading-[1.1] mb-8 tracking-tight">
+          <h2 className="display-title-responsive text-stone-900 mb-8">
             A Studio Where Vision Meets Precision
           </h2>
 

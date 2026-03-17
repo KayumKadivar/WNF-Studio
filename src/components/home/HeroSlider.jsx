@@ -49,12 +49,12 @@ const HeroSlider = () => {
                 className="object-cover object-center"
               />
               <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/45 to-black/80" />
-              <div className="relative h-full container mx-auto px-6 lg:px-12 flex items-center">
+              <div className="relative h-dvh container mx-auto px-6 lg:px-12 flex items-center">
                 <div className="max-w-3xl pt-20">
                   <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.6 }} className="text-xs uppercase tracking-[0.2em] font-medium text-white/80 mb-6 block">
                     {slide.label}
                   </motion.div>
-                  <h1 className="heading-xl text-white mb-6 overflow-hidden flex flex-wrap">
+                  <h1 className="display-title-responsive !text-white mb-6 overflow-hidden flex flex-wrap">
                     {slide.title.split(" ").map((word, wordIdx) => (
                       <span key={wordIdx} className="overflow-hidden inline-flex mr-4">
                         <motion.span

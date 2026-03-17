@@ -33,7 +33,7 @@ export default function AboutPageClient() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-5xl font-light text-stone-900 leading-[1.1] mb-8 tracking-tight"
+            className="display-title-responsive"
           >
             Crafting Extraordinary Spaces Since 2021
           </motion.h1>

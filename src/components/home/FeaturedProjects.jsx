@@ -17,16 +17,9 @@ const FeaturedProjects = () => (
           <span className="text-[16px] font-mono uppercase tracking-widest text-stone-500 mb-6 block font-medium">
             // Complete Portfolio
           </span>
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-stone-900 leading-[1.1] tracking-tight">
+          <h2 className="display-title-responsive text-stone-900">
             Our Selected Works
           </h2>
-        </div>
-
-        {/* Simple count indicator instead of a button, since all are displayed */}
-        <div className="pb-2">
-          <span className="text-[10px] font-mono uppercase tracking-widest text-stone-500">
-            Showing {allProjects.length} Projects
-          </span>
         </div>
       </div>
 
@@ -56,14 +49,14 @@ const FeaturedProjects = () => (
                   />
 
                   {/* Elegant Hover Overlay */}
-                  <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-900/5 transition-colors duration-500 pointer-events-none" />
+                  <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-black/5 transition-colors duration-500 pointer-events-none" />
                 </div>
               </div>
 
               {/* TYPOGRAPHY */}
               <div className="px-2 flex flex-col">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-stone-400">
+                  <span className="text-[12px] font-mono uppercase tracking-widest text-black">
                     {project.category}
                   </span>
                   <ArrowUpRight className="w-4 h-4 text-stone-300 group-hover:text-stone-900 transition-colors duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
@@ -74,7 +67,7 @@ const FeaturedProjects = () => (
                 </h3>
 
                 <div className="flex items-center gap-2 mt-2">
-                  <span className="text-[10px] font-mono uppercase text-stone-400 tracking-widest">
+                  <span className="text-[12px] font-mono uppercase text-black tracking-widest">
                     {project.location}
                   </span>
                 </div>
