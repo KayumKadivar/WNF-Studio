@@ -64,7 +64,7 @@ export default function AboutPageClient() {
               <div className="bg-white p-3 border border-stone-200 shadow-sm">
                 <div className="relative w-full bg-stone-50 flex justify-center overflow-hidden">
                   <img
-                    src="/assets/aboutusimage/office.png"
+                    src="/assets/aboutusimage/founder.png"
                     alt="Our studio"
                     className="w-full h-auto max-h-[70vh] object-contain"
                   />

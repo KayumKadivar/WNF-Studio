@@ -75,13 +75,13 @@ const Header = () => {
         <div className="w-full my-container">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link href="/" className={`font-display text-2xl lg:text-3xl tracking-tight ${textColor} flex items-center`}>
+            <Link href="/" className={`font-display text-2xl lg:text-3xl tracking-tight ${textColor} flex items-center py-3`}>
               <Image
                 src="/assets/logo/download.png"
                 alt="Studio WnF"
                 width={120}
                 height={48}
-                className={`h-20 w-auto object-contain transition-all duration-300 ${logoClass}`}
+                className={`h-16 w-auto object-contain transition-all duration-300 ${logoClass}`}
               />
             </Link>
 

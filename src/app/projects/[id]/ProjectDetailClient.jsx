@@ -2,7 +2,7 @@
 import { useState, useRef } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { MapPin, Calendar, Ruler, Building, Plus } from "lucide-react";
+import { MapPin, Calendar, Ruler, Building, Plus, X } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 // ─── Shimmer Skeleton ───────────────────────────────────────────────────────
@@ -81,6 +81,7 @@ export const AnimatedImage = ({ src, alt, className, priority = false }) => {
 
 // ─── ProjectDetailClient ────────────────────────────────────────────────────
 export default function ProjectDetailClient({ project, allProjects }) {
+  const [selectedImage, setSelectedImage] = useState(null);
   const currentIndex = allProjects.findIndex((p) => p.id === project.id);
   const prevProject = allProjects[currentIndex - 1];
   const nextProject = allProjects[currentIndex + 1];
@@ -111,12 +112,13 @@ export default function ProjectDetailClient({ project, allProjects }) {
             </motion.div>
           </div>
 
-          {/* Hero image — staggered entry after header */}
+          {/* Hero image — click to open modal */}
           <motion.div
             initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.15, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full border border-stone-200 bg-stone-100 overflow-hidden"
+            className="w-full border border-stone-200 bg-stone-100 overflow-hidden cursor-zoom-in"
+            onClick={() => setSelectedImage(project.mainImage)}
           >
             <AnimatedImage
               src={project.mainImage}
@@ -192,7 +194,6 @@ export default function ProjectDetailClient({ project, allProjects }) {
             {project.gallery?.map((img, i) => (
               <motion.div
                 key={i}
-                // Each gallery card staggers in as it enters the viewport
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
@@ -201,8 +202,9 @@ export default function ProjectDetailClient({ project, allProjects }) {
                   duration: 0.6,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                whileHover={{ scale: 0.99 }}
-                className="break-inside-avoid bg-white p-2 border border-stone-200 transition-transform inline-block w-full overflow-hidden"
+                whileHover={{ scale: 0.995 }}
+                onClick={() => setSelectedImage(img)}
+                className="break-inside-avoid bg-white p-2 border border-stone-200 cursor-zoom-in transition-all inline-block w-full overflow-hidden"
               >
                 <AnimatedImage
                   src={img}
@@ -214,6 +216,40 @@ export default function ProjectDetailClient({ project, allProjects }) {
           </div>
         </div>
       </section>
+
+      {/* 5. IMAGE MODAL */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedImage(null)}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4 md:p-10 cursor-zoom-out"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="relative max-w-6xl w-full max-h-full flex items-center justify-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute -top-12 right-0 text-white hover:text-stone-400 transition-colors p-2"
+              >
+                <X size={40} strokeWidth={1} />
+              </button>
+              <img
+                src={selectedImage}
+                alt="Project Preview"
+                className="max-w-full max-h-[85vh] object-contain shadow-2xl bg-white p-1"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* 5. NAVIGATION */}
       <section className="flex flex-row h-32 md:h-48 border-t border-stone-200 bg-[#F9F8F6]">
