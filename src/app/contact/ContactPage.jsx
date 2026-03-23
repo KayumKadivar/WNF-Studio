@@ -3,7 +3,7 @@ import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { MapPin, Mail, Phone, Loader2, ArrowRight } from "lucide-react";
 
-export default function ContactClient() {
+export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState(null);
   const formRef = useRef(null);

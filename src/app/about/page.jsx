@@ -1,8 +1,4 @@
-import Image from "next/image";
-import { motion } from "framer-motion";
-import PageHero from "@/components/shared/PageHero";
-import SectionHeading from "@/components/shared/SectionHeading";
-import AboutPageClient from "./AboutPageClient";
+import AboutPage from "./AboutPage";
 
 export const metadata = {
   title: "About Us | WNF Studio - Architecture & Interior Design",
@@ -10,6 +6,6 @@ export const metadata = {
     "Learn about WNF Studio's journey, our award-winning team, and our commitment to exceptional architecture and interior design.",
 };
 
-export default function AboutPage() {
-  return <AboutPageClient />;
+export default function Page() {
+  return <AboutPage />;
 }

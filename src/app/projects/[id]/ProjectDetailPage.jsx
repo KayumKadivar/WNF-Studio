@@ -96,8 +96,8 @@ export const AnimatedImage = ({ src, alt, className, priority = false }) => {
   );
 };
 
-// ─── ProjectDetailClient ────────────────────────────────────────────────────
-export default function ProjectDetailClient({ project, allProjects }) {
+// ─── ProjectDetailPage ──────────────────────────────────────────────────────
+export default function ProjectDetailPage({ project, allProjects }) {
   const [selectedIdx, setSelectedIdx] = useState(-1);
   const [direction, setDirection] = useState(0);
 

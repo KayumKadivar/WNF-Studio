@@ -15,7 +15,7 @@ const stats = [
   { value: "5", label: "Team Members" },
 ];
 
-export default function AboutPageClient() {
+export default function AboutPage() {
   return (
     <div className="bg-[#F9F8F6] text-stone-900 min-h-screen font-sans selection:bg-stone-200 selection:text-stone-900">
 

@@ -1,4 +1,4 @@
-import ContactClient from "./ContactClient";
+import ContactPage from "./ContactPage";
 
 export const metadata = {
   title: "Contact Us | WNF Studio - Get in Touch",
@@ -6,6 +6,6 @@ export const metadata = {
     "Ready to start your project? Contact WNF Studio to discuss your architecture and interior design needs.",
 };
 
-export default function ContactPage() {
-  return <ContactClient />;
+export default function Page() {
+  return <ContactPage />;
 }

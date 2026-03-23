@@ -6,7 +6,7 @@ import { projects } from "@/data/projects"; // Apne path ke anusar adjust karein
 
 const categories = ["All", "Architecture", "Interior", "Exhibition Stall"];
 
-export default function ProjectsClient() {
+export default function ProjectsPage() {
   const [activeCategory, setActiveCategory] = useState("All");
   const categoriesToDisplay = activeCategory === "All"
     ? ["Architecture", "Interior", "Exhibition Stall"]

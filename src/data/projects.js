@@ -92,9 +92,9 @@ export const projects = [
     client: "Private Residence",
     mainImage: "/assets/projectimages/architecture/nizamihouse/3dmaq_page-0001.webp",
     gallery: [
-      "/assets/projectimages/architecture/nizamihouse/3dmaq_page-0001.webp",
       "/assets/projectimages/architecture/nizamihouse/3dmaq_page-0002.webp",
       "/assets/projectimages/architecture/nizamihouse/3dmaq_page-0003.webp",
+      "/assets/projectimages/architecture/nizamihouse/3dmaq_page-0001.webp",
     ],
     description: "A compact yet highly expressive residential architectural envelope utilizing robust masonry volumes.",
     challenge: "Optimizing the building footprint within a restricted plot size while meeting extensive residential programming needs.",

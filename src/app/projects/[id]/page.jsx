@@ -1,5 +1,5 @@
 import { projects } from "@/data/projects";
-import ProjectDetailClient from "./ProjectDetailClient";
+import ProjectDetailPage from "./ProjectDetailPage";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
@@ -21,9 +21,9 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default async function ProjectDetailPage({ params }) {
+export default async function Page({ params }) {
   const { id } = await params;
   const project = projects.find((p) => p.id === Number(id));
   if (!project) notFound();
-  return <ProjectDetailClient project={project} allProjects={projects} />;
+  return <ProjectDetailPage project={project} allProjects={projects} />;
 }
