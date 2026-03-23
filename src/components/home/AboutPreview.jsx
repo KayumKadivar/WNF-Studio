@@ -25,7 +25,7 @@ const AboutPreview = () => (
               <div className="relative w-full bg-stone-50 overflow-hidden flex justify-center items-center aspect-[4/5] max-h-[85vh]">
 
                 <img
-                  src="/assets/aboutusimage/founder.png"
+                  src="/assets/aboutusimage/makbul.png"
                   alt="Studio Founder"
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.03]"
                 />

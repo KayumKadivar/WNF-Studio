@@ -57,7 +57,7 @@ export default function AboutPageClient() {
               <div className="bg-white p-3 border border-stone-200 shadow-sm">
                 <div className="relative w-full bg-stone-50 flex justify-center overflow-hidden">
                   <img
-                    src="/assets/aboutusimage/founder.png"
+                    src="/assets/aboutusimage/makbul.png"
                     alt="Our studio"
                     className="w-full h-auto max-h-[70vh] object-contain"
                   />
@@ -143,12 +143,6 @@ export default function AboutPageClient() {
           </div>
         </div>
       </section>
-
-      {/* Note: The 'team' and 'stats' arrays are defined at the top but were not 
-        rendered in your original snippet. You will need to build sections for them 
-        using the same border-stone-200 and font-light patterns established here. 
-      */}
-
     </div>
   );
 }
