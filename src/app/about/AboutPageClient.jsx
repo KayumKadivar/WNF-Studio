@@ -22,18 +22,11 @@ export default function AboutPageClient() {
       {/* 1. HERO SECTION (Inlined to guarantee theme) */}
       <section className="pt-32 pb-20 my-container border-b border-stone-200 bg-white">
         <div className="w-full max-w-7xl mx-auto text-center">
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-[14px] font-mono uppercase tracking-widest text-stone-500 mb-6 block font-medium"
-          >
-            // Our Story
-          </motion.span>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="display-title-responsive"
+            className="display-title-responsive mb-3"
           >
             Crafting Extraordinary Spaces Since 2021
           </motion.h1>

@@ -13,10 +13,7 @@ const ProjectGrid = ({ projects, title, label }) => {
   if (projects.length === 0) return null;
   return (
     <div className="mb-12">
-      <div className="flex flex-col mb-8 border-b border-stone-200 pb-8">
-        <span className="text-[14px] font-mono uppercase tracking-widest text-stone-500 mb-2 block font-medium">
-          // {label}
-        </span>
+      <div className="flex flex-col mb-4">
         <h3 className="text-4xl font-light text-stone-900">
           {title}
         </h3>
@@ -44,20 +41,10 @@ const ProjectGrid = ({ projects, title, label }) => {
                 </div>
               </div>
               <div className="px-2 flex flex-col">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-[12px] font-mono uppercase tracking-widest text-black">
-                    {project.category}
-                  </span>
-                  <ArrowUpRight className="w-4 h-4 text-stone-300 group-hover:text-stone-900 transition-colors duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-                </div>
+
                 <h3 className="text-2xl font-light text-stone-900 group-hover:text-stone-500 transition-colors duration-300">
                   {project.title}
                 </h3>
-                <div className="flex items-center gap-2 mt-2">
-                  <span className="text-[12px] font-mono uppercase text-black tracking-widest">
-                    {project.location}
-                  </span>
-                </div>
               </div>
             </Link>
           </motion.div>
@@ -68,7 +55,7 @@ const ProjectGrid = ({ projects, title, label }) => {
 };
 
 const FeaturedProjects = () => (
-  <section className="py-16 bg-[#F9F8F6] border-b border-stone-200">
+  <section className="py-16 bg-[#F9F8F6]">
     <div className="w-full my-container">
 
       {/* HEADER */}

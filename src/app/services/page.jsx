@@ -26,20 +26,13 @@ export default function ServicesPage() {
       {/* 1. HERO SECTION */}
       <section className="pt-32 pb-20 bg-white border-b border-stone-200">
         <div className="my-container text-center">
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-[14px] font-mono uppercase tracking-widest text-stone-500 mb-6 block font-medium"
-          >
-            // Expertise
-          </motion.span>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
             className="display-title-responsive mb-6"
           >
-            Our Services & Disciplines.
+            Our Services & Disciplines
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}

@@ -19,14 +19,6 @@ export default function ProjectsClient() {
       <section className="pt-32 pb-16 px-6 lg:px-12 bg-white">
         <div className="mx-auto">
           <div className="text-center mb-16">
-            <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              className="text-[14px] font-mono uppercase tracking-widest text-stone-500 mb-4 block font-medium"
-            >
-              // Our Portfolio
-            </motion.span>
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

@@ -13,7 +13,7 @@ const features = [
 ];
 
 const IconStrip = () => (
-  <section className="relative sm:py-5 lg:py-16 overflow-hidden bg-white">
+  <section className="relative sm:py-10 lg:py-16 overflow-hidden bg-white">
     <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-zinc-200 to-transparent" />
 
     <div className="w-full my-container">

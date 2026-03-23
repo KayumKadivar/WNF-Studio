@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 
 const AboutPreview = () => (
   // Maintained the strict English Light Theme
-  <section className="py-16 bg-[#F9F8F6] border-b border-stone-200">
+  <section className="py-16 bg-[#F9F8F6]">
     <div className="w-full my-container">
       {/* Changed to an aligned grid, removing default gap to use precise column starts */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-0 items-center">

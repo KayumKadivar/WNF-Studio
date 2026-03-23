@@ -98,14 +98,6 @@ export default function ProjectDetailClient({ project, allProjects }) {
               animate={{ x: 0, opacity: 1 }}
               className="max-w-5xl"
             >
-              <div className="flex items-center gap-2 mb-4">
-                <Badge className="bg-stone-800 text-stone-100 hover:bg-stone-700 rounded-none px-3 py-1 font-mono text-[14px] uppercase">
-                  Status: Published
-                </Badge>
-                <span className="font-mono text-[14px] text-stone-500 uppercase tracking-tighter">
-                  // {project.category}
-                </span>
-              </div>
               <h1 className="display-title-responsive uppercase">
                 {project.title}
               </h1>
@@ -159,30 +151,11 @@ export default function ProjectDetailClient({ project, allProjects }) {
 
       {/* 3. CORE CONTENT */}
       <section className="py-24 px-6 lg:px-12 border-b border-stone-200">
-        <div className="mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-          <div className="lg:col-span-8">
-            <h2 className="font-mono text-sm font-medium mb-10 flex items-center gap-2 text-stone-500">
-              <Plus className="w-4 h-4 text-stone-400" /> THE_CONCEPT
-            </h2>
+        <div className="max-w-7xl">
+          <div>
             <p className="text-3xl md:text-5xl font-light leading-[1.2] tracking-tight text-balance text-stone-800">
               {project.description}
             </p>
-          </div>
-
-          <div className="lg:col-span-4 sticky top-12">
-            <div className="border border-stone-200 p-8 bg-white">
-              <h3 className="font-medium text-xl uppercase mb-6 border-b border-stone-200 pb-2 text-stone-800">
-                Technical Specs
-              </h3>
-              <ul className="space-y-4 font-mono text-xs text-stone-600 uppercase">
-                {project.features?.map((f, i) => (
-                  <li key={i} className="flex justify-between items-center">
-                    <span className="text-stone-400">MOD_{i + 1}</span>
-                    <span>{f}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
         </div>
       </section>
@@ -252,27 +225,27 @@ export default function ProjectDetailClient({ project, allProjects }) {
       </AnimatePresence>
 
       {/* 5. NAVIGATION */}
-      <section className="flex flex-row h-32 md:h-48 border-t border-stone-200 bg-[#F9F8F6]">
+      <section className="flex flex-row border-t border-stone-200 bg-[#F9F8F6]">
         <Link
           href={prevProject ? `/projects/${prevProject.id}` : "#"}
-          className="group flex-1 flex flex-col justify-center p-4 md:p-12 hover:bg-stone-100 transition-all border-r border-stone-200"
+          className="group flex-1 flex flex-col justify-center px-4 py-8 md:px-12 md:py-10 hover:bg-stone-100 transition-all border-r border-stone-200"
         >
           <span className="font-mono text-[10px] md:text-[14px] text-stone-500 font-medium mb-1 md:mb-2">
             ← PREV
           </span>
-          <h4 className="text-sm md:text-3xl font-light uppercase text-stone-800 line-clamp-1">
+          <h4 className="text-sm md:text-2xl font-light uppercase text-stone-800 line-clamp-1">
             {prevProject?.title || "END"}
           </h4>
         </Link>
 
         <Link
           href={nextProject ? `/projects/${nextProject.id}` : "#"}
-          className="group flex-1 flex flex-col justify-center p-4 md:p-12 hover:bg-stone-100 transition-all text-right"
+          className="group flex-1 flex flex-col justify-center px-4 py-8 md:px-12 md:py-10 hover:bg-stone-100 transition-all text-right"
         >
           <span className="font-mono text-[10px] md:text-[14px] text-stone-500 font-medium mb-1 md:mb-2">
             NEXT →
           </span>
-          <h4 className="text-sm md:text-3xl font-light uppercase text-stone-800 line-clamp-1">
+          <h4 className="text-sm md:text-2xl font-light uppercase text-stone-800 line-clamp-1">
             {nextProject?.title || "END"}
           </h4>
         </Link>
