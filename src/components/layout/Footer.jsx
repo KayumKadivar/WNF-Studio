@@ -31,10 +31,10 @@ const Footer = () => {
           
           {/* Quick Contact (Horizontal alignment saves vertical space) */}
           <div className="flex flex-col sm:flex-row gap-6 sm:gap-12 text-[18px] font-mono uppercase tracking-widest text-stone-300">
-            <a href="mailto:info@wnfdesignstudio.com" className="hover:text-white transition-colors flex items-center gap-2">
+            <a href="mailto:info@wnfdesignstudio.com" title="Send us an email" className="hover:text-white transition-colors flex items-center gap-2">
               info@wnfdesignstudio.com
             </a>
-            <a href="tel:+918530070800" className="hover:text-white transition-colors flex items-center gap-2">
+            <a href="tel:+918530070800" title="Call us" className="hover:text-white transition-colors flex items-center gap-2">
               +91 8530070800
             </a>
           </div>
@@ -67,6 +67,7 @@ const Footer = () => {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`Visit our ${social.label}`}
                 className="hover:text-white transition-colors"
               >
                 {social.label}

@@ -1,4 +1,5 @@
 import ContactPage from "./ContactPage";
+import PageIntroWrapper from "@/components/shared/PageIntroWrapper";
 
 export const metadata = {
   title: "Contact Us | WNF Studio - Get in Touch",
@@ -7,5 +8,9 @@ export const metadata = {
 };
 
 export default function Page() {
-  return <ContactPage />;
+  return (
+    <PageIntroWrapper type="contact">
+      <ContactPage />
+    </PageIntroWrapper>
+  );
 }

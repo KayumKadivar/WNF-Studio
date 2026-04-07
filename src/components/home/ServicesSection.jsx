@@ -41,7 +41,7 @@ const iconVariants = {
 };
 
 const ServicesSection = () => (
-  <section className="section-padding bg-white relative overflow-hidden">
+  <section className="section-padding bg-white relative overflow-hidden" aria-label="Our services">
     {/* Decorative background elements */}
     <div className="absolute inset-0 pointer-events-none overflow-hidden">
       {/* Top-left gradient blob */}

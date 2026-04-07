@@ -28,7 +28,7 @@ const HeroSlider = () => {
   const prevSlide = () => goToSlide((currentSlide - 1 + slides.length) % slides.length);
 
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section className="relative h-screen w-full overflow-hidden" aria-label="Hero slideshow" aria-roledescription="carousel">
       <AnimatePresence mode="wait">
         {slides.map((slide, index) =>
           index === currentSlide && (

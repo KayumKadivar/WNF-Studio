@@ -6,7 +6,7 @@ import { ArrowRight, FolderKanban } from "lucide-react";
 
 const CTASection = () => (
   // Anchored to the #F9F8F6 light theme background
-  <section className="py-24 lg:py-32 px-6 lg:px-12 bg-[#F9F8F6] border-t border-stone-200">
+  <section className="py-24 lg:py-32 px-6 lg:px-12 bg-[#F9F8F6] border-t border-stone-200" aria-label="Start your project">
     <div className="container mx-auto max-w-6xl">
       <motion.div
         initial={{ opacity: 0, y: 30 }}

@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 
 const AboutPreview = () => (
   // Maintained the strict English Light Theme
-  <section className="py-16 bg-[#F9F8F6]">
+  <section className="py-16 bg-[#F9F8F6]" aria-label="About WNF Studio">
     <div className="w-full my-container">
       {/* Changed to an aligned grid, removing default gap to use precise column starts */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-0 items-center">
@@ -26,7 +26,8 @@ const AboutPreview = () => (
 
                 <img
                   src="/assets/aboutusimage/makbul.png"
-                  alt="Studio Founder"
+                  alt="Makbul - Founder of WNF Studio"
+                  loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.03]"
                 />
 

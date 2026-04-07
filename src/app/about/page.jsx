@@ -1,4 +1,5 @@
 import AboutPage from "./AboutPage";
+import PageIntroWrapper from "@/components/shared/PageIntroWrapper";
 
 export const metadata = {
   title: "About Us | WNF Studio - Architecture & Interior Design",
@@ -7,5 +8,9 @@ export const metadata = {
 };
 
 export default function Page() {
-  return <AboutPage />;
+  return (
+    <PageIntroWrapper type="about">
+      <AboutPage />
+    </PageIntroWrapper>
+  );
 }

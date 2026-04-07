@@ -11,15 +11,23 @@ export async function generateMetadata({ params }) {
   const project = projects.find((p) => p.id === Number(id));
   if (!project) return { title: "Project Not Found | WNF Studio" };
   return {
-    title: `${project.title} | WNF Studio`,
+    title: project.title,
     description: project.description?.substring(0, 160) || "WNF Studio architectural project.",
     openGraph: {
       title: `${project.title} | WNF Studio`,
       description: project.description?.substring(0, 160),
       images: [{ url: project.mainImage }],
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: project.title,
+      description: project.description?.substring(0, 160),
+      images: [project.mainImage],
     },
   };
 }
+
 
 export default async function Page({ params }) {
   const { id } = await params;

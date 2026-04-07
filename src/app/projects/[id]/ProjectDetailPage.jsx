@@ -151,6 +151,8 @@ const Lightbox = ({ images, index, onClose, onPrev, onNext, direction }) => {
       transition={{ duration: 0.35 }}
       onClick={onClose}
       className="fixed inset-0 z-[200] bg-black/96 backdrop-blur-md flex items-center justify-center cursor-zoom-out"
+      role="dialog"
+      aria-label="Image lightbox"
     >
       {/* Close */}
       <motion.button
@@ -161,6 +163,7 @@ const Lightbox = ({ images, index, onClose, onPrev, onNext, direction }) => {
         whileHover={{ scale: 1.15, rotate: 90 }}
         onClick={onClose}
         className="absolute top-6 right-6 z-[210] w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:border-white/50 transition-colors cursor-pointer"
+        aria-label="Close lightbox"
       >
         <X size={18} />
       </motion.button>
@@ -176,6 +179,7 @@ const Lightbox = ({ images, index, onClose, onPrev, onNext, direction }) => {
             whileTap={{ scale: 0.95 }}
             onClick={(e) => { e.stopPropagation(); onPrev(); }}
             className="absolute left-4 md:left-8 z-[210] w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white/40 transition-colors cursor-pointer"
+            aria-label="Previous image"
           >
             <ChevronLeft size={22} />
           </motion.button>
@@ -219,6 +223,7 @@ const Lightbox = ({ images, index, onClose, onPrev, onNext, direction }) => {
             whileTap={{ scale: 0.95 }}
             onClick={(e) => { e.stopPropagation(); onNext(); }}
             className="absolute right-4 md:right-8 z-[210] w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white/40 transition-colors cursor-pointer"
+            aria-label="Next image"
           >
             <ChevronRight size={22} />
           </motion.button>
@@ -360,7 +365,7 @@ export default function ProjectDetailPage({ project, allProjects }) {
             >
               <div className="flex items-center gap-2 mb-5">
                 <item.icon className="w-3.5 h-3.5 text-stone-400 group-hover:text-stone-600 transition-colors duration-300" />
-                <span className="text-[11px] font-mono text-stone-400 uppercase tracking-[0.2em]">
+                <span className="text-[13px] font-mono text-stone-400 uppercase tracking-[0.2em]">
                   {item.label}
                 </span>
               </div>
@@ -404,10 +409,10 @@ export default function ProjectDetailPage({ project, allProjects }) {
             transition={{ duration: 0.6 }}
             className="flex items-center justify-between mb-12"
           >
-            <h2 className="font-mono text-[11px] uppercase tracking-[0.3em] text-stone-400">
+            <h2 className="font-mono text-[13px] uppercase tracking-[0.3em] text-stone-400">
               Project Gallery
             </h2>
-            <span className="font-mono text-[11px] text-stone-400 tracking-widest">
+            <span className="font-mono text-[13px] text-stone-400 tracking-widest">
               {gallery.length} Images
             </span>
           </motion.div>
@@ -461,7 +466,7 @@ export default function ProjectDetailPage({ project, allProjects }) {
           <motion.span
             initial={{ x: 0 }}
             whileHover={{ x: -4 }}
-            className="font-mono text-[10px] md:text-[11px] text-stone-400 uppercase tracking-[0.2em] group-hover:text-stone-600 transition-colors"
+            className="font-mono text-[10px] md:text-[16px] text-stone-400 uppercase tracking-[0.2em] group-hover:text-stone-600 transition-colors"
           >
             ← Previous
           </motion.span>
@@ -477,7 +482,7 @@ export default function ProjectDetailPage({ project, allProjects }) {
             }`}
         >
           <motion.span
-            className="font-mono text-[10px] md:text-[11px] text-stone-400 uppercase tracking-[0.2em] group-hover:text-stone-600 transition-colors"
+            className="font-mono text-[10px] md:text-[16px] text-stone-400 uppercase tracking-[0.2em] group-hover:text-stone-600 transition-colors"
           >
             Next →
           </motion.span>

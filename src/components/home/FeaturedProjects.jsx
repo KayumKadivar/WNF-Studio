@@ -26,9 +26,9 @@ const ProjectGrid = ({ projects, title, label }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7, delay: (index % 3) * 0.1 }}
-            className="group cursor-pointer"
+            className="group"
           >
-            <Link href={`/projects/${project.id}`} className="block w-full h-full">
+            <Link href={`/projects/${project.id}`} className="block w-full h-full cursor-pointer">
               <div className="relative bg-white p-3 border border-stone-200 shadow-sm mb-5 overflow-hidden">
                 <div className="relative bg-stone-50 overflow-hidden aspect-[4/3]">
                   <img
@@ -55,7 +55,7 @@ const ProjectGrid = ({ projects, title, label }) => {
 };
 
 const FeaturedProjects = () => (
-  <section className="py-16 bg-[#F9F8F6]">
+  <section className="py-16 bg-[#F9F8F6]" aria-label="Featured projects">
     <div className="w-full my-container">
 
       {/* HEADER */}

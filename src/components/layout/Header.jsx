@@ -85,7 +85,7 @@ const Header = () => {
 
             <div className="flex items-center gap-10">
               {/* Desktop Navigation */}
-              <nav className="hidden lg:flex items-center gap-10">
+              <nav className="hidden lg:flex items-center gap-10" aria-label="Main navigation">
                 {navLinks.map((link) => (
                   <Link
                     key={link.name}
@@ -136,7 +136,7 @@ const Header = () => {
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-40 bg-background pt-24"
           >
-            <nav className="flex flex-col items-center justify-center h-full gap-8">
+            <nav className="flex flex-col items-center justify-center h-full gap-8" aria-label="Mobile navigation">
               {navLinks.map((link, index) => (
                 <motion.div
                   key={link.name}
