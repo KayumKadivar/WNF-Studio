@@ -45,9 +45,9 @@ const ServicesSection = () => (
     {/* Decorative background elements */}
     <div className="absolute inset-0 pointer-events-none overflow-hidden">
       {/* Top-left gradient blob */}
-      <div className="absolute -top-32 -left-32 w-96 h-96 bg-gradient-to-br from-amber-100/20 to-transparent rounded-full blur-3xl" />
+      <div className="absolute top-32 left-32 w-96 h-96 bg-gradient-to-br from-amber-100/20 to-transparent rounded-full blur-3xl" />
       {/* Bottom-right gradient blob */}
-      <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-gradient-to-tl from-amber-50/10 to-transparent rounded-full blur-3xl" />
+      <div className="absolute bottom-32 right-32 w-96 h-96 bg-gradient-to-tl from-amber-50/10 to-transparent rounded-full blur-3xl" />
     </div>
 
     {/* Subtle background icons */}
@@ -58,7 +58,7 @@ const ServicesSection = () => (
       <LayoutGrid className="w-32 h-32 text-zinc-600" strokeWidth={0.8} />
     </div>
 
-    <div className="container mx-auto px-6 lg:px-12 relative z-10">
+    <div className="my-container relative z-10">
       {/* Header block */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}

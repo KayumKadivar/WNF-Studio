@@ -52,7 +52,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* PERFECT UNIFORM GRID */}
-      <section className="p-10 md-p-6">
+      <section className="px-10 md:px-8 py-18 md:py-12  ">
         <div className=" mx-auto">
           <AnimatePresence mode="wait">
             <motion.div

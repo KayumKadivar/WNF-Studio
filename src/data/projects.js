@@ -90,7 +90,7 @@ export const projects = [
     year: "2022",
     size: "3,200 sq ft",
     client: "Private Residence",
-    mainImage: "/assets/projectimages/architecture/nizamihouse/3dmaq_page-0001.webp",
+    mainImage: "/assets/projectimages/architecture/nizamihouse/3dmaq_page-0003.webp",
     gallery: [
       "/assets/projectimages/architecture/nizamihouse/3dmaq_page-0002.webp",
       "/assets/projectimages/architecture/nizamihouse/3dmaq_page-0003.webp",
@@ -109,7 +109,7 @@ export const projects = [
     year: "2024",
     size: "4,000 sq ft",
     client: "Private Residence",
-    mainImage: "/assets/projectimages/architecture/parasarahouse/m3.webp",
+    mainImage: "/assets/projectimages/architecture/parasarahouse/m2.webp",
     gallery: [
       "/assets/projectimages/architecture/parasarahouse/m2.webp",
       "/assets/projectimages/architecture/parasarahouse/m3.webp",
@@ -128,7 +128,7 @@ export const projects = [
     year: "2023",
     size: "25,000 sq ft",
     client: "Fabcon Industries",
-    mainImage: "/assets/projectimages/architecture/fabconfactory/M2.webp",
+    mainImage: "/assets/projectimages/architecture/fabconfactory/M3.webp",
     gallery: [
       "/assets/projectimages/architecture/fabconfactory/M2.webp",
       "/assets/projectimages/architecture/fabconfactory/M3.webp",

@@ -18,7 +18,7 @@ const ProjectGrid = ({ projects, title, label }) => {
           {title}
         </h3>
       </div>
-      <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {projects.map((project, index) => (
           <motion.div
             key={project.id}
@@ -26,16 +26,16 @@ const ProjectGrid = ({ projects, title, label }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7, delay: (index % 3) * 0.1 }}
-            className="break-inside-avoid group cursor-pointer"
+            className="group cursor-pointer"
           >
             <Link href={`/projects/${project.id}`} className="block w-full h-full">
               <div className="relative bg-white p-3 border border-stone-200 shadow-sm mb-5 overflow-hidden">
-                <div className="relative bg-stone-50 overflow-hidden">
+                <div className="relative bg-stone-50 overflow-hidden aspect-[4/3]">
                   <img
                     src={project.mainImage}
                     alt={project.title}
                     loading="lazy"
-                    className="w-full h-auto object-contain transition-transform duration-1000 group-hover:scale-[1.03]"
+                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.03]"
                   />
                   <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-black/5 transition-colors duration-500 pointer-events-none" />
                 </div>
