@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
@@ -24,11 +25,12 @@ const AboutPreview = () => (
 
               <div className="relative w-full bg-stone-50 overflow-hidden flex justify-center items-center aspect-[4/5] max-h-[85vh]">
 
-                <img
+                <Image
                   src="/assets/aboutusimage/makbul.png"
                   alt="Makbul - Founder of WNF Studio"
-                  loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.03]"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover transition-transform duration-1000 group-hover:scale-[1.03]"
                 />
 
                 <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-900/10 transition-colors duration-700 pointer-events-none" />

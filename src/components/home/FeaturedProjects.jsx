@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { projects } from "@/data/projects";
@@ -31,11 +32,12 @@ const ProjectGrid = ({ projects, title, label }) => {
             <Link href={`/projects/${project.id}`} className="block w-full h-full cursor-pointer">
               <div className="relative bg-white p-3 border border-stone-200 shadow-sm mb-5 overflow-hidden">
                 <div className="relative bg-stone-50 overflow-hidden aspect-[4/3]">
-                  <img
+                  <Image
                     src={project.mainImage}
                     alt={project.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.03]"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-1000 group-hover:scale-[1.03]"
                   />
                   <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-black/5 transition-colors duration-500 pointer-events-none" />
                 </div>

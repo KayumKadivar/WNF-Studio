@@ -43,6 +43,9 @@ const ImageCard = ({ src, alt, onClick, className = "", index = 0 }) => {
       transition={{ delay: index * 0.07, duration: 0.85, ease: EASE_SMOOTH }}
       whileHover={{ y: -6, transition: { duration: 0.4, ease: EASE_EXPO_OUT } }}
       onClick={onClick}
+      onKeyDown={(e) => { if (e.key === 'Enter') onClick(); }}
+      role="button"
+      tabIndex={0}
       className={`relative cursor-zoom-in overflow-hidden border border-stone-200 bg-stone-100 group ${className}`}
     >
       <AnimatePresence>{!loaded && !error && <ShimmerSkeleton />}</AnimatePresence>
@@ -95,6 +98,9 @@ const HeroImage = ({ src, alt, onClick }) => {
       animate={{ opacity: 1, scale: 1 }}
       transition={{ delay: 0.25, duration: 1.1, ease: EASE_SMOOTH }}
       onClick={onClick}
+      onKeyDown={(e) => { if (e.key === 'Enter') onClick(); }}
+      role="button"
+      tabIndex={0}
       className="relative w-full overflow-hidden border border-stone-200 cursor-zoom-in group"
     >
       <AnimatePresence>{!loaded && <ShimmerSkeleton />}</AnimatePresence>
