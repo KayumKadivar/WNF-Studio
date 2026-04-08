@@ -26,10 +26,10 @@ const LogoIntro5 = ({ onComplete }) => {
           onComplete: () => {
             setTimeout(() => {
               if (!cancelled) setFadeOut(true);
-            }, 600);
+            }, 500);
             setTimeout(() => {
               if (!cancelled) onComplete?.();
-            }, 1100);
+            }, 900);
           },
         });
 
@@ -52,28 +52,14 @@ const LogoIntro5 = ({ onComplete }) => {
           ease: "power2.out"
         }, 0.2);
 
-        // 2. Spotlight sweeps to "n"
-        tl.to(clipLayer, {
-          clipPath: "circle(18% at 50% 50%)",
-          duration: 0.6,
-          ease: "power1.inOut"
-        });
-
-        // 3. Spotlight sweeps to "F"
+        // 2. Spotlight sweeps directly to "F"
         tl.to(clipLayer, {
           clipPath: "circle(18% at 75% 50%)",
-          duration: 0.6,
+          duration: 1.0,
           ease: "power1.inOut"
         });
 
-        // 4. Spotlight sweeps back to center "n"
-        tl.to(clipLayer, {
-          clipPath: "circle(18% at 50% 50%)",
-          duration: 0.5,
-          ease: "power1.inOut"
-        });
-
-        // 5. Spotlight EXPLODES to fill the entire screen (revealing white bg)
+        // 3. Spotlight EXPLODES to fill the entire screen (revealing white bg)
         tl.to(clipLayer, {
           clipPath: "circle(150% at 50% 50%)",
           duration: 1.2,
@@ -90,7 +76,7 @@ const LogoIntro5 = ({ onComplete }) => {
           });
 
           tl.to(path, { opacity: 1, scale: 1, duration: 0.2 }, "-=0.6");
-          tl.to(path, { strokeDashoffset: 0, duration: 1.5, ease: "power2.inOut" }, "-=0.4");
+          tl.to(path, { strokeDashoffset: 0, duration: 1.2, ease: "power2.inOut" }, "-=0.4");
         });
 
         tl.to([studioText, taglineText], {
@@ -99,7 +85,7 @@ const LogoIntro5 = ({ onComplete }) => {
           duration: 0.8,
           ease: "power2.out",
           stagger: 0.1
-        }, "-=1.0");
+        }, "-=0.8");
 
       }, containerRef);
 
@@ -119,7 +105,7 @@ const LogoIntro5 = ({ onComplete }) => {
 
     return (
       <div className={`absolute inset-0 flex items-center justify-center ${bgColor}`}>
-        <div className="relative w-[260px] md:w-[340px]">
+        <div className="relative w-[280px] md:w-[340px]">
           {/* ── SVG Frame: Back ── */}
           <svg
             className="frame-svg-back absolute -top-5 -right-5 w-[calc(100%+40px)] h-[calc(100%+40px)] pointer-events-none"

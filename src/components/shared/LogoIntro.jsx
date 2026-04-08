@@ -138,7 +138,7 @@ const LogoIntro = ({ onComplete }) => {
       className={`fixed inset-0 z-50 bg-white flex items-center justify-center transition-opacity duration-500 ${fadeOut ? "opacity-0" : "opacity-100"}`}
       aria-hidden="true"
     >
-      <div className="relative w-[260px] md:w-[340px]">
+      <div className="relative w-[280px] md:w-[340px]">
         {/* ── SVG Frame: Back (offset top-right) ── */}
         <svg
           className="absolute -top-5 -right-5 w-[calc(100%+40px)] h-[calc(100%+40px)] pointer-events-none"
