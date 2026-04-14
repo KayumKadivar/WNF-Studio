@@ -1,37 +1,58 @@
 "use client";
-import { useState } from "react";
-import dynamic from "next/dynamic";
-
-const Intros = {
-  home: dynamic(() => import("@/components/shared/LogoIntro5"), { ssr: false }),
-  about: dynamic(() => import("@/components/shared/LogoIntro"), { ssr: false }),
-  projects: dynamic(() => import("@/components/shared/LogoIntro2"), { ssr: false }),
-  services: dynamic(() => import("@/components/shared/LogoIntro6"), { ssr: false }),
-  contact: dynamic(() => import("@/components/shared/LogoIntro4"), { ssr: false }),
-};
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function PageIntroWrapper({ type, children }) {
-  const [showIntro, setShowIntro] = useState(true);
-  const [introComplete, setIntroComplete] = useState(false);
+  const [showIntro, setShowIntro] = useState(type === "home");
+  const [isLoaded, setIsLoaded] = useState(false);
 
-  const IntroComponent = Intros[type];
+  useEffect(() => {
+    if (type === "home") {
+      const timer = setTimeout(() => {
+        setShowIntro(false);
+        setIsLoaded(true);
+      }, 2500); // Show intro for 2.5 seconds
+      return () => clearTimeout(timer);
+    } else {
+      setIsLoaded(true);
+    }
+  }, [type]);
 
-  // If no matching intro type exists, just render children directly
-  if (!IntroComponent) {
+  if (type !== "home") {
     return <>{children}</>;
   }
 
-  const handleIntroComplete = () => {
-    setShowIntro(false);
-    setIntroComplete(true);
-  };
-
   return (
     <>
-      {showIntro && <IntroComponent onComplete={handleIntroComplete} />}
+      <AnimatePresence>
+        {showIntro && (
+          <motion.div
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            className="fixed inset-0 z-100 bg-white flex items-center justify-center"
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+            >
+              <Image
+                src="/assets/logo/animatedlogo.png"
+                alt="WNF Studio"
+                width={300}
+                height={150}
+                className="w-auto h-32 md:h-48 object-contain"
+                priority
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       <div
-        className="transition-opacity duration-500 ease-out"
-        style={{ opacity: introComplete ? 1 : 0 }}
+        className="transition-opacity duration-1000 ease-in-out"
+        style={{ opacity: isLoaded ? 1 : 0 }}
       >
         {children}
       </div>

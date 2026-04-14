@@ -1,18 +1,15 @@
 "use client";
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { MapPin, Calendar, Ruler, Building, X, ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react";
 
-// ─── Easing Curves ───────────────────────────────────────────────────────────
 const EASE_SMOOTH = [0.22, 1, 0.36, 1];
-const EASE_SPRING = { type: "spring", stiffness: 300, damping: 30 };
-const EASE_EXPO_OUT = [0.16, 1, 0.3, 1];
 
 // ─── Shimmer Skeleton ────────────────────────────────────────────────────────
 const ShimmerSkeleton = () => (
   <motion.div
-    className="absolute inset-0 bg-stone-200 overflow-hidden rounded-sm"
+    className="absolute inset-0 bg-stone-200 overflow-hidden"
     initial={{ opacity: 1 }}
     exit={{ opacity: 0 }}
     transition={{ duration: 0.4 }}
@@ -20,7 +17,8 @@ const ShimmerSkeleton = () => (
     <motion.div
       className="absolute inset-0"
       style={{
-        background: "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.6) 50%, transparent 100%)",
+        background:
+          "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.6) 50%, transparent 100%)",
         backgroundSize: "200% 100%",
       }}
       animate={{ backgroundPosition: ["200% 0", "-200% 0"] }}
@@ -29,21 +27,20 @@ const ShimmerSkeleton = () => (
   </motion.div>
 );
 
-// ─── Square/Uniform Image Card ───────────────────────────────────────────────
-// All gallery images rendered in a fixed aspect ratio box — NO layout shift
+// ─── Gallery Image Card ───────────────────────────────────────────────────────
 const ImageCard = ({ src, alt, onClick, className = "", index = 0 }) => {
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40, scale: 0.97 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ delay: index * 0.07, duration: 0.85, ease: EASE_SMOOTH }}
-      whileHover={{ y: -6, transition: { duration: 0.4, ease: EASE_EXPO_OUT } }}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ delay: index * 0.06, duration: 0.7, ease: EASE_SMOOTH }}
+      whileHover={{ y: -4, transition: { duration: 0.35 } }}
       onClick={onClick}
-      onKeyDown={(e) => { if (e.key === 'Enter') onClick(); }}
+      onKeyDown={(e) => e.key === "Enter" && onClick()}
       role="button"
       tabIndex={0}
       className={`relative cursor-zoom-in overflow-hidden border border-stone-200 bg-stone-100 group ${className}`}
@@ -52,14 +49,15 @@ const ImageCard = ({ src, alt, onClick, className = "", index = 0 }) => {
 
       {!error ? (
         <motion.img
+          ref={(el) => { if (el?.complete) setLoaded(true); }}
           src={src}
           alt={alt}
           onLoad={() => setLoaded(true)}
           onError={() => { setError(true); setLoaded(true); }}
-          initial={{ opacity: 0, scale: 1.06 }}
-          animate={loaded ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.06 }}
-          transition={{ duration: 0.7, ease: EASE_SMOOTH }}
-          className="w-full h-auto transition-transform duration-700 ease-out"
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={loaded ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.05 }}
+          transition={{ duration: 0.6, ease: EASE_SMOOTH }}
+          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
         />
       ) : (
         <div className="w-full h-full flex items-center justify-center text-stone-400 text-sm">
@@ -68,59 +66,49 @@ const ImageCard = ({ src, alt, onClick, className = "", index = 0 }) => {
       )}
 
       {/* Hover overlay */}
-      <motion.div
-        className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 flex items-center justify-center"
-        aria-hidden
-      >
-        <motion.div
-          initial={{ opacity: 0, scale: 0.7 }}
-          whileHover={{ opacity: 1, scale: 1 }}
-          className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        >
+      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 flex items-center justify-center">
+        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-75 group-hover:scale-100 transform">
           <div className="w-10 h-10 rounded-full border border-white/80 flex items-center justify-center">
             <ArrowUpRight className="w-4 h-4 text-white" />
           </div>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </motion.div>
   );
 };
 
-// ─── Hero Image (full-width, fixed height) ───────────────────────────────────
+// ─── Hero Image ───────────────────────────────────────────────────────────────
 const HeroImage = ({ src, alt, onClick }) => {
   const [loaded, setLoaded] = useState(false);
-  const ref = useRef(null);
 
   return (
     <motion.div
-      ref={ref}
       initial={{ opacity: 0, scale: 0.98 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ delay: 0.25, duration: 1.1, ease: EASE_SMOOTH }}
+      transition={{ delay: 0.2, duration: 1, ease: EASE_SMOOTH }}
       onClick={onClick}
-      onKeyDown={(e) => { if (e.key === 'Enter') onClick(); }}
+      onKeyDown={(e) => e.key === "Enter" && onClick()}
       role="button"
       tabIndex={0}
       className="relative w-full overflow-hidden border border-stone-200 cursor-zoom-in group"
     >
       <AnimatePresence>{!loaded && <ShimmerSkeleton />}</AnimatePresence>
       <motion.img
+        ref={(el) => { if (el?.complete) setLoaded(true); }}
         src={src}
         alt={alt}
         onLoad={() => setLoaded(true)}
         initial={{ opacity: 0 }}
         animate={loaded ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ duration: 0.8, ease: EASE_SMOOTH }}
+        transition={{ duration: 0.8 }}
         className="w-full h-auto group-hover:scale-[1.03] transition-transform duration-1000 ease-out"
       />
-      {/* Bottom gradient */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F9F8F6]/60 to-transparent pointer-events-none" />
-      {/* Zoom hint */}
+      <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#F9F8F6]/60 to-transparent pointer-events-none" />
       <motion.div
-        initial={{ opacity: 0, y: 10 }}
+        initial={{ opacity: 0, y: 8 }}
         animate={loaded ? { opacity: 1, y: 0 } : {}}
-        transition={{ delay: 1.2, duration: 0.6 }}
-        className="absolute bottom-6 right-6 font-mono text-[10px] tracking-[0.2em] text-stone-500 uppercase bg-white/80 backdrop-blur-sm px-3 py-1.5 border border-stone-200"
+        transition={{ delay: 1, duration: 0.5 }}
+        className="absolute bottom-5 right-5 font-mono text-[10px] tracking-[0.18em] uppercase text-stone-500 bg-white/80 backdrop-blur-sm px-3 py-1.5 border border-stone-200"
       >
         Click to expand
       </motion.div>
@@ -128,137 +116,152 @@ const HeroImage = ({ src, alt, onClick }) => {
   );
 };
 
-// ─── Lightbox ────────────────────────────────────────────────────────────────
-const slideVariants = {
-  enter: (dir) => ({
-    x: dir > 0 ? "100%" : "-100%",
-    opacity: 0,
-  }),
-  center: {
-    x: 0,
-    opacity: 1,
-  },
-  exit: (dir) => ({
-    x: dir > 0 ? "-100%" : "100%",
-    opacity: 0,
-  }),
-};
-
+// ─── Lightbox ─────────────────────────────────────────────────────────────────
 const Lightbox = ({ images, index, onClose, onPrev, onNext, direction }) => {
+  const [imgLoaded, setImgLoaded] = useState(false);
   const canPrev = index > 0;
   const canNext = index < images.length - 1;
 
+  useEffect(() => {
+    setImgLoaded(false);
+  }, [index]);
+
+  const slideVariants = {
+    enter: (dir) => ({ x: dir > 0 ? "60%" : "-60%", opacity: 0, scale: 0.96 }),
+    center: { x: 0, opacity: 1, scale: 1 },
+    exit: (dir) => ({ x: dir > 0 ? "-60%" : "60%", opacity: 0, scale: 0.96 }),
+  };
+
   return (
     <motion.div
-      key="lightbox-backdrop"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.35 }}
+      transition={{ duration: 0.3 }}
+      className="fixed inset-0 z-[200] bg-black/97 backdrop-blur-sm flex items-center justify-center"
       onClick={onClose}
-      className="fixed inset-0 z-[200] bg-black/96 backdrop-blur-md flex items-center justify-center cursor-zoom-out"
       role="dialog"
+      aria-modal="true"
       aria-label="Image lightbox"
     >
-      {/* Close */}
+      {/* Close button */}
       <motion.button
-        initial={{ opacity: 0, scale: 0.6, rotate: -45 }}
+        initial={{ opacity: 0, scale: 0.7, rotate: -45 }}
         animate={{ opacity: 1, scale: 1, rotate: 0 }}
-        exit={{ opacity: 0, scale: 0.6 }}
-        transition={{ delay: 0.30, duration: 0.9, ease: EASE_SMOOTH }}
-        whileHover={{ scale: 1.15, rotate: 90 }}
+        transition={{ delay: 0.2, duration: 0.5 }}
+        whileHover={{ scale: 1.1, rotate: 90 }}
         onClick={onClose}
-        className="absolute top-6 right-6 z-[210] w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:border-white/50 transition-colors cursor-pointer"
-        aria-label="Close lightbox"
+        className="absolute top-5 right-5 z-[210] w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white/50 transition-colors cursor-pointer"
+        aria-label="Close"
       >
-        <X size={18} />
+        <X size={17} />
       </motion.button>
 
-      {/* Prev */}
+      {/* Prev arrow */}
       <AnimatePresence>
         {canPrev && (
           <motion.button
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -16 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
+            exit={{ opacity: 0, x: -16 }}
             whileHover={{ scale: 1.1, x: -3 }}
             whileTap={{ scale: 0.95 }}
             onClick={(e) => { e.stopPropagation(); onPrev(); }}
-            className="absolute left-4 md:left-8 z-[210] w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white/40 transition-colors cursor-pointer"
+            className="absolute left-3 md:left-6 z-[210] w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white/50 transition-colors cursor-pointer"
             aria-label="Previous image"
           >
-            <ChevronLeft size={22} />
+            <ChevronLeft size={24} />
           </motion.button>
         )}
       </AnimatePresence>
 
-      {/* Image area */}
+      {/* Image container — full screen */}
       <div
-        className="relative w-full max-w-7xl h-[95vh] flex items-center justify-center px-20 md:px-28 overflow-hidden"
+        className="relative w-full h-full flex items-center justify-center px-16 md:px-24 py-16 overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
-        <AnimatePresence initial={false} custom={direction} mode="wait">
-          <motion.img
+        <AnimatePresence custom={direction} mode="wait">
+          <motion.div
             key={index}
             custom={direction}
             variants={slideVariants}
             initial="enter"
             animate="center"
             exit="exit"
-            transition={{
-              x: { type: "tween", duration: 0.6, ease: [0.25, 1, 0.5, 1] },
-              opacity: { duration: 0.4 },
-            }}
-            src={images[index]}
-            alt={`Image ${index + 1}`}
-            className="max-w-full max-h-[78vh] object-contain shadow-2xl bg-white/5 p-1"
-            style={{ borderRadius: 2 }}
-            draggable={false}
-          />
+            transition={{ duration: 0.45, ease: [0.25, 1, 0.5, 1] }}
+            className="flex items-center justify-center w-full h-full"
+          >
+            {!imgLoaded && (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+                  className="w-8 h-8 rounded-full border-2 border-white/10 border-t-white/60"
+                />
+              </div>
+            )}
+            <img
+              src={images[index]}
+              alt={`Image ${index + 1}`}
+              onLoad={() => setImgLoaded(true)}
+              className="max-w-full max-h-[85vh] w-auto h-auto object-contain select-none"
+              style={{
+                opacity: imgLoaded ? 1 : 0,
+                transition: "opacity 0.4s ease",
+                borderRadius: 2,
+              }}
+              draggable={false}
+            />
+          </motion.div>
         </AnimatePresence>
       </div>
 
-      {/* Next */}
+      {/* Next arrow */}
       <AnimatePresence>
         {canNext && (
           <motion.button
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: 16 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 20 }}
+            exit={{ opacity: 0, x: 16 }}
             whileHover={{ scale: 1.1, x: 3 }}
             whileTap={{ scale: 0.95 }}
             onClick={(e) => { e.stopPropagation(); onNext(); }}
-            className="absolute right-4 md:right-8 z-[210] w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white/40 transition-colors cursor-pointer"
+            className="absolute right-3 md:right-6 z-[210] w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white/50 transition-colors cursor-pointer"
             aria-label="Next image"
           >
-            <ChevronRight size={22} />
+            <ChevronRight size={24} />
           </motion.button>
         )}
       </AnimatePresence>
 
-      {/* Counter + dots */}
+      {/* Dots + counter */}
       {images.length > 1 && (
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 12 }}
-          transition={{ delay: 0.2 }}
-          className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
+          exit={{ opacity: 0, y: 10 }}
+          transition={{ delay: 0.15 }}
+          className="absolute bottom-5 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2.5"
         >
-          <div className="flex gap-1.5">
+          <div className="flex gap-1.5 items-center">
             {images.map((_, i) => (
-              <motion.div
+              <motion.button
                 key={i}
+                onClick={(e) => { e.stopPropagation(); /* jump to i */ }}
                 animate={{
-                  width: i === index ? 24 : 6,
-                  backgroundColor: i === index ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.25)",
+                  width: i === index ? 22 : 6,
+                  backgroundColor:
+                    i === index
+                      ? "rgba(255,255,255,0.9)"
+                      : "rgba(255,255,255,0.22)",
                 }}
-                transition={{ duration: 0.35, ease: EASE_SMOOTH }}
-                className="h-1.5 rounded-full"
+                transition={{ duration: 0.3, ease: EASE_SMOOTH }}
+                className="h-1.5 rounded-full cursor-pointer border-0 p-0"
+                aria-label={`Go to image ${i + 1}`}
               />
             ))}
           </div>
-          <span className="font-mono text-[10px] tracking-[0.3em] text-white/30">
+          <span className="font-mono text-[10px] tracking-[0.28em] text-white/30">
             {index + 1} / {images.length}
           </span>
         </motion.div>
@@ -267,7 +270,7 @@ const Lightbox = ({ images, index, onClose, onPrev, onNext, direction }) => {
   );
 };
 
-// ─── Main Page ───────────────────────────────────────────────────────────────
+// ─── Main Page ────────────────────────────────────────────────────────────────
 export default function ProjectDetailPage({ project, allProjects }) {
   const [lightboxIdx, setLightboxIdx] = useState(-1);
   const [direction, setDirection] = useState(0);
@@ -276,7 +279,9 @@ export default function ProjectDetailPage({ project, allProjects }) {
   const prevProject = allProjects?.[currentIndex - 1];
   const nextProject = allProjects?.[currentIndex + 1];
 
+  // All images: hero first, then gallery
   const allImages = [project.mainImage, ...(project.gallery || [])].filter(Boolean);
+  const gallery = project.gallery || [];
 
   const openAt = useCallback((i) => {
     setDirection(0);
@@ -295,7 +300,7 @@ export default function ProjectDetailPage({ project, allProjects }) {
     setLightboxIdx((p) => Math.min(allImages.length - 1, p + 1));
   }, [allImages.length]);
 
-  // Keyboard nav
+  // Keyboard navigation
   useEffect(() => {
     const onKey = (e) => {
       if (lightboxIdx < 0) return;
@@ -307,40 +312,35 @@ export default function ProjectDetailPage({ project, allProjects }) {
     return () => window.removeEventListener("keydown", onKey);
   }, [lightboxIdx, goPrev, goNext, closeLight]);
 
-  // Body scroll lock
+  // Body scroll lock when lightbox is open
   useEffect(() => {
     document.body.style.overflow = lightboxIdx >= 0 ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [lightboxIdx]);
 
-  const dataItems = [
+  const metaItems = [
     { icon: MapPin, label: "Location", value: project.location },
     { icon: Calendar, label: "Timeline", value: project.year },
     { icon: Ruler, label: "Dimensions", value: project.size },
     { icon: Building, label: "Partner", value: project.client },
   ];
 
-  // ── Gallery layout: first image wide, rest 2-col grid ────────────────────
-  const gallery = project.gallery || [];
-
   return (
     <div className="bg-[#F9F8F6] text-stone-900 min-h-screen font-sans selection:bg-stone-200">
 
-      {/* ══ HERO ══ */}
+      {/* ── HERO ── */}
       <section className="pt-28 pb-0 px-6 lg:px-12">
-        {/* Title */}
         <div className="overflow-hidden mb-8">
           <motion.h1
             initial={{ y: "110%", opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1, ease: EASE_SMOOTH }}
-            className="text-[clamp(2.5rem,8vw,7rem)] font-light uppercase tracking-tight leading-none text-stone-900"
+            transition={{ duration: 0.9, ease: EASE_SMOOTH }}
+            className="text-[clamp(2rem,7vw,4rem)] font-light uppercase tracking-tight leading-none text-stone-900"
           >
             {project.title}
           </motion.h1>
         </div>
 
-        {/* Hero Image */}
         <HeroImage
           src={project.mainImage}
           alt={project.title}
@@ -348,34 +348,34 @@ export default function ProjectDetailPage({ project, allProjects }) {
         />
       </section>
 
-      {/* ══ DATA GRID ══ */}
-      <section className="px-6 lg:px-12 py-16 bg-white border-y border-stone-200">
+      {/* ── META GRID ── */}
+      <section className="px-6 lg:px-12 py-0 bg-white border-y border-stone-200 mt-8">
         <motion.div
           className="grid grid-cols-2 md:grid-cols-4"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
+          viewport={{ once: true, margin: "-40px" }}
           variants={{
             hidden: {},
-            visible: { transition: { staggerChildren: 0.1, delayChildren: 0.1 } },
+            visible: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
           }}
         >
-          {dataItems.map((item, i) => (
+          {metaItems.map((item, i) => (
             <motion.div
               key={i}
               variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE_SMOOTH } },
+                hidden: { opacity: 0, y: 16 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE_SMOOTH } },
               }}
-              className="p-8 border-stone-200 border-r last:border-r-0 border-b md:border-b-0 hover:bg-stone-50 transition-colors duration-400 group"
+              className="p-6 md:p-8 border-stone-200 border-r last:border-r-0 border-b md:border-b-0 hover:bg-stone-50 transition-colors duration-300 group"
             >
-              <div className="flex items-center gap-2 mb-5">
-                <item.icon className="w-3.5 h-3.5 text-stone-400 group-hover:text-stone-600 transition-colors duration-300" />
-                <span className="text-[13px] font-mono text-stone-400 uppercase tracking-[0.2em]">
+              <div className="flex items-center gap-2 mb-4">
+                <item.icon className="w-3 h-3 text-stone-400 group-hover:text-stone-600 transition-colors duration-200" />
+                <span className="text-[11px] font-mono text-stone-400 uppercase tracking-[0.2em]">
                   {item.label}
                 </span>
               </div>
-              <p className="text-lg md:text-xl font-medium uppercase text-stone-800 truncate">
+              <p className="text-base md:text-lg font-medium uppercase text-stone-800 truncate">
                 {item.value || "—"}
               </p>
             </motion.div>
@@ -383,65 +383,62 @@ export default function ProjectDetailPage({ project, allProjects }) {
         </motion.div>
       </section>
 
-      {/* ══ DESCRIPTION ══ */}
-      <section className="py-24 px-6 lg:px-12 border-b border-stone-200">
-        <div className="max-w-5xl">
-          <motion.div
-            initial={{ opacity: 0, x: -4 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="w-8 h-[2px] bg-stone-400 mb-10"
-          />
+      {/* ── DESCRIPTION ── */}
+      <section className="py-14 px-6 lg:px-12 border-b border-stone-200">
+        <div className="max-w-4xl">
           <motion.p
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 1, ease: EASE_SMOOTH, delay: 0.1 }}
-            className="text-[clamp(1.4rem,3vw,2.8rem)] font-light leading-[1.3] tracking-tight text-stone-700"
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.9, ease: EASE_SMOOTH }}
+            className="text-[clamp(1.3rem,3vw,2.4rem)] font-light leading-[1.35] tracking-tight text-stone-600"
           >
             {project.description}
           </motion.p>
         </div>
       </section>
 
-      {/* ══ GALLERY ══ */}
+      {/* ── GALLERY ── */}
       {gallery.length > 0 && (
-        <section className="py-20 px-6 lg:px-12 bg-stone-50 border-b border-stone-200">
+        <section className="py-16 px-6 lg:px-12 bg-stone-50 border-b border-stone-200">
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="flex items-center justify-between mb-12"
+            transition={{ duration: 0.5 }}
+            className="flex items-center justify-between mb-10"
           >
-            <h2 className="font-mono text-[13px] uppercase tracking-[0.3em] text-stone-400">
+            <h2 className="font-mono text-[11px] uppercase tracking-[0.28em] text-stone-400">
               Project Gallery
             </h2>
-            <span className="font-mono text-[13px] text-stone-400 tracking-widest">
+            <span className="font-mono text-[11px] text-stone-400 tracking-widest">
               {gallery.length} Images
             </span>
           </motion.div>
 
-          {/* ── Uniform 2-column grid – all images same aspect ratio 4/3 ── */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
-            {/* If first image is alone (odd count), make it full-width */}
-            {gallery.map((img, i) => (
-              <ImageCard
-                key={i}
-                src={img}
-                alt={`Gallery ${i + 1}`}
-                index={i}
-                onClick={() => openAt(i + 1)}
-                /* Full-width if first item AND odd total */
-                className={i === 0 && gallery.length % 2 !== 0 ? "md:col-span-2" : ""}
-              />
-            ))}
+   
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-5">
+            {gallery.map((img, i) => {
+              const isWide = i === 0 && gallery.length % 2 !== 0;
+              return (
+                <ImageCard
+                  key={i}
+                  src={img}
+                  alt={`Gallery image ${i + 1}`}
+                  index={i}
+                  onClick={() => openAt(i + 1)} // +1 because index 0 = hero
+                  className={`
+                    ${isWide ? "md:col-span-2" : ""}
+                    ${isWide ? "aspect-[21/9]" : "aspect-[4/3]"}
+                  `}
+                />
+              );
+            })}
           </div>
         </section>
       )}
 
-      {/* ══ LIGHTBOX ══ */}
+      {/* ── LIGHTBOX ── */}
       <AnimatePresence>
         {lightboxIdx >= 0 && (
           <Lightbox
@@ -455,44 +452,42 @@ export default function ProjectDetailPage({ project, allProjects }) {
         )}
       </AnimatePresence>
 
-      {/* ══ PROJECT NAVIGATION ══ */}
+      {/* ── PROJECT NAV ── */}
       <motion.section
         className="flex border-t border-stone-200 bg-[#F9F8F6]"
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.8, ease: EASE_SMOOTH }}
+        transition={{ duration: 0.7, ease: EASE_SMOOTH }}
       >
-        {/* Prev */}
         <Link
           href={prevProject ? `/projects/${prevProject.id}` : "#"}
-          className={`group flex-1 flex flex-col justify-center gap-2 px-6 md:px-12 py-10 border-r border-stone-200 transition-colors duration-400 ${prevProject ? "hover:bg-stone-100/80 cursor-pointer" : "opacity-30 pointer-events-none"
-            }`}
+          className={`group flex-1 flex flex-col justify-center gap-1.5 px-6 md:px-12 py-10 border-r border-stone-200 transition-colors duration-300 ${
+            prevProject
+              ? "hover:bg-stone-100/70 cursor-pointer"
+              : "opacity-25 pointer-events-none"
+          }`}
         >
-          <motion.span
-            initial={{ x: 0 }}
-            whileHover={{ x: -4 }}
-            className="font-mono text-[10px] md:text-[16px] text-stone-400 uppercase tracking-[0.2em] group-hover:text-stone-600 transition-colors"
-          >
+          <span className="font-mono text-[10px] text-stone-400 uppercase tracking-[0.2em] group-hover:text-stone-600 transition-colors">
             ← Previous
-          </motion.span>
-          <h4 className="text-base md:text-2xl font-light uppercase text-stone-800 line-clamp-1 group-hover:-translate-x-1 transition-transform duration-400">
+          </span>
+          <h4 className="text-base md:text-xl font-light uppercase text-stone-800 line-clamp-1 group-hover:-translate-x-1 transition-transform duration-300">
             {prevProject?.title || "—"}
           </h4>
         </Link>
 
-        {/* Next */}
         <Link
           href={nextProject ? `/projects/${nextProject.id}` : "#"}
-          className={`group flex-1 flex flex-col justify-center items-end gap-2 px-6 md:px-12 py-10 transition-colors duration-400 text-right ${nextProject ? "hover:bg-stone-100/80 cursor-pointer" : "opacity-30 pointer-events-none"
-            }`}
+          className={`group flex-1 flex flex-col justify-center items-end gap-1.5 px-6 md:px-12 py-10 transition-colors duration-300 text-right ${
+            nextProject
+              ? "hover:bg-stone-100/70 cursor-pointer"
+              : "opacity-25 pointer-events-none"
+          }`}
         >
-          <motion.span
-            className="font-mono text-[10px] md:text-[16px] text-stone-400 uppercase tracking-[0.2em] group-hover:text-stone-600 transition-colors"
-          >
+          <span className="font-mono text-[10px] text-stone-400 uppercase tracking-[0.2em] group-hover:text-stone-600 transition-colors">
             Next →
-          </motion.span>
-          <h4 className="text-base md:text-2xl font-light uppercase text-stone-800 line-clamp-1 group-hover:translate-x-1 transition-transform duration-400">
+          </span>
+          <h4 className="text-base md:text-xl font-light uppercase text-stone-800 line-clamp-1 group-hover:translate-x-1 transition-transform duration-300">
             {nextProject?.title || "—"}
           </h4>
         </Link>

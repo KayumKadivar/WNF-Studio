@@ -53,7 +53,7 @@ export default function ProjectsPage() {
 
       {/* PERFECT UNIFORM GRID */}
       <section className="px-10 md:px-8 py-18 md:py-12  ">
-        <div className=" mx-auto">
+        <div className="mx-auto">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeCategory}
@@ -61,7 +61,7 @@ export default function ProjectsPage() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="space-y-24"
+              className="space-y-12"
             >
               {categoriesToDisplay.map((cat, catIndex) => {
                 const projectsInCat = projects.filter(p => p.category === cat);

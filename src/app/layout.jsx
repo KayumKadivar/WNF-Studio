@@ -7,7 +7,6 @@ import ScrollToTopButton from "@/components/shared/ScrollToTopButton";
 import { ThemeProvider } from "@/components/shared/ThemeProvider";
 import PageTransition from "@/components/shared/PageTransition";
 import JsonLd from "@/components/shared/JsonLd";
-import CustomCursor from "@/components/shared/CustomCursor";
 
 /* ── next/font: Self-hosted, no render-blocking CSS @import ── */
 const dmSans = DM_Sans({
@@ -116,7 +115,6 @@ export default function RootLayout({ children }) {
       </head>
 
       <body suppressHydrationWarning>
-        <CustomCursor />
         {/* Accessibility: Skip to main content for keyboard users */}
         <a
           href="#main-content"

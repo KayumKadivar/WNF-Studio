@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Large Assets / ZIP Extractions
+Sanskar Sanidhya*/
+*.zip
+*.rar
+!public/assets/

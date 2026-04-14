@@ -54,9 +54,9 @@ const Header = () => {
   const isTransparent = isHomePage && !isScrolled;
   const textColor = isTransparent ? "text-white drop-shadow-sm" : "text-stone-900";
 
-  // Pure CSS filter to colorize the transparent PNG logo
-  // When transparent header -> brightness-0 invert -> turns dark logo perfectly white
-  // When solid white header -> brightness-0 -> forces dark logo perfectly black
+  // Pure CSS filter to colorize the logo based on header background
+  // When transparent header -> brightness-0 invert -> turns logo perfectly white
+  // When solid white header -> brightness-0 -> forces logo perfectly black/dark
   const logoClass = isTransparent
     ? "brightness-0 invert opacity-100"
     : "brightness-0 opacity-100";
@@ -74,7 +74,7 @@ const Header = () => {
             {/* Logo */}
             <Link href="/" className={`font-display text-2xl lg:text-3xl tracking-tight flex items-center`}>
               <Image
-                src="/assets/logo/download.png"
+                src="/assets/logo/headerlogo.png"
                 alt="Studio WnF"
                 width={140}
                 height={56}
