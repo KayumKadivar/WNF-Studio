@@ -41,7 +41,6 @@ yarn-error.log*
 next-env.d.ts
 
 # Large Assets / ZIP Extractions
-Sanskar Sanidhya*/
 *.zip
 *.rar
 !public/assets/
