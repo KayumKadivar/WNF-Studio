@@ -79,7 +79,7 @@ const LogoIntro5 = ({ onComplete }) => {
       className={`fixed inset-0 z-50 transition-opacity duration-500 bg-[#0a0a0a] flex flex-col items-center justify-center ${fadeOut ? "opacity-0" : "opacity-100"}`}
       aria-hidden="true"
     >
-      <div className="relative w-[280px] md:w-[340px]">
+      <div className="relative w-[380px] md:w-[600px]">
         {/* ── SVG Frame: Back ── */}
         <svg
           className="absolute -top-5 -right-5 w-[calc(100%+40px)] h-[calc(100%+40px)] pointer-events-none"
@@ -99,18 +99,18 @@ const LogoIntro5 = ({ onComplete }) => {
         {/* ── Typography Content ── */}
         <div className="relative z-10 flex flex-col items-center py-10 px-4 mt-2">
           <span
-            className="logo-studio block text-[20px] md:text-[24px] tracking-[0.15em] mb-1 text-[#cccccc]"
+            className="logo-studio block text-[24px] md:text-[28px] tracking-[0.15em] mb-1 text-[#cccccc]"
             style={{ fontWeight: 300 }}
           >
             Studio
           </span>
           <div className="flex items-baseline justify-center select-none origin-center letter">
-            <span className="block" style={{ fontSize: "clamp(70px, 12vw, 110px)", fontWeight: 900, color: "#ffffff", lineHeight: 1 }}>W</span>
-            <span className="block" style={{ fontSize: "clamp(70px, 12vw, 110px)", fontWeight: 400, color: "#aaaaaa", lineHeight: 1 }}>n</span>
-            <span className="block" style={{ fontSize: "clamp(70px, 12vw, 110px)", fontWeight: 900, color: "#ffffff", lineHeight: 1 }}>F</span>
+            <span className="block" style={{ fontSize: "clamp(100px, 20vw, 150px)", fontWeight: 900, color: "#ffffff", lineHeight: 1 }}>W</span>
+            <span className="block" style={{ fontSize: "clamp(100px, 20vw, 150px)", fontWeight: 400, color: "#aaaaaa", lineHeight: 1 }}>n</span>
+            <span className="block" style={{ fontSize: "clamp(100px, 20vw, 150px)", fontWeight: 900, color: "#ffffff", lineHeight: 1 }}>F</span>
           </div>
           <span
-            className="logo-tagline block mt-4 text-[13px] md:text-[16px] tracking-[0.25em] uppercase text-[#aaaaaa]"
+            className="logo-tagline block mt-4 text-[15px] md:text-[18px] tracking-[0.25em] uppercase text-[#aaaaaa]"
           >
             Interior&nbsp;&nbsp;|&nbsp;&nbsp;Architecture
           </span>

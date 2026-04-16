@@ -348,9 +348,8 @@ export const projects = [
     year: "2024",
     size: "5,000 sq ft",
     client: "Private Residence",
-    mainImage: "/assets/projectimages/interior/zalahouse1/Elevation.webp",
+    mainImage: "/assets/projectimages/interior/zalahouse1/sonbed1.webp",
     gallery: [
-      "/assets/projectimages/interior/zalahouse1/Elevation.webp",
       "/assets/projectimages/interior/zalahouse1/sonbed1.webp",
       "/assets/projectimages/interior/zalahouse1/sonbed2.webp",
       "/assets/projectimages/interior/zalahouse1/sonbed3.webp",

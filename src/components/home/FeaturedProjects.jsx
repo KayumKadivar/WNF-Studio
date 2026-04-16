@@ -57,7 +57,7 @@ const ProjectGrid = ({ projects, title, label }) => {
 };
 
 const FeaturedProjects = () => (
-  <section className="py-16 bg-[#F9F8F6]" aria-label="Featured projects">
+  <section className="md:py-12 py-16 bg-[#eeebe5]" aria-label="Featured projects">
     <div className="w-full my-container">
 
       {/* HEADER */}

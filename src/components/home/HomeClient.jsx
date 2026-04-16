@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 
 import HeroSlider from "@/components/home/HeroSlider";
-import ServicesSection from "@/components/home/ServicesSection";
+// import ServicesSection from "@/components/home/ServicesSection";
 import IconStrip from "@/components/home/IconStrip";
 import CTASection from "@/components/home/CTASection";
 import AboutPreview from "@/components/home/AboutPreview";
@@ -15,12 +15,24 @@ const LogoIntro = dynamic(
 );
 
 export default function HomeClient() {
-  const [showIntro, setShowIntro] = useState(true);
-  const [introComplete, setIntroComplete] = useState(false);
+  // Only show intro on very first site load (not on back navigation or re-visits)
+  const [showIntro, setShowIntro] = useState(() => {
+    if (typeof window !== 'undefined' && sessionStorage.getItem('logoIntroPlayed')) {
+      return false;
+    }
+    return true;
+  });
+  const [introComplete, setIntroComplete] = useState(() => {
+    if (typeof window !== 'undefined' && sessionStorage.getItem('logoIntroPlayed')) {
+      return true;
+    }
+    return false;
+  });
 
   const handleIntroComplete = () => {
     setShowIntro(false);
     setIntroComplete(true);
+    sessionStorage.setItem('logoIntroPlayed', 'true');
   };
 
   return (
@@ -37,7 +49,7 @@ export default function HomeClient() {
         <IconStrip />
         <AboutPreview />
         <FeaturedProjects />
-        <ServicesSection />
+        {/* <ServicesSection /> */}
         <CTASection />
       </div>
     </>

@@ -4,20 +4,22 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function PageIntroWrapper({ type, children }) {
-  const [showIntro, setShowIntro] = useState(type === "home");
-  const [isLoaded, setIsLoaded] = useState(false);
+  const alreadyPlayed = typeof window !== 'undefined' && sessionStorage.getItem('pageIntroPlayed');
+  const [showIntro, setShowIntro] = useState(type === "home" && !alreadyPlayed);
+  const [isLoaded, setIsLoaded] = useState(alreadyPlayed ? true : false);
 
   useEffect(() => {
-    if (type === "home") {
+    if (type === "home" && !alreadyPlayed) {
       const timer = setTimeout(() => {
         setShowIntro(false);
         setIsLoaded(true);
-      }, 2500); // Show intro for 2.5 seconds
+        sessionStorage.setItem('pageIntroPlayed', 'true');
+      }, 2500);
       return () => clearTimeout(timer);
     } else {
       setIsLoaded(true);
     }
-  }, [type]);
+  }, [type, alreadyPlayed]);
 
   if (type !== "home") {
     return <>{children}</>;
@@ -41,9 +43,9 @@ export default function PageIntroWrapper({ type, children }) {
               <Image
                 src="/assets/logo/animatedlogo.png"
                 alt="WNF Studio"
-                width={300}
-                height={150}
-                className="w-auto h-32 md:h-48 object-contain"
+                width={500}
+                height={500}
+                className="w-auto h-80 md:h-[32rem] object-contain"
                 priority
               />
             </motion.div>

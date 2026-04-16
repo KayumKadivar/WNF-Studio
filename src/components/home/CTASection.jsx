@@ -6,7 +6,7 @@ import { ArrowRight, FolderKanban } from "lucide-react";
 
 const CTASection = () => (
   // Anchored to the #F9F8F6 light theme background
-  <section className="py-24 lg:py-32 px-6 lg:px-12 bg-[#F9F8F6] border-t border-stone-200" aria-label="Start your project">
+  <section className="py-16 lg:py-24 px-6 lg:px-12 bg-[#F9F8F6] border-t border-stone-200" aria-label="Start your project">
     <div className="container mx-auto max-w-6xl">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -39,26 +39,6 @@ const CTASection = () => (
             <p className="text-lg text-stone-400 font-light leading-relaxed max-w-2xl mx-auto mb-12">
               Let's collaborate to create something extraordinary. Reach out to discuss your vision and see how we can bring it to life.
             </p>
-
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              {/* Primary Button: High Contrast Solid */}
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-3 bg-white text-stone-900 px-10 py-5 text-[14px] font-mono uppercase tracking-widest hover:bg-stone-200 transition-colors group"
-              >
-                Get in Touch
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-
-              {/* Secondary Button: Ghost Outline */}
-              <Link
-                href="/projects"
-                className="inline-flex items-center justify-center gap-3 bg-transparent border border-stone-700 text-stone-300 px-10 py-5 text-[14px] font-mono uppercase tracking-widest hover:bg-stone-800 hover:text-white transition-colors group"
-              >
-                View Our Work
-                <FolderKanban className="w-4 h-4" />
-              </Link>
-            </div>
           </div>
         </div>
       </motion.div>

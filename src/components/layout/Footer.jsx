@@ -30,7 +30,7 @@ const Footer = () => {
           </div>
           
           {/* Quick Contact (Horizontal alignment saves vertical space) */}
-          <div className="flex flex-col sm:flex-row gap-6 sm:gap-12 text-[18px] font-mono uppercase tracking-widest text-stone-300">
+          <div className="flex flex-col sm:flex-row gap-6 sm:gap-12 text-[14px] sm:text-[18px] font-mono uppercase tracking-widest text-stone-300">
             <a href="mailto:info@wnfdesignstudio.com" title="Send us an email" className="hover:text-white transition-colors flex items-center gap-2">
               info@wnfdesignstudio.com
             </a>
@@ -42,7 +42,7 @@ const Footer = () => {
           {/* Sharp, Minimalist CTA */}
           <Link
             href="/contact"
-            className="inline-flex items-center gap-3 bg-white text-stone-900 px-6 py-3 text-[18px] font-mono uppercase tracking-widest hover:bg-stone-200 transition-colors group"
+            className="inline-flex items-center gap-3 bg-white text-stone-900 px-6 py-3 text-[14px] sm:text-[18px] font-mono uppercase tracking-widest hover:bg-stone-200 transition-colors group"
           >
             Start a Project
             <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -51,16 +51,16 @@ const Footer = () => {
         </div>
 
         {/* BOTTOM BAR: Meta links and Socials */}
-        <div className="flex flex-col md:flex-row justify-between items-center py-6 text-[18px] font-mono uppercase tracking-widest gap-4">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center py-8 text-[12px] sm:text-[18px] font-mono uppercase tracking-widest gap-8 md:gap-4">
           
           {/* Copyright & Location */}
-          <div className="flex gap-2">
-            <span>© {currentYear} WNF.</span>
+          <div className="flex flex-col sm:flex-row gap-2">
+            <span>© {currentYear} WNF Studio.</span>
             <span className="text-stone-600">Based in India.</span>
           </div>
-
+ 
           {/* Social Links (Text based is more compact and premium than large icons) */}
-          <div className="flex gap-6">
+          <div className="flex flex-wrap gap-x-6 gap-y-3">
             {socialLinks.map((social) => (
               <a
                 key={social.label}
@@ -74,7 +74,7 @@ const Footer = () => {
               </a>
             ))}
           </div>
-
+ 
           {/* Legal */}
           <div className="flex gap-6">
             <Link href="#" className="hover:text-white transition-colors">
@@ -84,7 +84,7 @@ const Footer = () => {
               Terms
             </Link>
           </div>
-
+ 
         </div>
       </div>
     </footer>

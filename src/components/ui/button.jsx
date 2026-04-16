@@ -13,7 +13,7 @@ const buttonVariants = cva("inline-flex items-center justify-center gap-2 whites
             link: "text-primary underline-offset-4 hover:underline",
             // Premium variants
             hero: "bg-primary text-primary-foreground hover:bg-primary/90 uppercase tracking-[0.15em] text-xs font-medium",
-            "hero-outline": "border border-white/60 bg-transparent text-white hover:bg-white hover:text-foreground uppercase tracking-[0.15em] text-xs font-medium",
+            "hero-outline": "border border-white/80 bg-white/5 backdrop-blur-[2px] text-white hover:bg-white hover:text-foreground uppercase tracking-[0.15em] text-xs font-medium",
             "primary-outline": "border border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground hover:text-primary uppercase tracking-[0.15em] text-xs font-medium",
             elegant: "bg-foreground text-background hover:bg-foreground/90 uppercase tracking-[0.15em] text-xs font-medium",
             "elegant-outline": "border border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background uppercase tracking-[0.15em] text-xs font-medium",

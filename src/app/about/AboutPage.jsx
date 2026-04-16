@@ -20,7 +20,7 @@ export default function AboutPage() {
     <div className="bg-[#F9F8F6] text-stone-900 min-h-screen font-sans selection:bg-stone-200 selection:text-stone-900">
 
       {/* 1. HERO SECTION (Inlined to guarantee theme) */}
-      <section className="pt-32 pb-20 my-container border-b border-stone-200 bg-white">
+      <section className="pt-32 pb-12 md:pb-20 my-container border-b border-stone-200 bg-white">
         <div className="w-full max-w-7xl mx-auto text-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -42,7 +42,7 @@ export default function AboutPage() {
       </section>
 
       {/* 2. VISION SECTION (Fixed Image Cropping) */}
-      <section className="py-24 my-container border-b border-stone-200">
+      <section className="py-12 md:py-24 my-container border-b border-stone-200">
         <div className="w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
 
@@ -54,7 +54,7 @@ export default function AboutPage() {
               transition={{ duration: 0.8 }}
               className="lg:col-span-4"
             >
-              <div className="bg-white p-3 border border-stone-200 shadow-sm">
+              <div className="bg-white p-3 border border-stone-200 shadow-sm mx-auto w-fit">
                 <div className="relative w-full bg-stone-50 flex justify-center overflow-hidden">
                   <img
                     src="/assets/aboutusimage/makbul.png"
@@ -71,7 +71,7 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="lg:col-span-8 lg:pl-10"
+              className="lg:col-span-8 lg:pl-10 px-4"
             >
               <span className="text-[14px] font-mono uppercase tracking-widest text-stone-500 mb-6 block font-medium">
                 // Our Philosophy
@@ -97,52 +97,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 3. MISSION & VISION CARDS (Editorial Grid) */}
-      <section className="py-24 my-container bg-stone-50">
-        <div className="w-full">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-
-            {/* Mission */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="p-10 lg:p-16 bg-white border border-stone-200"
-            >
-              <span className="text-[14px] font-mono uppercase tracking-widest text-stone-500 mb-8 block font-medium border-b border-stone-200 pb-4">
-                01 — Our Mission
-              </span>
-              <h3 className="text-3xl font-light text-stone-900 mb-6">
-                Creating Spaces That Matter
-              </h3>
-              <p className="text-stone-600 font-light leading-relaxed">
-                To design and deliver exceptional architectural and interior experiences that enhance human well-being, respect the environment, and stand as lasting testaments to thoughtful design.
-              </p>
-            </motion.div>
-
-            {/* Vision */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="p-10 lg:p-16 bg-[#F9F8F6] border border-stone-200"
-            >
-              <span className="text-[14px] font-mono uppercase tracking-widest text-stone-500 mb-8 block font-medium border-b border-stone-200 pb-4">
-                02 — Our Vision
-              </span>
-              <h3 className="text-3xl font-light text-stone-900 mb-6">
-                Shaping Tomorrow's Built Environment
-              </h3>
-              <p className="text-stone-600 font-light leading-relaxed">
-                To be recognized globally as a leader in innovative, sustainable design that pushes boundaries while remaining deeply connected to human needs and cultural context.
-              </p>
-            </motion.div>
-
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

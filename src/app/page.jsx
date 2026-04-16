@@ -1,6 +1,6 @@
 import PageIntroWrapper from "@/components/shared/PageIntroWrapper";
 import HeroSlider from "@/components/home/HeroSlider";
-import ServicesSection from "@/components/home/ServicesSection";
+// import ServicesSection from "@/components/home/ServicesSection";
 import IconStrip from "@/components/home/IconStrip";
 import CTASection from "@/components/home/CTASection";
 import AboutPreview from "@/components/home/AboutPreview";
@@ -19,7 +19,7 @@ export default function HomePage() {
       <IconStrip />
       <AboutPreview />
       <FeaturedProjects />
-      <ServicesSection />
+      {/* <ServicesSection /> */}
       <CTASection />
     </PageIntroWrapper>
   );
