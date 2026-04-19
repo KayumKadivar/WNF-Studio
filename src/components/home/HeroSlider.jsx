@@ -28,7 +28,7 @@ const HeroSlider = () => {
   const prevSlide = () => goToSlide((currentSlide - 1 + slides.length) % slides.length);
 
   return (
-    <section className="relative h-screen w-full overflow-hidden" aria-label="Hero slideshow" aria-roledescription="carousel">
+    <section className="relative h-dvh w-full overflow-hidden" aria-label="Hero slideshow" aria-roledescription="carousel">
       <AnimatePresence mode="wait">
         {slides.map((slide, index) =>
           index === currentSlide && (
@@ -49,7 +49,7 @@ const HeroSlider = () => {
                 className="object-cover object-center"
               />
               <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/45 to-black/80" />
-              <div className="relative h-dvh container mx-auto px-6 lg:px-12 flex items-center">
+              <div className="relative h-full container mx-auto px-6 lg:px-12 flex items-center">
                 <div className="max-w-3xl pt-20">
                   <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.6 }} className="text-xs uppercase tracking-[0.2em] font-medium text-white/80 mb-6 block">
                     {slide.label}

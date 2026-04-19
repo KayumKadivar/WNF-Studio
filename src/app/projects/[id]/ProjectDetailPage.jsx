@@ -275,9 +275,10 @@ export default function ProjectDetailPage({ project, allProjects }) {
   const [lightboxIdx, setLightboxIdx] = useState(-1);
   const [direction, setDirection] = useState(0);
 
-  const currentIndex = allProjects?.findIndex((p) => p.id === project.id) ?? -1;
-  const prevProject = allProjects?.[currentIndex - 1];
-  const nextProject = allProjects?.[currentIndex + 1];
+  const sortedProjects = [...(allProjects || [])].sort((a, b) => a.id - b.id);
+  const currentIndex = sortedProjects.findIndex((p) => p.id === project.id);
+  const prevProject = sortedProjects[currentIndex - 1];
+  const nextProject = sortedProjects[currentIndex + 1];
 
   // All images: hero first, then gallery
   const allImages = [project.mainImage, ...(project.gallery || [])].filter(Boolean);
@@ -383,18 +384,68 @@ export default function ProjectDetailPage({ project, allProjects }) {
         </motion.div>
       </section>
 
-      {/* ── DESCRIPTION ── */}
-      <section className="py-14 px-6 lg:px-12 border-b border-stone-200">
-        <div className="max-w-4xl">
+      {/* ── DESCRIPTION & CHALLENGE ── */}
+      <section className="py-16 px-6 lg:px-12 border-b border-stone-200">
+        <div className="max-w-5xl">
           <motion.p
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.9, ease: EASE_SMOOTH }}
-            className="text-[clamp(1.3rem,3vw,2.4rem)] font-light leading-[1.35] tracking-tight text-stone-600"
+            className="text-[clamp(1.3rem,3vw,2.4rem)] font-light leading-[1.35] tracking-tight text-stone-600 mb-16"
           >
             {project.description}
           </motion.p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24">
+            {project.challenge && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.1 }}
+              >
+                <h3 className="font-mono text-[11px] uppercase tracking-[0.28em] text-stone-400 mb-6">The Challenge</h3>
+                <p className="text-lg text-stone-700 leading-relaxed font-light italic">
+                  "{project.challenge}"
+                </p>
+              </motion.div>
+            )}
+            
+            {project.solution && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.2 }}
+              >
+                <h3 className="font-mono text-[11px] uppercase tracking-[0.28em] text-stone-400 mb-6">The Solution</h3>
+                <p className="text-lg text-stone-700 leading-relaxed font-light">
+                  {project.solution}
+                </p>
+              </motion.div>
+            )}
+          </div>
+
+          {project.features && project.features.length > 0 && (
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+              className="mt-20 pt-12 border-t border-stone-100"
+            >
+              <h3 className="font-mono text-[11px] uppercase tracking-[0.28em] text-stone-400 mb-8">Key Features</h3>
+              <div className="flex flex-wrap gap-x-12 gap-y-6">
+                {project.features.map((feature, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <div className="w-1.5 h-1.5 rounded-full bg-stone-300" />
+                    <span className="text-stone-600 font-light tracking-wide">{feature}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          )}
         </div>
       </section>
 
