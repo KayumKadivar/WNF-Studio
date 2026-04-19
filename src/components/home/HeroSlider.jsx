@@ -75,17 +75,7 @@ const HeroSlider = () => {
                   <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 + slide.title.split(" ").length * 0.1, duration: 0.6 }} className="body-lg text-white/80 mb-10 max-w-xl">
                     {slide.description}
                   </motion.p>
-                  <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 + slide.title.split(" ").length * 0.1, duration: 0.6 }} className="flex flex-wrap gap-4">
-                    <Button variant="hero" size="lg" asChild>
-                      <Link href={slide.cta.link} className="group">
-                        {slide.cta.text}
-                        <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      </Link>
-                    </Button>
-                    <Button variant="hero-outline" size="lg" asChild>
-                      <Link href="/about">Our Story</Link>
-                    </Button>
-                  </motion.div>
+        
                 </div>
               </div>
             </motion.div>
@@ -93,18 +83,10 @@ const HeroSlider = () => {
         )}
       </AnimatePresence>
 
-      {/* Navigation Arrows */}
-      <div className="absolute bottom-8 right-8 lg:bottom-12 lg:right-12 flex gap-3">
-        <button onClick={prevSlide} className="w-12 h-12 flex items-center justify-center border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-foreground transition-all duration-300" aria-label="Previous slide">
-          <ChevronLeft size={20} />
-        </button>
-        <button onClick={nextSlide} className="w-12 h-12 flex items-center justify-center border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-foreground transition-all duration-300" aria-label="Next slide">
-          <ChevronRight size={20} />
-        </button>
-      </div>
+   
 
       {/* Slide Indicators */}
-      <div className="absolute bottom-8 left-8 lg:bottom-12 lg:left-12 flex gap-3">
+      <div className="absolute bottom-8 right-8 lg:bottom-12 lg:right-12 flex gap-3">
         {slides.map((_, index) => (
           <button key={index} onClick={() => goToSlide(index)} className={`h-1 transition-all duration-500 ${index === currentSlide ? "w-12 bg-primary-foreground" : "w-6 bg-primary-foreground/40 hover:bg-primary-foreground/60"}`} aria-label={`Go to slide ${index + 1}`} />
         ))}

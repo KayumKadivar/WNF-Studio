@@ -18,16 +18,6 @@ export default function ProjectsPage() {
       {/* HEADER & FILTERS */}
       <section className="pt-32 pb-16 px-6 lg:px-12 bg-white">
         <div className="mx-auto">
-          <div className="text-center mb-16">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
-              className="display-title-responsive"
-            >
-              A Collection of Thoughtful Design
-            </motion.h1>
-          </div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -104,43 +94,64 @@ export default function ProjectsPage() {
                           }}
                           className="bg-white border border-stone-200 group hover:shadow-xl transition-all duration-500"
                         >
-                          <Link href={`/projects/${project.id}`} className="block h-full flex flex-col">
+                          <Link href={`/projects/${project.id}`} className="block h-full flex flex-col group">
 
                             {/* STRICT SAME SIZE IMAGE CONTAINER */}
-                            <div className="relative w-full aspect-[4/3] bg-stone-100 overflow-hidden border-b border-stone-200">
+                            <motion.div 
+                              initial="initial"
+                              whileHover="hover"
+                              className="relative w-full aspect-[4/3] bg-stone-100 overflow-hidden border-b border-stone-200"
+                            >
                               <motion.img
                                 src={project.mainImage}
                                 alt={project.title}
-                                whileHover={{ scale: 1.05 }}
+                                variants={{
+                                  initial: { scale: 1 },
+                                  hover: { scale: 1.05 }
+                                }}
                                 transition={{ duration: 0.6 }}
                                 className="absolute inset-0 w-full h-full object-cover"
                               />
-
-                              {/* Category Badge */}
-                              <div className="absolute top-4 left-4 z-20">
-                                <span className="px-3 py-1 bg-white/90 backdrop-blur-sm border border-stone-200 text-[14px] font-mono text-stone-800 uppercase tracking-wider">
-                                  {project.category}
-                                </span>
-                              </div>
-                            </div>
-
-                            {/* TEXT CONTENT */}
-                            <div className="p-6 flex-grow flex flex-col justify-between">
-                              <div>
-                                <h3 className="text-2xl font-light text-stone-900 mb-2 group-hover:text-stone-500 transition-colors duration-300">
+                              
+                              {/* Hover Overlay */}
+                              <motion.div 
+                                variants={{
+                                  initial: { opacity: 0 },
+                                  hover: { opacity: 1 }
+                                }}
+                                transition={{ duration: 0.3 }}
+                                className="absolute inset-0 bg-black/40 flex flex-col justify-end p-8 z-10"
+                              >
+                                <motion.h3 
+                                  variants={{
+                                    initial: { y: 20, opacity: 0 },
+                                    hover: { y: 0, opacity: 1 }
+                                  }}
+                                  transition={{ duration: 0.4, delay: 0.1 }}
+                                  className="text-white text-2xl font-light tracking-wide"
+                                >
                                   {project.title}
-                                </h3>
-                                <div className="flex items-center gap-2 mb-4">
-                                  <span className="text-[14px] font-mono uppercase text-stone-400">{project.location}</span>
-                                  <span className="text-stone-300">/</span>
-                                  <span className="text-[14px] font-mono uppercase text-stone-400">{project.year}</span>
-                                </div>
-                                <p className="text-stone-600 text-sm font-light leading-relaxed line-clamp-2">
-                                  {project.description}
-                                </p>
-                              </div>
-                            </div>
-
+                                </motion.h3>
+                                <motion.div 
+                                  variants={{
+                                    initial: { y: 20, opacity: 0 },
+                                    hover: { y: 0, opacity: 1 }
+                                  }}
+                                  transition={{ duration: 0.4, delay: 0.2 }}
+                                  className="h-1 w-12 bg-white mt-4 mb-2"
+                                />
+                                <motion.span
+                                  variants={{
+                                    initial: { y: 10, opacity: 0 },
+                                    hover: { y: 0, opacity: 0.7 }
+                                  }}
+                                  transition={{ duration: 0.4, delay: 0.3 }}
+                                  className="text-white text-[14px] font-mono uppercase font-semibold tracking-[0.2em]"
+                                >
+                                  Click to Open
+                                </motion.span>
+                              </motion.div>
+                          </motion.div>
                           </Link>
                         </motion.div>
                       ))}

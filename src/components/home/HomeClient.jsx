@@ -3,8 +3,7 @@ import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 
 import HeroSlider from "@/components/home/HeroSlider";
-// import ServicesSection from "@/components/home/ServicesSection";
-import IconStrip from "@/components/home/IconStrip";
+import ServicesSection from "@/components/home/ServicesSection";
 import CTASection from "@/components/home/CTASection";
 import AboutPreview from "@/components/home/AboutPreview";
 import FeaturedProjects from "@/components/home/FeaturedProjects";
@@ -46,10 +45,10 @@ export default function HomeClient() {
         style={{ opacity: introComplete ? 1 : 0 }}
       >
         <HeroSlider />
-        <IconStrip />
+        {/* <IconStrip /> */}
         <AboutPreview />
         <FeaturedProjects />
-        {/* <ServicesSection /> */}
+        <ServicesSection />
         <CTASection />
       </div>
     </>

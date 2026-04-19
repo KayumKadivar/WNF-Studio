@@ -2,7 +2,7 @@
 export const projects = [
   // ARCHITECTURE
   {
-    id: 1,
+    id: 2,
     title: "Aakash House",
     category: "Architecture",
     location: "Rajkot, Gujarat",
@@ -20,7 +20,7 @@ export const projects = [
     features: ["Contemporary facade design", "Natural stone cladding", "Generous open-plan living", "Landscaped courtyards", "Sustainable airflow strategies"],
   },
   {
-    id: 2,
+    id: 6,
     title: "Kadivar House",
     category: "Architecture",
     location: "Rajkot, Gujarat",
@@ -38,7 +38,7 @@ export const projects = [
     features: ["Bold geometric volumes", "Multi-level layout", "Premium natural material finishes", "Integrated exterior landscaping", "Private family retreats"],
   },
   {
-    id: 3,
+    id: 1,
     title: "Mahin House",
     category: "Architecture",
     location: "Gujarat",
@@ -64,7 +64,7 @@ export const projects = [
     features: ["Textured exterior finishes", "Privacy screening elements", "Internal courtyard focal points", "Modern material honesty"],
   },
   {
-    id: 4,
+    id: 3,
     title: "Mundra Bungalow",
     category: "Architecture",
     location: "Mundra, Gujarat",
@@ -83,7 +83,7 @@ export const projects = [
     features: ["Climate-responsive orientation", "Spacious shaded verandas", "Coastal-durable material palette", "Generous compound landscaping"],
   },
   {
-    id: 5,
+    id: 4,
     title: "Nizami House",
     category: "Architecture",
     location: "Rajkot, Gujarat",
@@ -102,7 +102,7 @@ export const projects = [
     features: ["Compact footprint optimization", "Solid masonry expression", "Efficient functional zoning", "Terrace integration"],
   },
   {
-    id: 6,
+    id: 5,
     title: "Parasara House",
     category: "Architecture",
     location: "Gujarat",
@@ -121,7 +121,7 @@ export const projects = [
     features: ["Minimalist design vocabulary", "Simplified massing strategies", "Cost-effective elevated aesthetics"],
   },
   {
-    id: 7,
+    id: 8,
     title: "Fabcon Factory",
     category: "Architecture",
     location: "Rajkot, Gujarat",
@@ -139,7 +139,7 @@ export const projects = [
     features: ["Clear-span industrial bays", "Optimized natural daylighting", "Distinctive administrative facading", "Efficient production workflow planning"],
   },
   {
-    id: 8,
+    id: 7,
     title: "Ormat Tools Warehouse",
     category: "Architecture",
     location: "Rajkot, Gujarat",
@@ -161,7 +161,7 @@ export const projects = [
 
   // INTERIOR
   {
-    id: 20,
+    id: 10,
     title: "Sanskar Sanidhya",
     category: "Interior",
     location: "Rajkot, Gujarat",
@@ -202,7 +202,7 @@ export const projects = [
     features: ["Luxurious material palette", "Bespoke furniture and millwork", "Integrated home automation", "Sophisticated lighting design", "Open-plan living with distinct zoning"],
   },
   {
-    id: 9,
+    id: 15,
     title: "CA Office",
     category: "Interior",
     location: "Rajkot, Gujarat",
@@ -223,7 +223,7 @@ export const projects = [
     features: ["Premium office atmospheres", "Bespoke storage integrations", "Tailored client meeting spaces", "Ergonomic workspace routing"],
   },
   {
-    id: 10,
+    id: 14,
     title: "Studio WnF Office",
     category: "Interior",
     location: "Rajkot, Gujarat",
@@ -259,7 +259,7 @@ export const projects = [
     features: ["Open collaboration zones", "Raw material expressions", "Model exhibition spaces", "Dynamic studio lighting"],
   },
   {
-    id: 11,
+    id: 16,
     title: "Nextwise Office",
     category: "Interior",
     location: "Rajkot, Gujarat",
@@ -289,7 +289,7 @@ export const projects = [
     features: ["Acoustic treatments", "Glass partitions", "Dynamic lighting", "Premium materials"],
   },
   {
-    id: 12,
+    id: 13,
     title: "Royal Flat",
     category: "Interior",
     location: "Gujarat",
@@ -313,7 +313,7 @@ export const projects = [
     features: ["Premium stone claddings", "Custom woodwork", "Minimalist aesthetic"],
   },
   {
-    id: 13,
+    id: 17,
     title: "S & D - Office",
     category: "Interior",
     location: "Rajkot",
@@ -341,7 +341,7 @@ export const projects = [
     features: ["Branded architecture", "Custom routing", "High-capacity workspace"],
   },
   {
-    id: 14,
+    id: 11,
     title: "Zala House 1",
     category: "Interior",
     location: "Gujarat",
@@ -372,7 +372,7 @@ export const projects = [
     features: ["Layered lighting", "Scale humanization", "Premium finishes"],
   },
   {
-    id: 19,
+    id: 12,
     title: "Zala House 2",
     category: "Interior",
     location: "Gujarat",
@@ -416,7 +416,7 @@ export const projects = [
     features: ["Advanced material palette", "Refined living zones", "Integrated tech features"],
   },
   {
-    id: 15,
+    id: 9,
     title: "Aakash House",
     category: "Interior",
     location: "Rajkot, Gujarat",
@@ -456,7 +456,7 @@ export const projects = [
 
   // EXHIBITION STALL
   {
-    id: 16,
+    id: 18,
     title: "Exhibition Stall – Photo Gallery",
     category: "Exhibition Stall",
     location: "Gujarat",
@@ -476,7 +476,7 @@ export const projects = [
     features: ["Bold crowd circulation structures", "Dramatic display lighting", "High-visibility brand integration", "Rapid-deployment structural systems"],
   },
   {
-    id: 17,
+    id: 16,
     title: "Exhibition Stall – Render Series",
     category: "Exhibition Stall",
     location: "Gujarat",
@@ -499,7 +499,7 @@ export const projects = [
     features: ["Photorealistic 3D renders", "Multiple viewpoint studies", "Material and lighting visualization", "Pre-construction design validation"],
   },
   {
-    id: 18,
+    id: 17,
     title: "Exhibition Stall – 3D Views",
     category: "Exhibition Stall",
     location: "Gujarat",
