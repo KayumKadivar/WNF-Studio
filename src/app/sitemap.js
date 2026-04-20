@@ -1,6 +1,6 @@
-// src/app/sitemap.js
-// ✅ Yeh file NEW create karo — Google ko sari pages ki list milegi
-// Next.js automatically /sitemap.xml generate karega
+
+
+export const dynamic = "force-static";
 
 export default function sitemap() {
   const baseUrl = "https://wnfdesignstudio.com";

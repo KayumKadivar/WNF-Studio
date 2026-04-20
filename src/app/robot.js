@@ -1,6 +1,8 @@
 // src/app/robots.js
 // ✅ Yeh file NEW create karo — Google crawler ke liye instructions
 
+export const dynamic = "force-static";
+
 export default function robots() {
   return {
     rules: [
