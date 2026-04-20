@@ -15,7 +15,9 @@ export default function Page() {
     setStatus(null);
     try {
       const formData = new FormData(e.target);
-      formData.append("access_key", "045cbef3-3627-4966-8584-d273a2bced1f");
+      formData.append("access_key", "3e943bff-82be-4946-ad81-b8157b5c5b1a");
+      formData.append("subject", "WNF Design Studio Contact Form");
+      formData.append("from_name", "WNF Design Studio Website");
 
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",

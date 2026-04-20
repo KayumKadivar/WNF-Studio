@@ -38,13 +38,11 @@ function SchemaMarkup() {
       addressLocality: "Rajkot",
       addressRegion: "Gujarat",
       addressCountry: "IN",
-      // ✅ Apna exact address yahan daalo
-      // streetAddress: "Your Street Address Here",
-      // postalCode: "360001",
+      streetAddress: "WNF Design Studio, Nana Mauva Main Road, Rajkot",
+      postalCode: "360005",
     },
     geo: {
       "@type": "GeoCoordinates",
-      // ✅ Rajkot coordinates (apna exact location update karo)
       latitude: "22.3039",
       longitude: "70.8022",
     },
