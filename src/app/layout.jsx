@@ -30,14 +30,17 @@ export const metadata = {
   metadataBase: new URL("https://wnfdesignstudio.com"),
 
   title: {
-    default: "Best Interior Designer in Rajkot | WNF Studio",
-    template: "%s | WNF Studio – Interior Designer Rajkot",
+    default: "Best Interior Designer in Rajkot | WNF Design Studio",
+    template: "%s | WNF Design Studio – Interior Designer Rajkot",
   },
 
   description:
-    "WNF Studio – Rajkot's leading architecture and interior design firm. We design luxury homes, offices, bungalows & commercial spaces in Rajkot, Gujarat. Call +91 8530070800.",
+    "WNF Design Studio – Rajkot's leading architecture and interior design firm. We design luxury homes, offices, bungalows & commercial spaces in Rajkot, Gujarat. Call +91 8530070800.",
 
   keywords: [
+    "wnfdesignstudio",
+    "wnf design studio",
+    "wnf design studio rajkot",
     "interior designer in Rajkot",
     "best interior designer Rajkot",
     "interior design company Rajkot",
@@ -55,17 +58,17 @@ export const metadata = {
     "renovation services Rajkot",
   ],
 
-  authors: [{ name: "WNF Studio", url: "https://wnfdesignstudio.com" }],
-  creator: "WNF Studio",
-  publisher: "WNF Studio",
+  authors: [{ name: "WNF Design Studio", url: "https://wnfdesignstudio.com" }],
+  creator: "WNF Design Studio",
+  publisher: "WNF Design Studio",
 
   // ✅ Open Graph (WhatsApp, Facebook share preview)
   openGraph: {
     type: "website",
     locale: "en_IN",
     url: "https://wnfdesignstudio.com",
-    siteName: "WNF Studio",
-    title: "Best Interior Designer in Rajkot | WNF Studio",
+    siteName: "WNF Design Studio",
+    title: "Best Interior Designer in Rajkot | WNF Design Studio",
     description:
       "Award-winning architecture & interior design studio based in Rajkot, Gujarat. Residential, commercial & renovation projects across Gujarat.",
     images: [
@@ -73,7 +76,7 @@ export const metadata = {
         url: "/assets/logo/animatedlogo.png",
         width: 1200,
         height: 630,
-        alt: "WNF Studio – Interior Designer Rajkot",
+        alt: "WNF Design Studio – Interior Designer Rajkot",
       },
     ],
   },
@@ -81,15 +84,21 @@ export const metadata = {
   // ✅ Twitter / X card
   twitter: {
     card: "summary_large_image",
-    title: "Best Interior Designer in Rajkot | WNF Studio",
+    title: "Best Interior Designer in Rajkot | WNF Design Studio",
     description:
-      "Luxury architecture & interior design in Rajkot, Gujarat. Contact WNF Studio today.",
+      "Luxury architecture & interior design in Rajkot, Gujarat. Contact WNF Design Studio today.",
     images: ["/assets/logo/animatedlogo.png"],
   },
 
   // ✅ Canonical URL
   alternates: {
     canonical: "https://wnfdesignstudio.com",
+  },
+
+  // ✅ Icons
+  icons: {
+    icon: "/assets/logo/animatedlogo.png",
+    apple: "/assets/logo/animatedlogo.png",
   },
 
   // ✅ Robots
