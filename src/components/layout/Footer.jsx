@@ -73,18 +73,7 @@ const Footer = () => {
                 {social.label}
               </a>
             ))}
-          </div>
- 
-          {/* Legal */}
-          <div className="flex gap-6">
-            <Link href="#" className="hover:text-white transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="#" className="hover:text-white transition-colors">
-              Terms
-            </Link>
-          </div>
- 
+          </div> 
         </div>
       </div>
     </footer>

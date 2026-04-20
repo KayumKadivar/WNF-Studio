@@ -1,10 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { slides } from "@/data/slides";
 
 const HeroSlider = () => {
@@ -24,8 +21,6 @@ const HeroSlider = () => {
     setIsAutoPlaying(false);
     setTimeout(() => setIsAutoPlaying(true), 10000);
   };
-  const nextSlide = () => goToSlide((currentSlide + 1) % slides.length);
-  const prevSlide = () => goToSlide((currentSlide - 1 + slides.length) % slides.length);
 
   return (
     <section className="relative h-dvh w-full overflow-hidden" aria-label="Hero slideshow" aria-roledescription="carousel">
