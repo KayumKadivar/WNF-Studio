@@ -12,7 +12,7 @@ const JsonLd = () => {
   const businessSchema = {
     "@context": "https://schema.org",
     "@type": "ArchitectureBusiness",
-    name: "WNF Studio",
+    name: "WNF  Design Studio",
     image: `${baseUrl}/assets/logo/logo.png`,
     "@id": baseUrl,
     url: baseUrl,
@@ -34,11 +34,11 @@ const JsonLd = () => {
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "WNF Studio",
+    name: "WNF  Design Studio",
     url: baseUrl,
     publisher: {
       "@type": "Organization",
-      name: "WNF Studio",
+      name: "WNF  Design Studio",
       logo: {
         "@type": "ImageObject",
         url: `${baseUrl}/assets/logo/logo.png`,

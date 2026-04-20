@@ -229,7 +229,7 @@ export const projects = [
     location: "Rajkot, Gujarat",
     year: "2024",
     size: "1,500 sq ft",
-    client: "WnF Studio",
+    client: "WNF  Design Studio",
     mainImage: "/assets/projectimages/interior/studiownfoffice/1.webp",
     gallery: [
       "/assets/projectimages/interior/studiownfoffice/1.webp",

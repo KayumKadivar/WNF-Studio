@@ -9,12 +9,12 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const { id } = await params;
   const project = projects.find((p) => p.id === Number(id));
-  if (!project) return { title: "Project Not Found | WNF Studio" };
+  if (!project) return { title: "Project Not Found | WNF  Design Studio" };
   return {
     title: project.title,
-    description: project.description?.substring(0, 160) || "WNF Studio architectural project.",
+    description: project.description?.substring(0, 160) || "WNF  Design Studio architectural project.",
     openGraph: {
-      title: `${project.title} | WNF Studio`,
+      title: `${project.title} | WNF  Design Studio`,
       description: project.description?.substring(0, 160),
       images: [{ url: project.mainImage }],
       type: "article",

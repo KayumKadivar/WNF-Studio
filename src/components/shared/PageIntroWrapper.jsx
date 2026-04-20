@@ -42,7 +42,7 @@ export default function PageIntroWrapper({ type, children }) {
             >
               <Image
                 src="/assets/logo/animatedlogo.png"
-                alt="WNF Studio"
+                alt="WNF  Design Studio"
                 width={500}
                 height={500}
                 className="w-auto h-80 md:h-[32rem] object-contain"

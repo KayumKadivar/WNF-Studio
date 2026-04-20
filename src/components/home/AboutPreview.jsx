@@ -5,9 +5,9 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 const AboutPreview = () => (
-  <section className="py-12 md:py-16 bg-[#F9F8F6]" aria-label="About WNF Studio">
+  <section className="py-12 md:py-16 bg-[#F9F8F6]" aria-label="About WNF  Design Studio">
     <div className="max-w-[1200px] mx-auto">
-      
+
       {/* Replaced Grid with Flexbox.
         - flex-col: Stacks vertically on mobile.
         - md:flex-row: Places elements side-by-side on medium screens and up.
@@ -25,11 +25,11 @@ const AboutPreview = () => (
         >
           <div className="relative group w-full max-w-lg lg:ml-0 mr-auto h-full flex flex-col justify-center mx-auto">
             <div className="bg-white p-3 md:p-4 border border-stone-200 shadow-sm">
-              
+
               <div className="relative w-full bg-stone-50 overflow-hidden aspect-[4/5] max-h-[85vh]">
                 <Image
                   src="/assets/aboutusimage/makbul.png"
-                  alt="Makbul - Founder of WNF Studio"
+                  alt="Makbul - Founder of WNF  Design Studio"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   style={{ objectFit: "cover", objectPosition: "center" }}
@@ -64,7 +64,7 @@ const AboutPreview = () => (
 
           <div className="space-y-6 text-lg text-stone-600 font-light leading-relaxed mb-12 max-w-xl">
             <p>
-              Founded in 2021, WNF Studio has been at the forefront of architectural innovation, blending timeless design principles with contemporary aesthetics.
+              Founded in 2021, WNF  Design Studio has been at the forefront of architectural innovation, blending timeless design principles with contemporary aesthetics.
             </p>
             <p>
               Our multidisciplinary team of architects, interior designers, and project managers work collaboratively to deliver exceptional spaces that exceed expectations. Every project is a unique journey, guided by our commitment to sustainability, functionality, and aesthetic excellence.

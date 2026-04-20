@@ -7,6 +7,7 @@ import ScrollToTopButton from "@/components/shared/ScrollToTopButton";
 import { ThemeProvider } from "@/components/shared/ThemeProvider";
 import PageTransition from "@/components/shared/PageTransition";
 import JsonLd from "@/components/shared/JsonLd";
+import Link from "next/link";
 
 /* ── next/font: Self-hosted, no render-blocking CSS @import ── */
 const dmSans = DM_Sans({
@@ -26,78 +27,79 @@ const playfairDisplay = Playfair_Display({
 const baseUrl = "https://wnfdesignstudio.com";
 
 export const metadata = {
-  metadataBase: new URL(baseUrl),
+  metadataBase: new URL("https://wnfdesignstudio.com"),
+
   title: {
-    default: "WNF Studio | Architecture & Interior Design",
-    template: "%s | WNF Studio",
+    default: "Best Interior Designer in Rajkot | WNF Studio",
+    template: "%s | WNF Studio – Interior Designer Rajkot",
   },
+
   description:
-    "Award-winning architecture and interior design studio creating timeless spaces that inspire. Residential, commercial, and luxury design services.",
+    "WNF Studio – Rajkot's leading architecture and interior design firm. We design luxury homes, offices, bungalows & commercial spaces in Rajkot, Gujarat. Call +91 8530070800.",
+
   keywords: [
-    "Architecture",
-    "Interior Design",
-    "Luxury Homes",
-    "Modern Architecture",
-    "Interior Decor",
-    "WNF Studio",
-    "Architecture Studio India",
-    "Architecture Studio Gujrat",
-    "Architecture Studio Rajkot ",
-    "Architecture Studio Ahemdabad",
-    "Best Interior Design Studio Rajkot",
-    "Best Interior Design Studio Ahemdabad",
-    "Best Interior Design Studio Gujrat",
-    "Best Interior Design Studio India",
-    "Architecture Firm in Rajkot",
-    "Architecture Firm in Ahemdabad",
-    "Architecture Firm in Gujrat",
-    "Architecture Firm in India",
-    "Best Architecture Firm in Rajkot",
-    "Best Architecture Firm in Ahemdabad",
-    "Best Architecture Firm in Gujrat",
-    "Best Architecture Firm in India",
+    "interior designer in Rajkot",
+    "best interior designer Rajkot",
+    "interior design company Rajkot",
+    "architect in Rajkot",
+    "home interior design Rajkot",
+    "office interior design Rajkot",
+    "residential interior design Rajkot",
+    "architecture firm Rajkot",
+    "luxury interior design Rajkot",
+    "bungalow design Rajkot",
+    "commercial interior design Rajkot Gujarat",
+    "WNF Studio Rajkot",
+    "interior decoration Rajkot",
+    "3D interior design Rajkot",
+    "renovation services Rajkot",
   ],
-  authors: [{ name: "WNF Studio" }],
+
+  authors: [{ name: "WNF Studio", url: "https://wnfdesignstudio.com" }],
   creator: "WNF Studio",
   publisher: "WNF Studio",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
+
+  // ✅ Open Graph (WhatsApp, Facebook share preview)
   openGraph: {
     type: "website",
-    locale: "en_US",
-    url: baseUrl,
+    locale: "en_IN",
+    url: "https://wnfdesignstudio.com",
     siteName: "WNF Studio",
-    title: "WNF Studio | Architecture & Interior Design",
+    title: "Best Interior Designer in Rajkot | WNF Studio",
     description:
-      "Award-winning architecture and interior design studio creating timeless spaces that inspire.",
+      "Award-winning architecture & interior design studio based in Rajkot, Gujarat. Residential, commercial & renovation projects across Gujarat.",
     images: [
       {
-        url: "/assets/logo/logo.png",
+        url: "/assets/logo/animatedlogo.png",
         width: 1200,
         height: 630,
-        alt: "WNF Studio Logo",
+        alt: "WNF Studio – Interior Designer Rajkot",
       },
     ],
   },
+
+  // ✅ Twitter / X card
   twitter: {
     card: "summary_large_image",
-    title: "WNF Studio | Architecture & Interior Design",
+    title: "Best Interior Designer in Rajkot | WNF Studio",
     description:
-      "Award-winning architecture and interior design studio creating timeless spaces that inspire.",
-    images: ["/assets/logo/logo.png"],
+      "Luxury architecture & interior design in Rajkot, Gujarat. Contact WNF Studio today.",
+    images: ["/assets/logo/animatedlogo.png"],
   },
+
+  // ✅ Canonical URL
+  alternates: {
+    canonical: "https://wnfdesignstudio.com",
+  },
+
+  // ✅ Robots
   robots: {
     index: true,
     follow: true,
     googleBot: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
       "max-image-preview": "large",
-      "max-snippet": -1,
     },
   },
 };
@@ -116,12 +118,12 @@ export default function RootLayout({ children }) {
 
       <body suppressHydrationWarning>
         {/* Accessibility: Skip to main content for keyboard users */}
-        <a
+        <Link 
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:bg-white focus:text-stone-900 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow-lg focus:rounded"
         >
           Skip to content
-        </a>
+        </Link  >
 
         <ThemeProvider
           attribute="data-theme"
